@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./stockList.css";
-import Modal from "react-modal";
+import ModalBuying from "../../items/ModalBuying";
+import ModalSelling from "../../items/ModalSelling";
 
 export const getStockList = (data) => ({
   type: "GET_STOCKS_LIST",
@@ -31,167 +32,53 @@ export const stockList = () => (dispatch) => {
 };
 
 const StockList = () => {
-  const [stockName, setStockName] = useState("씨젠");
-  const [price, setPrice] = useState("310,600");
-  const [change, setChange] = useState("+32,000");
-  const [changePercentage, setChangePercentage] = useState("+11.84%");
-  const [marketCap, setMarketCap] = useState("79,923(억)");
-  const [volumeCurrency, setVolumeCurrency] = useState("43,589,400");
-  const [arr, setArr] = useState([
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-    {
-      stockName: stockName,
-      price: price,
-      change: change,
-      changePercentage: changePercentage,
-      marketCap: marketCap,
-      volumeCurrency: volumeCurrency,
-    },
-  ]);
+  const [buyOpen, setBuyOpen] = useState(false);
+  const [sellOpen, setSellOpen] = useState(false);
+
+  /*const [stockName, setStockName] = useState("씨젠");
+    const [price, setPrice] = useState(
+        "310,600");
+    const [change, setChange] = useState("+32,000");
+    const [changePercentage, setChangePercentage] = useState("+11.84%");
+    const [marketCap, setMarketCap] = useState("79,923(억)")
+    const [volumeCurrency, setVolumeCurrency] = useState("43,589,400")
+    const [arr, setArr] = useState([
+        {
+            stockName : stockName,
+            price: price,
+            change: change,
+            changePercentage: changePercentage,
+            marketCap: marketCap,
+            volumeCurrency: volumeCurrency
+        }
+    ])*/
+
+  let stockList = [];
+
+  useEffect(() => {
+    stockList = [];
+    axios
+      .get(`http://localhost:8080/`)
+      .then((response) => {
+        console.log(`StockList useEffect then from python`);
+        response.data.map((element) => {
+          stockList.push(element);
+        });
+      })
+      .catch((error) => {
+        console.log(`Stocklist useEffect catch from python`);
+        throw error;
+      });
+  }, [stockList]);
 
   const linktoDetail = (e) => {
     e.preventDefault();
-  };
-
-  const [count, setCount] = useState(0);
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const openModal = (e) => {
-    e.preventDefault();
-    setIsOpen(true);
-  };
-  const closeModal = (e) => {
-    e.preventDefault();
-    setIsOpen(false);
-  };
-  const decrease = (e) => {
-    e.preventDefault();
-    setCount(count - 1);
-  };
-  const increase = (e) => {
-    e.preventDefault();
-    setCount(count + 1);
-  };
-
-  const modalStyle = {
-    content: {
-      width: "300px",
-      height: "400px",
-    },
   };
 
   return (
     <>
       <div className="documentroom_container">
         <div className="documentroom_text">투자</div>
-        <Modal isOpen={modalIsOpen} style={modalStyle}>
-          <span className="text-base" style={{ "margin-right": "8px" }}>
-            현재가
-          </span>
-          <span className="text-xl ">123,320원</span> <br />
-          <span className="text-base" style={{ "margin-right": "8px" }}>
-            매입가
-          </span>
-          <span className="text-xl ">123,320원</span>
-          <h1>{count} 주</h1>
-          <div>
-            <button
-              className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
-              onClick={decrease}
-            >
-              {" "}
-              -1{" "}
-            </button>
-            <button
-              className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
-              onClick={increase}
-            >
-              {" "}
-              +1{" "}
-            </button>
-          </div>
-          <tr>
-            <td>
-              <button
-                className="btn btn-default btn-blue text-white btn-rounded"
-                onClick={closeModal}
-              >
-                취소
-              </button>
-            </td>
-            <td>
-              <button
-                className="btn btn-default btn-red text-white btn-rounded"
-                onClick={closeModal}
-              >
-                매수
-              </button>
-            </td>
-          </tr>
-        </Modal>
         <div className="w-full p-4 mb-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90">
           <table className="table documentroom_table w-full">
             <thead>
@@ -206,7 +93,7 @@ const StockList = () => {
               </tr>
             </thead>
             <tbody>
-              {arr.map((item) => (
+              {stockList.map((item) => (
                 <tr onClick={linktoDetail}>
                   <td>
                     <Link to="stock/detail">{item.stockName}</Link>
@@ -220,13 +107,13 @@ const StockList = () => {
                   <td>
                     <button
                       className="btn btn-default btn-blue text-white btn-rounded"
-                      onClick={openModal}
+                      onClick={() => setBuyOpen(true)}
                     >
                       매수
                     </button>
                     <button
                       className="btn btn-default btn-red text-white btn-rounded"
-                      onClick={openModal}
+                      onClick={() => setSellOpen(true)}
                     >
                       매도
                     </button>
@@ -269,6 +156,8 @@ const StockList = () => {
           </div>
         </div>
       </div>
+      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
+      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
     </>
   );
 };
