@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
+import axios from "axios";
 
 // <td>{item.transactionDate}</td>
 // <td>{item.stockName}</td>
@@ -9,73 +10,29 @@ import "./budgetHistory.style.css";
 // <td>{item.totalAsset}</td>
 
 const BudgetHistory = () => {
-  const [stockName, setStockName] = useState("씨젠");
-  const [transactionDate, setTransactionDate] = useState("2020.08.21");
-  const [transactionType, setTransactionType] = useState("매도");
-  const [profitLoss, setProfitLoss] = useState("44,290 원");
-  const [totalAsset, setTotalAsset] = useState("83,589,400 원");
-  const [arr, setArr] = useState([
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-  ]);
+  const [list, setList] = useState([]);
+  let transactionDetail = [];
 
   const linktoDetail = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    transactionDetail = [];
+    axios
+      .get(`http://localhost:8080/`)
+      .then(({ response }) => {
+        console.log(`BudgetHistory useEffect then`);
+        response.list.map((elem) => {
+          //java에서 어떤 형식으로 response를 넘길지..
+          transactionDetail.push(elem);
+        });
+      })
+      .catch((error) => {
+        console.log(`BudgetHistory useEffect err`);
+        throw error;
+      });
+  }, [transactionDetail]);
 
   return (
     <>
@@ -90,7 +47,7 @@ const BudgetHistory = () => {
           </tr>
         </thead>
         <tbody>
-          {arr.map((item) => (
+          {transactionDetail.map((item) => (
             <tr onClick={linktoDetail}>
               <td>{item.transactionDate}</td>
               <td>{item.stockName}</td>

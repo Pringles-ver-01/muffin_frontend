@@ -1,82 +1,40 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import React, { useState, useEffect } from "react";
+import ModalBuying from "../../../items/ModalBuying";
+import ModalSelling from "../../../items/ModalSelling";
 import "./holdingShares.style.css";
+import axios from "axios";
 
 const HoldingShares = () => {
-  const [count, setCount] = useState(0);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [buyOpen, setBuyOpen] = useState(false);
+  const [sellOpen, setSellOpen] = useState(false);
 
-  const openModal = (e) => {
-    e.preventDefault();
-    setIsOpen(true);
-  };
-  const closeModal = (e) => {
-    e.preventDefault();
-    setIsOpen(false);
-  };
-  const decrease = (e) => {
-    e.preventDefault();
-    setCount(count - 1);
-  };
-  const increase = (e) => {
-    e.preventDefault();
-    setCount(count + 1);
-  };
+  let holdingShares = [];
 
-  const modalStyle = {
-    content: {
-      width: "300px",
-      height: "400px",
-    },
-  };
+  /* useEffect(() => {
+    holdingShares = [];
+    axios
+      .get(`http://localhost:8080/`)
+      .then((response) => {
+        console.log(`{response}  : HoldingShares java useEffect then`);
+        response.data.map((element) => {
+          holdingShares.push(element);
+        });
+      })
+      .catch((error) => {
+        console.log(`HoldingShares useEffect catch`);
+        throw error;
+      });
+  }, [holdingShares]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/python`).then((response) => {
+      console.log(`HoldingShares python useEffect then`);
+      //response.data.nowPrice
+    });
+  }); */
 
   return (
     <>
-      <Modal isOpen={modalIsOpen} style={modalStyle}>
-        <span className="text-base" style={{ "margin-right": "8px" }}>
-          현재가
-        </span>
-        <span className="text-xl ">123,320원</span> <br />
-        <span className="text-base" style={{ "margin-right": "8px" }}>
-          매입가
-        </span>
-        <span className="text-xl ">123,320원</span>
-        <h1>{count} 주</h1>
-        <div>
-          <button
-            className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
-            onClick={decrease}
-          >
-            {" "}
-            -1{" "}
-          </button>
-          <button
-            className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
-            onClick={increase}
-          >
-            {" "}
-            +1{" "}
-          </button>
-        </div>
-        <tr>
-          <td>
-            <button
-              className="btn btn-default btn-blue text-white btn-rounded"
-              onClick={closeModal}
-            >
-              취소
-            </button>
-          </td>
-          <td>
-            <button
-              className="btn btn-default btn-red text-white btn-rounded"
-              onClick={closeModal}
-            >
-              매수
-            </button>
-          </td>
-        </tr>
-      </Modal>
       <table className="w-full_holding">
         <tr>
           <td>
@@ -99,13 +57,13 @@ const HoldingShares = () => {
                     <td className="btn_section">
                       <button
                         className="btn btn-default btn-blue text-white btn-rounded"
-                        onClick={openModal}
+                        onClick={() => setBuyOpen(true)}
                       >
                         매수
                       </button>
                       <button
                         className="btn btn-default btn-red text-white btn-rounded"
-                        onClick={openModal}
+                        onClick={() => setSellOpen(true)}
                       >
                         매도
                       </button>
@@ -147,6 +105,8 @@ const HoldingShares = () => {
           </td>
         </tr>
       </table>
+      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
+      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
     </>
   );
 };
