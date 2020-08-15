@@ -1,104 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
+import axios from "axios";
 
-// <td>{item.transactionDate}</td>
-// <td>{item.stockName}</td>
-// <td>{item.transactionType}</td>
-// <td>{item.profitLoss}</td>
-// <td>{item.totalAsset}</td>
 
 const BudgetHistory = () => {
-  const [stockName, setStockName] = useState("씨젠");
-  const [transactionDate, setTransactionDate] = useState("2020.08.21");
-  const [transactionType, setTransactionType] = useState("매도");
-  const [profitLoss, setProfitLoss] = useState("44,290 원");
-  const [totalAsset, setTotalAsset] = useState("83,589,400 원");
-  const [arr, setArr] = useState([
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-    {
-      stockName: stockName,
-      transactionDate: transactionDate,
-      transactionType: transactionType,
-      profitLoss: profitLoss,
-      totalAsset: totalAsset,
-    },
-  ]);
+  const [transacInfo, setTransacInfo] = useState([{
+    "transactionDate" : "",
+    "stockName" : "",
+    "transactionType" : false,
+    "purchasePrice" : 0,
+    "totalAsset" : 0
+  }]);
 
   const linktoDetail = (e) => {
     e.preventDefault();
   };
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/`)
+      .then(( response ) => {
+        console.log(`BudgetHistory useEffect then`);
+        setTransacInfo(response.data)
+      })
+      .catch((error) => {
+        console.log(`BudgetHistory useEffect err`);
+        throw error;
+      });
+  }, []);
+
   return (
     <>
       <table className="w-full table">
         <thead>
-          <tr>
-            <th>거래날짜</th>
-            <th>종목</th>
-            <th>거래 종류</th>
-            <th>금액</th>
-            <th>잔액</th>
-          </tr>
+        <tr>
+          <th>거래날짜</th>
+          <th>종목</th>
+          <th>거래 종류</th>
+          <th>금액</th>
+          <th>잔액</th>
+        </tr>
         </thead>
         <tbody>
-          {arr.map((item) => (
-            <tr onClick={linktoDetail}>
-              <td>{item.transactionDate}</td>
-              <td>{item.stockName}</td>
-              <td>{item.transactionType}</td>
-              <td>{item.profitLoss}</td>
-              <td>{item.totalAsset}</td>
-            </tr>
-          ))}
+        {transacInfo.map((item) => (
+          <tr onClick={linktoDetail}>
+            <td>{item.transactionDate}</td>
+            <td>{item.stockName}</td>
+            <td>{item.transactionType}</td>
+            <td>{item.purchasePrice}</td>
+            <td>{item.totalAsset}</td>
+          </tr>
+        ))}
         </tbody>
       </table>
       <div className="pagination_history_div">

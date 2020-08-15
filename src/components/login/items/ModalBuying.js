@@ -1,61 +1,71 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
+import "./modal.style.css";
 
-const ModalBuying = () => {
-    const [count, setCount] = useState(0);
-    const [modalIsOpen, setIsOpen] = useState(false);
+const ModalBuying = (props) => {
+  const [buyCount, setBuyCount] = useState(1);
+  const [nowPrice] = useState(12000);
+  const [purchasePrice, setPurchasePrice] = useState(nowPrice);
 
+  const decrease = (e) => {
+    e.preventDefault();
+    setBuyCount(buyCount - 1);
+    setPurchasePrice((buyCount - 1) * nowPrice);
+  };
+  const increase = (e) => {
+    e.preventDefault();
+    setBuyCount(buyCount + 1);
+    setPurchasePrice((buyCount + 1) * nowPrice);
+  };
 
-    const openModal = e => {
-        e.preventDefault();
-        setIsOpen(true);
-    }
-    const closeModal = e => {
-        e.preventDefault();
-        setIsOpen(false);
-    }
-    const decrease = e => {
-        e.preventDefault();
-        setCount(count-1)
-    }
-    const increase = e => {
-        e.preventDefault();
-        setCount(count+1)
-    }
+  const modalStyle = {
+    content: {
+      width: "300px",
+      height: "400px",
+    },
+  };
 
-    const modalStyle = {
-        content : {
-            width : '300px',
-            height : '400px'
-        }
-    }
-    return <>
-        <Modal isOpen={modalIsOpen} style={modalStyle}>
-            <span className="text-base" style={{"margin-right" : "8px"}}>현재가</span>
-            <span className="text-xl ">123,320원</span> <br/>
-
-            <span className="text-base" style={{"margin-right" : "8px"}}>매입가</span>
-            <span className="text-xl ">123,320원</span>
-
-            <h1>{count} 주</h1>
-            <div>
-                <button className="btn btn-default bg-transparent hover:bg-blue-50 text-blue-500 hover:text-blue-600 btn-rounded btn-raised"
-                        onClick={decrease}> -1 </button>
-                <button className="btn btn-default bg-transparent hover:bg-blue-50 text-blue-500 hover:text-blue-600 btn-rounded btn-raised"
-                        onClick={increase}> +1 </button>
-            </div>
-            <tr>
-                <td>
-                    <button className="btn btn-default bg-blue-500 hover:bg-blue-600 text-white btn-rounded"
-                            onClick={closeModal}>취소</button>
-                </td>
-                <td>
-                    <button className="btn btn-default bg-red-500 hover:bg-red-600 text-white btn-rounded"
-                            onClick={closeModal}>매수</button>
-                </td>
-            </tr>
-        </Modal>
+  return (
+    <>
+      <Modal {...props} style={modalStyle}>
+        <span className="text_small" style={{ "margin-right": "8px" }}>
+          현재가
+        </span>
+        <span className="text_small ">{nowPrice} 원</span> <br />
+        <span className="text_small" style={{ "margin-right": "8px" }}>
+          매입가
+        </span>
+        <span className="text_small ">{purchasePrice} 원</span>
+        <div className="text_middle_bold">{buyCount} 주</div>
+        <div>
+          <button
+            className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
+            onClick={decrease}
+          >
+            -1
+          </button>
+          <button
+            className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
+            onClick={increase}
+          >
+            +1
+          </button>
+        </div>
+        <tr>
+          <td>
+            <button
+              className="btn btn-default btn-gray btn-rounded"
+              onClick={props.isClose}>취소</button>
+          </td>
+          <td>
+            <button
+              className="btn btn-default btn-blue btn-rounded"
+              onClick={props.isClose}>매수</button>
+          </td>
+        </tr>
+      </Modal>
     </>
-}
+  );
+};
 
 export default ModalBuying;
