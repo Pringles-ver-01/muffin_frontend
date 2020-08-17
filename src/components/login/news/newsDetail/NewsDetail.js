@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
 <<<<<<< HEAD
 import axios from "axios";
+=======
+import Navbar from "../../logined_navbar/Navbar";
+import Menu from "../../menu/Menu";
+>>>>>>> yoonjung
 
 const NewsDetail = () => {
 

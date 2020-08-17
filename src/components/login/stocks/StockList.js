@@ -223,6 +223,7 @@ const StockList = () => {
         <div className="wrapper">
           <Menu />
 
+          <div className="documentroom_container">
             <div className="documentroom_text">투자</div>
             <div className="w-full p-4 mb-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90">
               <table className="table documentroom_table w-full">
@@ -301,15 +302,6 @@ const StockList = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="conference_search">
-            <input
-              placeholder="주식 종목을 입력해주세요."
-              className="search_input"
-            />
-            <Link to="" className="search_button">
-              검색
-            </Link>
           </div>
           <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
           <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
