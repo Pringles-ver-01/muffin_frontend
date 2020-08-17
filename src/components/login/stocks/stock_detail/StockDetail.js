@@ -1,83 +1,36 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> yoonjung
 import React, { useState, useEffect } from "react";
 import "./stockDetail.css";
-import ModalBuying from "../../../items/ModalBuying";
-import ModalSelling from "../../../items/ModalSelling";
-<<<<<<< HEAD
-=======
-import React, {useState, useEffect} from "react";
-import "./stockDetail.css";
-import { ModalBuying, ModalSelling } from "../../items";
->>>>>>> yerimm
-=======
->>>>>>> yoonjung
+import ModalBuying from "../../items/ModalBuying";
+import ModalSelling from "../../items/ModalSelling";
 import axios from "axios";
 
 const StockDetail = () => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-  let stockDetail = [];
-
-  useEffect(() => {
-    stockDetail = [];
-=======
   const [nowStock, setNowStock] = useState({
-    "stockName": "",
-    "symbol": 111111,
-    "nowPrice": 0,
-    "high": 0,
-    "low": 0,
-    "volume": 0
+    stockName: "",
+    symbol: 111111,
+    nowPrice: 0,
+    high: 0,
+    low: 0,
+    volume: 0,
     //거래 대금 : 0
     //기준 날짜 :
   });
 
   useEffect(() => {
->>>>>>> yerimm
-=======
-
-  let stockDetail = [];
-
-  useEffect(() => {
-    stockDetail = [];
->>>>>>> yoonjung
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {
         console.log(`StockDetail useEffect then python`);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        response.data.map((element) => {
-          stockDetail.push(element);
-        });
-=======
-        setNowStock(response.data)
->>>>>>> yerimm
-=======
-        response.data.map((element) => {
-          stockDetail.push(element);
-        });
->>>>>>> yoonjung
+        setNowStock(response.data);
       })
       .catch((error) => {
         console.log(`StockDetail useEffect catch python`);
         throw error;
       });
-<<<<<<< HEAD
-<<<<<<< HEAD
-  }, [stockDetail]);
-=======
   }, []);
->>>>>>> yerimm
-=======
-  }, [stockDetail]);
->>>>>>> yoonjung
 
   return (
     <>
@@ -119,38 +72,49 @@ const StockDetail = () => {
             </div>
           </td>
           <td colSpan={2}>
-            <div
-              className="w-full p-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90 card_second">
+            <div className="w-full p-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90 card_second">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <table className="line_setting_2">
                     <tr>
                       <td className="card_grid">
-                        <span className="text-xs font-light text-grey-500 stocks_data">전일</span>
-                        <span className="text-xl font-bold text_row">34,291</span>
-                        <br/>
+                        <span className="text-xs font-light text-grey-500 stocks_data">
+                          전일
+                        </span>
+                        <span className="text-xl font-bold text_row">
+                          34,291
+                        </span>
+                        <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           시가
                         </span>
-                        <span className="text-xl font-bold">{nowStock.nowPrice}</span>
+                        <span className="text-xl font-bold">
+                          {nowStock.nowPrice}
+                        </span>
                       </td>
                       <td className="card_grid">
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           고가
                         </span>
-                        <span className="text-xl font-bold text_row">{nowStock.high}</span>
-                        <br/>
+                        <span className="text-xl font-bold text_row">
+                          {nowStock.high}
+                        </span>
+                        <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           저가
                         </span>
-                        <span className="text-xl font-bold">{nowStock.low}</span>
+                        <span className="text-xl font-bold">
+                          {nowStock.low}
+                        </span>
                       </td>
                       <td>
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           거래량
                         </span>
-                        <span className="text-xl font-bold text_row">{nowStock.volume}</span>
-                        <br/>
+                        <span className="text-xl font-bold text_row">
+                          {nowStock.volume}
+                        </span>
+                        <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           거래대금
                         </span>
@@ -164,18 +128,8 @@ const StockDetail = () => {
           </td>
         </tr>
       </table>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
-=======
-      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)}/>
-      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)}/>
->>>>>>> yerimm
-=======
-      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
-      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
->>>>>>> yoonjung
     </>
   );
 };

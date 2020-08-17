@@ -3,27 +3,17 @@ import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 
 const CandleChart = () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> yoonjung
-  let series = [];
-
+  const [series, setSeries] = useState([
+    {
+      data: [
+        {
+          x: new Date(1538778600000),
+          y: [6629.81, 6650.5, 6623.04, 6633.33],
+        },
+      ],
+    },
+  ]);
   useEffect(() => {
-    series = [];
-<<<<<<< HEAD
-=======
-
-  const [series, setSeries] = useState([{
-    data: [{
-      x: new Date(1538778600000),
-      y: [6629.81, 6650.5, 6623.04, 6633.33]
-    }]
-  }])
-  useEffect(() => {
->>>>>>> yerimm
-=======
->>>>>>> yoonjung
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {

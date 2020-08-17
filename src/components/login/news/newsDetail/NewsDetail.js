@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
-<<<<<<< HEAD
-import axios from "axios";
-=======
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
->>>>>>> yoonjung
+import axios from "axios";
 
 const NewsDetail = () => {
-
   const [newsContents, setNewsContents] = useState(
     "테슬라, 아마존, 구글 등 해외 우량주식을 직접 구매하려는 개인투자자들의 바람이 거세다. 해외주식 결제금액은 매년 사상 최고치를 경신하고 있다.\n" +
       "\n" +
@@ -35,58 +31,36 @@ const NewsDetail = () => {
   const [newsImage, setNewsImage] = useState(
     "https://imgnews.pstatic.net/image/008/2020/07/27/0004445977_001_20200727145803090.jpg?type=w647"
   );
-  const [newsLink, setNewsLink] = useState("https://finance.naver.com/news/news_read.nhn?article_id=0004737388&office_id=277&mode=LSS3D&type=0&section_id=101&section_id2=258&section_id3=402&date=20200815&page=1")
-  const [emailId, setEmailId] = useState('muffin')
-  const save = (e) =>{
+  const [newsLink, setNewsLink] = useState(
+    "https://finance.naver.com/news/news_read.nhn?article_id=0004737388&office_id=277&mode=LSS3D&type=0&section_id=101&section_id2=258&section_id3=402&date=20200815&page=1"
+  );
+  const [emailId, setEmailId] = useState("muffin");
+  const save = (e) => {
     // 저장 여부 db에서 확인하고 if문으로 돌릴까?
 
-      axios.post(`http://localhost:8080/news/saveNews`,
-        {newsTitle : newsTitle,
-              newsRegDate : newsRegDate,
-              newsLink : newsLink,
-              emailId : emailId},{
-                'Content-Type': 'application/json',
-                'Authorization': 'JWT fefege...'})
-            .then((response)=>{
-              alert('뉴스가 스크랩 되었습니다.')
-            })
-            .catch((error)=>{
-              console.log(`axios 시도`)
-            })
-  }
+    axios
+      .post(
+        `http://localhost:8080/news/saveNews`,
+        {
+          newsTitle: newsTitle,
+          newsRegDate: newsRegDate,
+          newsLink: newsLink,
+          emailId: emailId,
+        },
+        {
+          "Content-Type": "application/json",
+          Authorization: "JWT fefege...",
+        }
+      )
+      .then((response) => {
+        alert("뉴스가 스크랩 되었습니다.");
+      })
+      .catch((error) => {
+        console.log(`axios 시도`);
+      });
+  };
 
   return (
-<<<<<<< HEAD
-    <div>
-      <div className="documentdetaildiv">
-        <div className="newsDetailTitle">
-          <div className="newsTitle1">{newsTitle}</div>
-          <div className="Title2">{newsRegDate}</div>
-          <a className="Title2" href={newsLink}>원문 보기</a>
-        </div>
-      </div>
-      <div className="contentdetaildiv">
-        <img src={newsImage} className="detail_content" />
-        <div className="detail_content">
-          {newsContents.split("\n").map(function (item, idx) {
-            return (
-              <span key={idx}>
-                {item}
-                <br />
-              </span>
-            );
-          })}
-        </div>
-
-        <Link to="/news" className="list_button">
-          목록
-        </Link>
-        <button className="save_button" onClick={()=>{save()}}>
-          저장
-        </button>
-      </div>
-    </div>
-=======
     <>
       <Navbar />
       <div className="content-container">
@@ -95,14 +69,17 @@ const NewsDetail = () => {
           <div>
             <div className="documentdetaildiv">
               <div className="newsDetailTitle">
-                <div className="newsTitle1">{title}</div>
-                <div className="Title2">2020-08-06 20:47</div>
+                <div className="newsTitle1">{newsTitle}</div>
+                <div className="Title2">{newsRegDate}</div>
+                <a className="Title2" href={newsLink}>
+                  원문 보기
+                </a>
               </div>
             </div>
             <div className="contentdetaildiv">
-              <img src={image} className="detail_content" />
+              <img src={newsImage} className="detail_content" />
               <div className="detail_content">
-                {contents.split("\n").map(function (item, idx) {
+                {newsContents.split("\n").map(function (item, idx) {
                   return (
                     <span key={idx}>
                       {item}
@@ -111,15 +88,23 @@ const NewsDetail = () => {
                   );
                 })}
               </div>
+
               <Link to="/news" className="list_button">
                 목록
               </Link>
+              <button
+                className="save_button"
+                onClick={() => {
+                  save();
+                }}
+              >
+                저장
+              </button>
             </div>
           </div>
         </div>
       </div>
     </>
->>>>>>> yoonjung
   );
 };
 
