@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./modal.style.css";
+// import "./modal.style.css";
 
 const ModalBuying = (props) => {
   const [buyCount, setBuyCount] = useState(1);

@@ -11,8 +11,9 @@ const TotalBudget = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/assets/test`)
+    axios.get(`http://localhost:8080/assets/total`)
       .then((response) => {
+        console.log(`${JSON.stringify(response)}`)
         setAsset(response.data)
       })
       .catch((error) => {

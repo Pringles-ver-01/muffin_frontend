@@ -19,9 +19,8 @@ const BudgetHistory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/`)
+      .get(`http://localhost:8080/assets/transactionlog`)
       .then(( response ) => {
-        console.log(`BudgetHistory useEffect then`);
         setTransacInfo(response.data)
       })
       .catch((error) => {

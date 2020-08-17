@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import "./modal.style.css";
-
+// import "./modal.style.css";
+/*
 const addTransactionAction = (data) => ({
   type: "ADD_TRANSACTION",
   payload: data,
@@ -16,16 +16,16 @@ export const TransationReducer = (state = [], action) => {
     default:
       return state;
   }
-};
+};*/
 
 const ModalSelling = (props) => {
   const [sellCount, setSellCount] = useState(1);
   const [nowPrice] = useState(12000);
   const [purchasePrice, setPurchasePrice] = useState(nowPrice);
 
-  const dispatch = useDispatch();
+/*  const dispatch = useDispatch();
   const addTransaction = (newTransaction) =>
-    dispatch(addTransactionAction(newTransaction));
+    dispatch(addTransactionAction(newTransaction));*/
 
   const decrease = (e) => {
     e.preventDefault();
@@ -45,14 +45,14 @@ const ModalSelling = (props) => {
       nowPrice: nowPrice,
       purchasePrice: purchasePrice,
     };
-    addTransaction(newTransaction);
+    // addTransaction(newTransaction);
 
     let saveTransaction = () => (dispatch) => {
       axios
         .post(``)
         .then((response) => {
           console.log(`ModalSelling axios then`);
-          dispatch(addTransactionAction(response.data));
+          // dispatch(addTransactionAction(response.data));
         })
         .catch((error) => {
           console.log(`ModalSelling axios catch`);

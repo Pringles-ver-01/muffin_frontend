@@ -2,8 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import "./stockList.css";
-import ModalBuying from "../../items/ModalBuying";
-import ModalSelling from "../../items/ModalSelling";
+import { ModalBuying, ModalSelling }from "../items";
 
 
 const StockList = () => {
