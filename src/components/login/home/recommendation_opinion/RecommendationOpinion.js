@@ -1,31 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./recommendation.style.css";
+import axios from "axios";
 
 const RecommendationOpinion = () => {
+  const url = "http://localhost:8080/boards";
   const [address, setAddress] = useState("/detail");
-  const [arr, setArr] = useState([
-    {
-      title: "금 시세는 어디까지 상승할 것인가",
-      regDate: "2020-08-07",
-    },
-    {
-      title: "그린라이트 캐피탈의 2020년 2분기 투자 서한",
-      regDate: "2020-08-07",
-    },
-    {
-      title: "8월 6일 상장, 의료기기 기업 '이루다'",
-      regDate: "2020-08-07",
-    },
-    {
-      title: "바이오계의 테슬라? '슈뢰딩거'를 알아보자",
-      regDate: "2020-08-07",
-    },
-    {
-      title: "제빵 1위 기업, 'SPC삼립'",
-      regDate: "2020-08-07",
-    },
-  ]);
+  const [arr, setArr] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${url}/recentBoard`)
+      .then((response) => {
+        response.data.content.map((item) => setArr((arr) => [...arr, item]));
+      })
+      .catch((error) => {
+        console.log("실패");
+      });
+  }, []);
+
   return (
     <div className="recommendation_opinion_container">
       {arr.map((item) => (
@@ -35,11 +28,10 @@ const RecommendationOpinion = () => {
               <div>
                 <div className="opinion_title_section">
                   <Link to="opinion/detail">
-                    {" "}
-                    <div className="opinion_title">{item.title}</div>
+                    <div className="opinion_title">{item.boardTitle}</div>
                   </Link>
 
-                  <div className="opinion_regdate">{item.regDate}</div>
+                  <div className="opinion_regdate">{item.boardRegdate}</div>
                 </div>
               </div>
             </div>

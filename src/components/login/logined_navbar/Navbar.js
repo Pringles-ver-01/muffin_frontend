@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
 import LogoBlackIcon from "../../../assets/home/Logo_black.png";
@@ -24,6 +24,14 @@ const active = {
 };
 
 const Navbar = () => {
+  const history = useHistory();
+
+  const onClickLogout = (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem("logined_user");
+    history.push("/");
+  };
+
   return (
     <div className="container">
       <div className="nav-container">
@@ -47,9 +55,9 @@ const Navbar = () => {
               <button className="nav-btn">마이페이지</button>
             </Link>
           </div>
-          <Link to="/">
-            <button className="nav-btn">로그아웃</button>
-          </Link>
+          <button className="nav-btn" onClick={onClickLogout}>
+            로그아웃
+          </button>
         </div>
       </div>
     </div>
