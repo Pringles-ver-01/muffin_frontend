@@ -1,40 +1,24 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./stockList.css";
 import ModalBuying from "../../items/ModalBuying";
 import ModalSelling from "../../items/ModalSelling";
+=======
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import axios from "axios";
+import "./stockList.css";
+import { ModalBuying, ModalSelling }from "../items";
+>>>>>>> yerimm
 
-export const getStockList = (data) => ({
-  type: "GET_STOCKS_LIST",
-  payload: data,
-});
-
-export const stocksReducer = (state = [], action) => {
-  switch (action.type) {
-    case "GET_STOCKS_LIST":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
-export const stockList = () => (dispatch) => {
-  axios
-    .get(``)
-    .then((response) => {
-      console.log(`stockList reducer THEN`);
-      dispatch(getStockList(response.data));
-    })
-    .catch((error) => {
-      console.log(`stockList reducer CATCH`);
-    });
-};
 
 const StockList = () => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
+<<<<<<< HEAD
   /*const [stockName, setStockName] = useState("씨젠");
     const [price, setPrice] = useState(
         "310,600");
@@ -71,6 +55,30 @@ const StockList = () => {
       });
   }, [stockList]);
 
+=======
+  const [stockList, setStockList] = useState([{
+    "stockName": "",
+    "nowPrice": 0,
+    "change": 0,
+    "changePercentage": 0,
+    "transacAmount": 0,
+    "volume": 0
+  }])
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/`)
+      .then((response) => {
+        console.log(`StockList useEffect then from python`);
+        setStockList(response.data)
+      })
+      .catch((error) => {
+        console.log(`Stocklist useEffect catch from python`);
+        throw error;
+      });
+  }, [stockList]);
+
+>>>>>>> yerimm
   const linktoDetail = (e) => {
     e.preventDefault();
   };
@@ -82,17 +90,18 @@ const StockList = () => {
         <div className="w-full p-4 mb-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90">
           <table className="table documentroom_table w-full">
             <thead>
-              <tr>
-                <th>종목</th>
-                <th>시세</th>
-                <th>전일비</th>
-                <th>등락률</th>
-                <th>시가 총액</th>
-                <th>거래량</th>
-                <th>거래하기</th>
-              </tr>
+            <tr>
+              <th>종목</th>
+              <th>시세</th>
+              <th>전일비</th>
+              <th>등락률</th>
+              <th>시가 총액</th>
+              <th>거래량</th>
+              <th>거래하기</th>
+            </tr>
             </thead>
             <tbody>
+<<<<<<< HEAD
               {stockList.map((item) => (
                 <tr onClick={linktoDetail}>
                   <td>
@@ -120,6 +129,28 @@ const StockList = () => {
                   </td>
                 </tr>
               ))}
+=======
+            {stockList.map((item) => (
+              <tr onClick={linktoDetail}>
+                <td>
+                  <Link to="stock/detail">{item.stockName}</Link>
+                </td>
+                <td>{item.nowPrice}</td>
+                <td>{item.change}</td>
+                <td>{item.changePercentage}</td>
+                <td>{item.transacAmount}</td>
+                <td>{item.volume}</td>
+                <td>
+                  <button
+                    className="btn btn-default btn-blue text-white btn-rounded"
+                    onClick={() => setBuyOpen(true)}>매수</button>
+                  <button
+                    className="btn btn-default btn-red text-white btn-rounded"
+                    onClick={() => setSellOpen(true)}>매도</button>
+                </td>
+              </tr>
+            ))}
+>>>>>>> yerimm
             </tbody>
           </table>
           <div className="pagination-div">
@@ -156,8 +187,13 @@ const StockList = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
+=======
+      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)}/>
+      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)}/>
+>>>>>>> yerimm
     </>
   );
 };

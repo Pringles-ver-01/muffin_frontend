@@ -3,21 +3,27 @@ import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
 import axios from "axios";
 
-// <td>{item.transactionDate}</td>
-// <td>{item.stockName}</td>
-// <td>{item.transactionType}</td>
-// <td>{item.profitLoss}</td>
-// <td>{item.totalAsset}</td>
 
 const BudgetHistory = () => {
+<<<<<<< HEAD
   const [list, setList] = useState([]);
   let transactionDetail = [];
+=======
+  const [transacInfo, setTransacInfo] = useState([{
+    "transactionDate" : "",
+    "stockName" : "",
+    "transactionType" : false,
+    "purchasePrice" : 0,
+    "totalAsset" : 0
+  }]);
+>>>>>>> yerimm
 
   const linktoDetail = (e) => {
     e.preventDefault();
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     transactionDetail = [];
     axios
       .get(`http://localhost:8080/`)
@@ -28,25 +34,37 @@ const BudgetHistory = () => {
           transactionDetail.push(elem);
         });
       } )
+=======
+    axios
+      .get(`http://localhost:8080/assets/transactionlog`)
+      .then(( response ) => {
+        setTransacInfo(response.data)
+      })
+>>>>>>> yerimm
       .catch((error) => {
         console.log(`BudgetHistory useEffect err`);
         throw error;
       });
+<<<<<<< HEAD
   }, [transactionDetail]);
+=======
+  }, []);
+>>>>>>> yerimm
 
   return (
     <>
       <table className="w-full table">
         <thead>
-          <tr>
-            <th>거래날짜</th>
-            <th>종목</th>
-            <th>거래 종류</th>
-            <th>금액</th>
-            <th>잔액</th>
-          </tr>
+        <tr>
+          <th>거래날짜</th>
+          <th>종목</th>
+          <th>거래 종류</th>
+          <th>금액</th>
+          <th>잔액</th>
+        </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
           {transactionDetail.map((item) => (
             <tr onClick={linktoDetail}>
               <td>{item.transactionDate}</td>
@@ -56,6 +74,17 @@ const BudgetHistory = () => {
               <td>{item.totalAsset}</td>
             </tr>
           ))}
+=======
+        {transacInfo.map((item) => (
+          <tr onClick={linktoDetail}>
+            <td>{item.transactionDate}</td>
+            <td>{item.stockName}</td>
+            <td>{item.transactionType}</td>
+            <td>{item.purchasePrice}</td>
+            <td>{item.totalAsset}</td>
+          </tr>
+        ))}
+>>>>>>> yerimm
         </tbody>
       </table>
       <div className="pagination_history_div">
