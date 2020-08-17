@@ -1,0 +1,93 @@
+@import "../../../../style.css";
+
+.table_my_comment_head_text1 {
+  font-size: 16px;
+  margin-top: 7px;
+  margin-left: 400px;
+}
+
+.table_my_comment_head_text2 {
+  font-size: 16px;
+  margin-top: 7px;
+  margin-left: 430px;
+}
+
+.post-my_row-list-item1 {
+  position: absolute;
+  left: 150px;
+  width: 500px;
+  list-style-type: none;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* margin: auto; */
+  margin-top: 5px;
+  font-size: 14px;
+  float: left;
+  border: none;
+}
+
+.post-my_row-list-item2 {
+  position: absolute;
+  left: 700px;
+  width: 100px;
+  list-style-type: none;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* margin: auto; */
+  margin-top: 5px;
+  font-size: 14px;
+  float: left;
+  border: none;
+}
+.post-my_row-list-item3 {
+  position: absolute;
+  left: 840px;
+  width: 200px;
+  list-style-type: none;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* margin: auto; */
+  margin-top: 5px;
+  font-size: 14px;
+  float: left;
+  border: none;
+}
+.page-div {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-div {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  border: none;
+  width: 142px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.page-item {
+  border: none;
+  list-style: none;
+  padding-left: 0px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.page_button {
+  font-size: 14px;
+  color: var(--brownish-grey);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

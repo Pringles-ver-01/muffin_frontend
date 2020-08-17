@@ -30,10 +30,25 @@
 .list_button {
   margin-top: 10px;
   position: absolute;
-  left: 322px;
+  left: 440px;
   font-size: 13px;
   width: 90px;
   height: 23px;
+  text-align: center;
+  background-color: var(--greenish-teal);
+  border: none;
+  color: #ffffff;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.save_button{
+  margin-top: 10px;
+  position: absolute;
+  left: 322px;
+  font-size: 13px;
+  width: 106px;
+  height: 39px;
   text-align: center;
   background-color: var(--greenish-teal);
   border: none;

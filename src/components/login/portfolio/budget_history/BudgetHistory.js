@@ -27,7 +27,7 @@ const BudgetHistory = () => {
           //java에서 어떤 형식으로 response를 넘길지..
           transactionDetail.push(elem);
         });
-      })
+      } )
       .catch((error) => {
         console.log(`BudgetHistory useEffect err`);
         throw error;

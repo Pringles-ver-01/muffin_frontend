@@ -3,6 +3,7 @@ import InvestProfile from "./invest_profile/InvestProfile";
 import AccountSetting from "./account_setting/AccountSetting";
 import MyOpinion from "./my_opinion/MyOpinion";
 import MyComment from "./my_comment/MyComment";
+import MyNews from "./my_news/MyNews"
 import "./mypage.style.css";
 
 const content = [
@@ -10,6 +11,8 @@ const content = [
   { title: "투자프로필변경", content: <InvestProfile /> },
   { title: "작성글", content: <MyOpinion /> },
   { title: "작성댓글", content: <MyComment /> },
+  { title: "저장 뉴스", content: <MyNews /> },
+
 ];
 
 const useTabs = (initialTabs, allTabs) => {

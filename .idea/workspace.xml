@@ -21,7 +21,26 @@
   <component name="ChangeListManager">
     <list default="true" id="eea993cd-47a2-47f4-bfd2-6ae07808328f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/my_page/my_news/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/my_page/my_news/MyNews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-proxy-middleware/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-proxy-middleware/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/config-factory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/context-matcher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/handlers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/path-rewriter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/lib/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-proxy-middleware/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-proxy-middleware/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/my_page/MyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/my_page/MyPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/my_page/my_news/MyNews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/my_page/my_news/MyNews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/news/newsDetail/NewsDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/newsDetail/NewsDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/news/newsDetail/newsDetail.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/newsDetail/newsDetail.style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +51,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1g5Cz5vcSFIBeoB9U6nGDQBTGbV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -69,6 +91,17 @@
       <workItem from="1597395335135" duration="32000" />
       <workItem from="1597395372750" duration="828000" />
       <workItem from="1597397736446" duration="366000" />
+      <workItem from="1597398152318" duration="1023000" />
+      <workItem from="1597475473515" duration="4893000" />
+      <workItem from="1597483901207" duration="2622000" />
+      <workItem from="1597491714289" duration="1871000" />
+      <workItem from="1597495548122" duration="4775000" />
+      <workItem from="1597500886285" duration="2244000" />
+      <workItem from="1597503180337" duration="6134000" />
+      <workItem from="1597554687940" duration="7156000" />
+      <workItem from="1597620992158" duration="22596000" />
+      <workItem from="1597651961665" duration="2019000" />
+      <workItem from="1597654467060" duration="3266000" />
     </task>
     <servers />
   </component>
@@ -85,6 +118,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597398068810">
@@ -99,21 +133,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597395365088" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1597398106251">
+    <state width="1515" height="147" key="GridCell.Tab.0.bottom" timestamp="1597657454453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597398106251" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1597398106251">
+    <state width="1515" height="147" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597657454453" />
+    <state width="1515" height="147" key="GridCell.Tab.0.center" timestamp="1597657454452">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597398106251" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1597398106251">
+    <state width="1515" height="147" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597657454452" />
+    <state width="1515" height="147" key="GridCell.Tab.0.left" timestamp="1597657454451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597398106251" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1597398106251">
+    <state width="1515" height="147" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597657454451" />
+    <state width="1515" height="147" key="GridCell.Tab.0.right" timestamp="1597657454453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597398106251" />
+    <state width="1515" height="147" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597657454453" />
+    <state x="474" y="144" width="587" height="536" key="find.popup" timestamp="1597479852420">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="474" y="144" width="587" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597479852420" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1597627504351">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597627504351" />
   </component>
 </project>
