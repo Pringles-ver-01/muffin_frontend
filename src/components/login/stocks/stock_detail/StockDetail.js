@@ -1,18 +1,25 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
 import React, { useState, useEffect } from "react";
 import "./stockDetail.css";
 import ModalBuying from "../../../items/ModalBuying";
 import ModalSelling from "../../../items/ModalSelling";
+<<<<<<< HEAD
 =======
 import React, {useState, useEffect} from "react";
 import "./stockDetail.css";
 import { ModalBuying, ModalSelling } from "../../items";
 >>>>>>> yerimm
+=======
+>>>>>>> yoonjung
 import axios from "axios";
 
 const StockDetail = () => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   let stockDetail = [];
@@ -33,10 +40,18 @@ const StockDetail = () => {
 
   useEffect(() => {
 >>>>>>> yerimm
+=======
+
+  let stockDetail = [];
+
+  useEffect(() => {
+    stockDetail = [];
+>>>>>>> yoonjung
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {
         console.log(`StockDetail useEffect then python`);
+<<<<<<< HEAD
 <<<<<<< HEAD
         response.data.map((element) => {
           stockDetail.push(element);
@@ -44,16 +59,25 @@ const StockDetail = () => {
 =======
         setNowStock(response.data)
 >>>>>>> yerimm
+=======
+        response.data.map((element) => {
+          stockDetail.push(element);
+        });
+>>>>>>> yoonjung
       })
       .catch((error) => {
         console.log(`StockDetail useEffect catch python`);
         throw error;
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
   }, [stockDetail]);
 =======
   }, []);
 >>>>>>> yerimm
+=======
+  }, [stockDetail]);
+>>>>>>> yoonjung
 
   return (
     <>
@@ -141,12 +165,17 @@ const StockDetail = () => {
         </tr>
       </table>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
 =======
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)}/>
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)}/>
 >>>>>>> yerimm
+=======
+      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
+      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
+>>>>>>> yoonjung
     </>
   );
 };

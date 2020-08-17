@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
+<<<<<<< HEAD
 import axios from "axios";
 
 const NewsDetail = () => {
@@ -51,6 +52,7 @@ const NewsDetail = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <div className="documentdetaildiv">
         <div className="newsDetailTitle">
@@ -80,6 +82,40 @@ const NewsDetail = () => {
         </button>
       </div>
     </div>
+=======
+    <>
+      <Navbar />
+      <div className="content-container">
+        <div className="wrapper">
+          <Menu />
+          <div>
+            <div className="documentdetaildiv">
+              <div className="newsDetailTitle">
+                <div className="newsTitle1">{title}</div>
+                <div className="Title2">2020-08-06 20:47</div>
+              </div>
+            </div>
+            <div className="contentdetaildiv">
+              <img src={image} className="detail_content" />
+              <div className="detail_content">
+                {contents.split("\n").map(function (item, idx) {
+                  return (
+                    <span key={idx}>
+                      {item}
+                      <br />
+                    </span>
+                  );
+                })}
+              </div>
+              <Link to="/news" className="list_button">
+                목록
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+>>>>>>> yoonjung
   );
 };
 

@@ -5,6 +5,8 @@ import MyOpinion from "./my_opinion/MyOpinion";
 import MyComment from "./my_comment/MyComment";
 import MyNews from "./my_news/MyNews"
 import "./mypage.style.css";
+import Navbar from "../logined_navbar/Navbar";
+import Menu from "../menu/Menu";
 
 const content = [
   { title: "개인정보변경", content: <AccountSetting /> },
@@ -27,23 +29,31 @@ const MyPage = () => {
   const { contentItem, contentChange } = useTabs(0, content);
 
   return (
-    <div>
-      <div className="documentroom_container">
-        <div className="documentroom_text">마이페이지</div>
-        <div className="tab_container">
-          {content.map((section, index) => (
-            <button
-              onClick={() => contentChange(index)}
-              className="link-list-tab"
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
+    <>
+      <Navbar />
+      <div className="content-container">
+        <div className="wrapper">
+          <Menu />
+          <div>
+            <div className="documentroom_container">
+              <div className="documentroom_text">마이페이지</div>
+              <div className="tab_container">
+                {content.map((section, index) => (
+                  <button
+                    onClick={() => contentChange(index)}
+                    className="link-list-tab"
+                  >
+                    {section.title}
+                  </button>
+                ))}
+              </div>
 
-        <div className="tab_content_container">{contentItem.content}</div>
+              <div className="tab_content_container">{contentItem.content}</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

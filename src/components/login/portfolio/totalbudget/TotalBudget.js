@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
 import { element } from "prop-types";
 import "./totalbudget.style.css";
 
@@ -22,6 +25,7 @@ const TotalBudget = () => {
         throw error;
       });
   }, [budgetDetail]);
+<<<<<<< HEAD
 =======
 import "./totalbudget.style.css";
 
@@ -45,6 +49,8 @@ const TotalBudget = () => {
       })
   },[])
 >>>>>>> yerimm
+=======
+>>>>>>> yoonjung
 
   return (
     <>
@@ -53,28 +59,40 @@ const TotalBudget = () => {
           <div>
             <div className="my_totlabudget_title"> 내 자산총액</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className="my_totlabudget_money">{budgetDetail}원</div>
 =======
             <div className="my_totlabudget_money">{asset.totalAsset}원</div>
 >>>>>>> yerimm
+=======
+            <div className="my_totlabudget_money">{budgetDetail}원</div>
+>>>>>>> yoonjung
           </div>
           <div className="my_rate">
             <div className="money">
               <span>평가 수익률</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <span> : {budgetDetail}%</span>
 =======
               <span> : {asset.earnigsRatio}%</span>
 >>>>>>> yerimm
+=======
+              <span> : {budgetDetail}%</span>
+>>>>>>> yoonjung
             </div>
 
             <div className="money">
               <span>평가 손익</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <span className="won"> : {budgetDetail}원</span>
 =======
               <span className="won"> : {asset.profitLoss}원</span>
 >>>>>>> yerimm
+=======
+              <span className="won"> : {budgetDetail}원</span>
+>>>>>>> yoonjung
             </div>
           </div>
         </div>

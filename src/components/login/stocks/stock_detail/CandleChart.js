@@ -4,10 +4,14 @@ import axios from "axios";
 
 const CandleChart = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
   let series = [];
 
   useEffect(() => {
     series = [];
+<<<<<<< HEAD
 =======
 
   const [series, setSeries] = useState([{
@@ -18,6 +22,8 @@ const CandleChart = () => {
   }])
   useEffect(() => {
 >>>>>>> yerimm
+=======
+>>>>>>> yoonjung
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {

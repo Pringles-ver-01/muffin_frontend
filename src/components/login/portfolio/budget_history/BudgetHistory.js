@@ -6,6 +6,7 @@ import axios from "axios";
 
 const BudgetHistory = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [list, setList] = useState([]);
   let transactionDetail = [];
 =======
@@ -17,6 +18,10 @@ const BudgetHistory = () => {
     "totalAsset" : 0
   }]);
 >>>>>>> yerimm
+=======
+  const [list, setList] = useState([]);
+  let transactionDetail = [];
+>>>>>>> yoonjung
 
   const linktoDetail = (e) => {
     e.preventDefault();
@@ -24,6 +29,9 @@ const BudgetHistory = () => {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
     transactionDetail = [];
     axios
       .get(`http://localhost:8080/`)
@@ -33,6 +41,7 @@ const BudgetHistory = () => {
           //java에서 어떤 형식으로 response를 넘길지..
           transactionDetail.push(elem);
         });
+<<<<<<< HEAD
       } )
 =======
     axios
@@ -41,15 +50,22 @@ const BudgetHistory = () => {
         setTransacInfo(response.data)
       })
 >>>>>>> yerimm
+=======
+      })
+>>>>>>> yoonjung
       .catch((error) => {
         console.log(`BudgetHistory useEffect err`);
         throw error;
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
   }, [transactionDetail]);
 =======
   }, []);
 >>>>>>> yerimm
+=======
+  }, [transactionDetail]);
+>>>>>>> yoonjung
 
   return (
     <>
@@ -65,6 +81,9 @@ const BudgetHistory = () => {
         </thead>
         <tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
           {transactionDetail.map((item) => (
             <tr onClick={linktoDetail}>
               <td>{item.transactionDate}</td>

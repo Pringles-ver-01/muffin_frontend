@@ -88,3 +88,19 @@
   font-family: NanumSquareB;
   outline: none;
 }
+
+.withdrawal-btn {
+  background: var(--greenish-teal);
+  width: 313px;
+  height: 41px;
+  object-fit: contain;
+  border-radius: 18.8px;
+  border: none;
+  text-decoration: none;
+  background-color: var(--pinkish-grey);
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: NanumSquareB;
+  outline: none;
+}

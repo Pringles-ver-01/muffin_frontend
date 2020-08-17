@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import ModalBuying from "../../../items/ModalBuying";
 import ModalSelling from "../../../items/ModalSelling";
@@ -6,6 +7,11 @@ import ModalSelling from "../../../items/ModalSelling";
 import React, {useState, useEffect} from "react";
 import {ModalBuying, ModalSelling }from "../../items";
 >>>>>>> yerimm
+=======
+import React, { useState, useEffect } from "react";
+import ModalBuying from "../../../items/ModalBuying";
+import ModalSelling from "../../../items/ModalSelling";
+>>>>>>> yoonjung
 import "./holdingShares.style.css";
 import axios from "axios";
 
@@ -14,6 +20,9 @@ const HoldingShares = () => {
   const [sellOpen, setSellOpen] = useState(false);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
   let holdingShares = [];
 
   /* useEffect(() => {
@@ -25,6 +34,7 @@ const HoldingShares = () => {
         response.data.map((element) => {
           holdingShares.push(element);
         });
+<<<<<<< HEAD
 =======
   const [holding, setHolding] = useState([{
     "stockName": "",
@@ -42,12 +52,17 @@ const HoldingShares = () => {
       .then((response) => {
         console.log(`{response}  : HoldingShares java useEffect then`)
 >>>>>>> yerimm
+=======
+>>>>>>> yoonjung
       })
       .catch((error) => {
         console.log(`HoldingShares useEffect catch`);
         throw error;
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yoonjung
   }, [holdingShares]);
 
   useEffect(() => {
@@ -56,6 +71,7 @@ const HoldingShares = () => {
       //response.data.nowPrice
     });
   }); */
+<<<<<<< HEAD
 =======
   }, []);
 
@@ -68,6 +84,8 @@ const HoldingShares = () => {
       });
   });
 >>>>>>> yerimm
+=======
+>>>>>>> yoonjung
 
   return (
     <>
@@ -142,12 +160,17 @@ const HoldingShares = () => {
         </tr>
       </table>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
 =======
       <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)}/>
       <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)}/>
 >>>>>>> yerimm
+=======
+      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
+      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
+>>>>>>> yoonjung
     </>
   );
 };
