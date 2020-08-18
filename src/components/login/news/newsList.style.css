@@ -55,8 +55,13 @@
   left: 220px;
   font-weight: bold;
   font-size: 18px;
+  margin: 20px;
 }
-
+.news_regdate_div{
+  flex-direction: row;
+  height: 45px;
+  margin: 50px;
+}
 .news_summary_div {
   position: absolute;
   left: 220px;

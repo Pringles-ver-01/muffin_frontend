@@ -121,10 +121,10 @@ const App = () => {
         />
         <Route
           exact
-          path="/news/detail"
+          path="/news/detail/:id"
           render={(props) => (
             <React.Fragment>
-              <NewsDetail />
+              <NewsDetail {...props}/>
             </React.Fragment>
           )}
         />

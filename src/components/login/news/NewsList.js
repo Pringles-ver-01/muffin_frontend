@@ -1,94 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./newsList.style.css";
 import { Link } from "react-router-dom";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
+import axios from 'axios';
 
-const NewsList = () => {
-  const [title, setTitle] = useState(
-    " 미래에셋자산운용, 초등학생 '온라인 경제교육' 이벤트 진행 "
-  );
-  const [summary, setSummary] = useState(
-    " [파이낸셜뉴스] 미래에셋자산운용은 초등학생을 대상으로 온라인 경제교육 이벤트를 진행한다고 28일 밝혔다. 전국 초등학교는 코로나19 영향으로 지난 4월부터 원격수업과 등교...  "
-  );
-  const [regDate, setRegDate] = useState("  2020-07-28");
-  const [thumbnail, setThumbnail] = useState(
-    " https://imgnews.pstatic.net/image/thumb70/018/2020/08/08/4709350.jpg "
-  );
-  const [address, setAddress] = useState("/detail");
-  const [arr, setArr] = useState([
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
+ const NewsList = () => {
+  /*const [newsIndex, setNewsIndex] = useState(0); */
+   const [ newsList, setNewsList ] = useState([
+     {
+       "newsId" : null,
+       "newsTitle" : null,
+       "newsRegDate" : null,
+       "newsContent" : null,
+       "newsThumbnail": null,
+      }
+   ])
+   const test = () =>{
+     console.log(newsList.newsId)
+   }
 
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-  ]);
+   useEffect(()=>{
+     axios.get(`http://localhost:8080/news/getList`)
+       .then((response)=>{
+         console.log('여기예요')
+         setNewsList(response.data)
+       })
+       .catch((error)=>{
+         console.log(`try to effect`)
+         throw error
+       })
+   },[])
+
+
   return (
     <>
       <Navbar />
@@ -99,25 +43,26 @@ const NewsList = () => {
             <div className="documentroom_container">
               <div className="documentroom_text">뉴스</div>
               <div className="news_table">
-                {arr.map((item) => (
+                {newsList.map((item) => (
                   <ul className="news-ul">
                     <li className="news-li">
                       <ul className="news-row-list">
                         <li className="post-row-list-item1">
                           <img
                             className="thumbnail-style"
-                            src={item.thumbnail}
+                            src={item.newsThumbnail}
                             alt="media"
+                            key={item.newsTitle}
                           />
                         </li>
                         <li>
-                          <Link to="/news/detail">
-                            <div className="news_title_div">{item.title}</div>
-                          </Link>
-
-                          <div className="news_summary_div">{item.summary}</div>
+                          <div>
+                            <Link to={`/news/detail/${item.newsId}`}><div className="news_title_div" onClick={()=>{test(item.newsId)}}>{item.newsTitle}</div></Link>
+                          </div>
                         </li>
-                        <li className="post-row-list-item4">2020-08-08</li>
+                        <li>
+                          <div className="news_regdate_div">{item.newsRegDate}</div>
+                        </li>
                       </ul>
                     </li>
                   </ul>
