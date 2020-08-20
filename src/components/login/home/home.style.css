@@ -9,7 +9,7 @@
 
 .recommendation_news_container {
   width: 1500px;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: row;
 }
@@ -21,7 +21,7 @@
 
 .keyword_wordcloud {
   width: 500px;
-  height: 500px;
+  height: 300px;
 }
 
 .other_container {
@@ -88,11 +88,14 @@
 }
 
 .wordcloud {
-  width: 450px;
-  height: 450px;
+  width: 500px;
+  height: 300px;
 }
 
-.newsList {
+.recommendation_news_section {
   width: 940px;
-  height: 400px;
+  height: 200px;
+}
+.newsList{
+  font-size: 40px ;
 }

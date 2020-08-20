@@ -73,11 +73,11 @@ const NewsDetail = ({match}) => {
               </div>
             </div>
             <div className="contentdetaildiv">
-              <img src={newsImage} className="detail_content" />
+              <img src={newsImage} className="detail_image_content" />
               <div className="detail_content">
                 {newsContents.split("\n").map(function (item, idx) {
                   return (
-                    <span key={idx}>
+                    <span key={idx} className="content_style">
                       {item}
                       <br />
                     </span>
