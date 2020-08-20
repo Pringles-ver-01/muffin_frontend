@@ -37,6 +37,7 @@
   margin-left: 112px;
   margin-top: 20px;
   width: 850px;
+  height: 150px;
   margin-bottom: 20px;
 }
 
@@ -44,7 +45,6 @@
   list-style-type: none;
   float: none;
   width: 827px;
-  height: 48px;
   padding-left: 0px;
   padding-right: 0px;
   padding: 8px 10px;
@@ -109,11 +109,39 @@
   outline: none;
 }
 
+.comment-row-list-item4 {
+  position: absolute;
+  left: 745px;
+  top: 110px;
+  width: 200px;
+  list-style-type: none;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* margin: auto; */
+  margin-top: 5px;
+  font-size: 16px;
+  float: left;
+  border: none;
+}
+
 .documentDetailTitle {
   display: flex;
   flex-direction: row;
   height: 45px;
   border-bottom: solid 1px var(--white-two);
+  margin-bottom: 20px;
+}
+
+.documentDetailAuthority {
+  display: flex;
+  flex-direction: row;
+}
+
+.documentDetaisubTitle {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
   margin-bottom: 20px;
 }
 
@@ -145,9 +173,32 @@
 }
 
 .authority {
-  margin-left: 112px;
+  margin-left: 32px;
+  width: 200px;
   font-size: 16px;
   color: var(--brownish-grey);
+}
+
+.authority2 {
+  margin-left: 510px;
+  font-size: 16px;
+  color: white;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: var(--greenish-teal);
+}
+
+.authority3 {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: var(--white-two);
 }
 
 .btn-p {

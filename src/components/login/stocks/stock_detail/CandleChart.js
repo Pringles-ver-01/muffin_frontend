@@ -3,13 +3,16 @@ import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 
 const CandleChart = () => {
-
-  const [series, setSeries] = useState([{
-    data: [{
-      x: new Date(1538778600000),
-      y: [6629.81, 6650.5, 6623.04, 6633.33]
-    }]
-  }])
+  const [series, setSeries] = useState([
+    {
+      data: [
+        {
+          x: new Date(1538778600000),
+          y: [6629.81, 6650.5, 6623.04, 6633.33],
+        },
+      ],
+    },
+  ]);
   useEffect(() => {
     axios
       .get(`http://localhost:8080/`)

@@ -213,13 +213,14 @@ a {
 }
 
 .pagination-div {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
 
 .pagination {
   border: none;
-  width: 142px;
+  width: 400px;
   height: 20px;
   display: flex;
   justify-content: space-between;

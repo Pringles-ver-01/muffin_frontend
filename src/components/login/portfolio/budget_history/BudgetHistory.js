@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
 import axios from "axios";
 
-
 const BudgetHistory = () => {
+<<<<<<< HEAD
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("logined_user"))
   );
@@ -15,6 +15,17 @@ const BudgetHistory = () => {
     "purchasePrice" : 0,
     "totalAsset" : 0
   }]);
+=======
+  const [transacInfo, setTransacInfo] = useState([
+    {
+      transactionDate: "",
+      stockName: "",
+      transactionType: false,
+      purchasePrice: 0,
+      totalAsset: 0,
+    },
+  ]);
+>>>>>>> master
 
   const linktoDetail = (e) => {
     e.preventDefault();
@@ -22,9 +33,15 @@ const BudgetHistory = () => {
 
   useEffect(() => {
     axios
+<<<<<<< HEAD
       .get(`http://localhost:8080/assets/transactionlog/${user}`)
       .then(( response ) => {
         setTransacInfo(response.data)
+=======
+      .get(`http://localhost:8080/assets/transactionlog`)
+      .then((response) => {
+        setTransacInfo(response.data);
+>>>>>>> master
       })
       .catch((error) => {
         console.log(`BudgetHistory useEffect err`);
@@ -36,24 +53,24 @@ const BudgetHistory = () => {
     <>
       <table className="w-full table">
         <thead>
-        <tr>
-          <th>거래날짜</th>
-          <th>종목</th>
-          <th>거래 종류</th>
-          <th>금액</th>
-          <th>잔액</th>
-        </tr>
+          <tr>
+            <th>거래날짜</th>
+            <th>종목</th>
+            <th>거래 종류</th>
+            <th>금액</th>
+            <th>잔액</th>
+          </tr>
         </thead>
         <tbody>
-        {transacInfo.map((item) => (
-          <tr onClick={linktoDetail}>
-            <td>{item.transactionDate}</td>
-            <td>{item.stockName}</td>
-            <td>{item.transactionType}</td>
-            <td>{item.purchasePrice}</td>
-            <td>{item.totalAsset}</td>
-          </tr>
-        ))}
+          {transacInfo.map((item) => (
+            <tr onClick={linktoDetail}>
+              <td>{item.transactionDate}</td>
+              <td>{item.stockName}</td>
+              <td>{item.transactionType}</td>
+              <td>{item.purchasePrice}</td>
+              <td>{item.totalAsset}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <div className="pagination_history_div">

@@ -87,6 +87,7 @@ export const OtherLoginBtn = styled.button`
   border: none;
   outline: none;
   height: 40px;
+  width: 
   margin-left: 13px;
   font-size: 14px;
   font-family: NanumSquareB;

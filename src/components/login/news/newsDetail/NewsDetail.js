@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
+import Navbar from "../../logined_navbar/Navbar";
+import Menu from "../../menu/Menu";
 
 const NewsDetail = () => {
   const [contents, setContents] = useState(
@@ -34,30 +36,38 @@ const NewsDetail = () => {
     alert(`뉴스 저장 요청`);
   };
   return (
-    <div>
-      <div className="documentdetaildiv">
-        <div className="newsDetailTitle">
-          <div className="newsTitle1">{title}</div>
-          <div className="Title2">2020-08-06 20:47</div>
+    <>
+      <Navbar />
+      <div className="content-container">
+        <div className="wrapper">
+          <Menu />
+          <div>
+            <div className="documentdetaildiv">
+              <div className="newsDetailTitle">
+                <div className="newsTitle1">{title}</div>
+                <div className="Title2">2020-08-06 20:47</div>
+              </div>
+            </div>
+            <div className="contentdetaildiv">
+              <img src={image} className="detail_content" />
+              <div className="detail_content">
+                {contents.split("\n").map(function (item, idx) {
+                  return (
+                    <span key={idx}>
+                      {item}
+                      <br />
+                    </span>
+                  );
+                })}
+              </div>
+              <Link to="/news" className="list_button">
+                목록
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="contentdetaildiv">
-        <img src={image} className="detail_content" />
-        <div className="detail_content">
-          {contents.split("\n").map(function (item, idx) {
-            return (
-              <span key={idx}>
-                {item}
-                <br />
-              </span>
-            );
-          })}
-        </div>
-        <Link to="/news" className="list_button">
-          목록
-        </Link>
-      </div>
-    </div>
+    </>
   );
 };
 

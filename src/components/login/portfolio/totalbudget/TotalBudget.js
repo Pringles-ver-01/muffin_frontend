@@ -4,23 +4,23 @@ import "./totalbudget.style.css";
 
 const TotalBudget = () => {
   const [asset, setAsset] = useState({
-    "totalAsset": 0,
-    "earnigsRatio": 0,
-    "profitLoss": 0,
-  })
-
+    totalAsset: 0,
+    earnigsRatio: 0,
+    profitLoss: 0,
+  });
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/assets/total`)
+    axios
+      .get(`http://localhost:8080/assets/total`)
       .then((response) => {
-        console.log(`${JSON.stringify(response)}`)
-        setAsset(response.data)
+        console.log(`${JSON.stringify(response)}`);
+        setAsset(response.data);
       })
       .catch((error) => {
-        console.log(`TotalBudget useEffect catch`)
-        throw error
-      })
-  },[])
+        console.log(`TotalBudget useEffect catch`);
+        throw error;
+      });
+  }, []);
 
   return (
     <>

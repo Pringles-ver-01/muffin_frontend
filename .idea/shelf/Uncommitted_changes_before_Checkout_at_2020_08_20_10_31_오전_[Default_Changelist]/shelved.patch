@@ -1,0 +1,48 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5a427bb5-3a9c-40b2-8ab1-1ea7a2a4b25a\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"yerimm\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1gLDxnUBpB91bzdpEyFEpcH0Kk1\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"nodejs.jest.jest_package\" value=\"$PROJECT_DIR$/node_modules/react-scripts\" />\n    <property name=\"nodejs_package_manager_path\" value=\"yarn\" />\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"start\" type=\"js.build_tools.npm\" nameIsGenerated=\"true\">\n      <command value=\"start\" />\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5a427bb5-3a9c-40b2-8ab1-1ea7a2a4b25a\" name=\"Default Changelist\" comment=\"\" />\n      <created>1597885228041</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1597885228041</updated>\n      <workItem from=\"1597885235843\" duration=\"8000\" />\n      <workItem from=\"1597885265466\" duration=\"113000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"2\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"0\" y=\"198\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1597885383754\">\n      <screen x=\"0\" y=\"23\" width=\"1680\" height=\"1027\" />\n    </state>\n    <state x=\"0\" y=\"198\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027\" timestamp=\"1597885383754\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 91fdf3f1387c79c0ac8f30b859855c86835c66b6)
++++ .idea/workspace.xml	(date 1597886881470)
+@@ -19,7 +19,7 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5a427bb5-3a9c-40b2-8ab1-1ea7a2a4b25a" name="Default Changelist" comment="" />
++    <list default="true" id="44d7970c-f214-4bc6-9584-3d42c23df2d2" name="Default Changelist" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -82,11 +82,28 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="0" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597885383754">
+       <screen x="0" y="23" width="1680" height="1027" />
+     </state>
+     <state x="0" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597885383754" />
++    <state width="1556" height="275" key="GridCell.Tab.0.bottom" timestamp="1597886881177">
++      <screen x="0" y="23" width="1680" height="1027" />
++    </state>
++    <state width="1556" height="275" key="GridCell.Tab.0.bottom/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597886881177" />
++    <state width="1556" height="275" key="GridCell.Tab.0.center" timestamp="1597886881176">
++      <screen x="0" y="23" width="1680" height="1027" />
++    </state>
++    <state width="1556" height="275" key="GridCell.Tab.0.center/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597886881176" />
++    <state width="1556" height="275" key="GridCell.Tab.0.left" timestamp="1597886881176">
++      <screen x="0" y="23" width="1680" height="1027" />
++    </state>
++    <state width="1556" height="275" key="GridCell.Tab.0.left/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597886881176" />
++    <state width="1556" height="275" key="GridCell.Tab.0.right" timestamp="1597886881177">
++      <screen x="0" y="23" width="1680" height="1027" />
++    </state>
++    <state width="1556" height="275" key="GridCell.Tab.0.right/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597886881177" />
+   </component>
+ </project>
+\ No newline at end of file
