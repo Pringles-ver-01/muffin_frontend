@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
-import axios from "axios";
 
 const NewsDetail = () => {
-  const [newsContents, setNewsContents] = useState(
+  const [contents, setContents] = useState(
     "테슬라, 아마존, 구글 등 해외 우량주식을 직접 구매하려는 개인투자자들의 바람이 거세다. 해외주식 결제금액은 매년 사상 최고치를 경신하고 있다.\n" +
       "\n" +
       "실제 코로나19(COVID-19)에도 불구하고 놀라운 회복세를 보이고 있는 해외시장에서 큰 수익을 얻는 투자사례들도 상당하다.\n" +
@@ -24,42 +23,18 @@ const NewsDetail = () => {
       "\n" +
       "이는 'FAANG'로도 불리는 페이스북, 아마존, 애플, 넷플릭스, 구글 등 대표적인 기술주들이 미국증시에 다수 포진했기 때문으로 보인다. 게다가 국내증권사들도 최근 몇 년 사이 미국 우량종목들에 대한 리포트를 크게 늘리며 정보접근성이 높아진 것도 영향을 미친 것으로 풀이된다.\n"
   );
-  const [newsTitle, setNewsTitle] = useState(
+  const [title, setTitle] = useState(
     "세계로 뻗는 개미들, 필리핀·이탈리아에서 이 주식 샀다"
   );
-  const [newsRegDate, setNewsRegDate] = useState("2020-07-28");
-  const [newsImage, setNewsImage] = useState(
+  const [regDate, setRegDate] = useState("2020-07-28");
+  const [keyword, setKeyword] = useState("테슬라");
+  const [image, setImage] = useState(
     "https://imgnews.pstatic.net/image/008/2020/07/27/0004445977_001_20200727145803090.jpg?type=w647"
   );
-  const [newsLink, setNewsLink] = useState(
-    "https://finance.naver.com/news/news_read.nhn?article_id=0004737388&office_id=277&mode=LSS3D&type=0&section_id=101&section_id2=258&section_id3=402&date=20200815&page=1"
-  );
-  const [emailId, setEmailId] = useState("muffin");
-  const save = (e) => {
-    // 저장 여부 db에서 확인하고 if문으로 돌릴까?
 
-    axios
-      .post(
-        `http://localhost:8080/news/saveNews`,
-        {
-          newsTitle: newsTitle,
-          newsRegDate: newsRegDate,
-          newsLink: newsLink,
-          emailId: emailId,
-        },
-        {
-          "Content-Type": "application/json",
-          Authorization: "JWT fefege...",
-        }
-      )
-      .then((response) => {
-        alert("뉴스가 스크랩 되었습니다.");
-      })
-      .catch((error) => {
-        console.log(`axios 시도`);
-      });
+  const concernedNews = (e) => {
+    alert(`뉴스 저장 요청`);
   };
-
   return (
     <>
       <Navbar />
@@ -69,17 +44,14 @@ const NewsDetail = () => {
           <div>
             <div className="documentdetaildiv">
               <div className="newsDetailTitle">
-                <div className="newsTitle1">{newsTitle}</div>
-                <div className="Title2">{newsRegDate}</div>
-                <a className="Title2" href={newsLink}>
-                  원문 보기
-                </a>
+                <div className="newsTitle1">{title}</div>
+                <div className="Title2">2020-08-06 20:47</div>
               </div>
             </div>
             <div className="contentdetaildiv">
-              <img src={newsImage} className="detail_content" />
+              <img src={image} className="detail_content" />
               <div className="detail_content">
-                {newsContents.split("\n").map(function (item, idx) {
+                {contents.split("\n").map(function (item, idx) {
                   return (
                     <span key={idx}>
                       {item}
@@ -88,18 +60,9 @@ const NewsDetail = () => {
                   );
                 })}
               </div>
-
               <Link to="/news" className="list_button">
                 목록
               </Link>
-              <button
-                className="save_button"
-                onClick={() => {
-                  save();
-                }}
-              >
-                저장
-              </button>
             </div>
           </div>
         </div>

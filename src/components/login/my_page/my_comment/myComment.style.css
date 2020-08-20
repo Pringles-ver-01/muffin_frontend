@@ -12,6 +12,17 @@
   margin-left: 430px;
 }
 
+.myComment-li {
+  list-style-type: none;
+  float: none;
+  width: 1060px;
+  height: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
 .post-my_row-list-item1 {
   position: absolute;
   left: 150px;

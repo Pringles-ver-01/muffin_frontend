@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ModalBuying from "../../items/ModalBuying";
-import ModalSelling from "../../items/ModalSelling";
+import { ModalBuying, ModalSelling } from "../../items";
 import "./holdingShares.style.css";
 import axios from "axios";
 

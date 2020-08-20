@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-// import "./modal.style.css";
+import "./modal.style.css";
 
 const ModalBuying = (props) => {
   const [buyCount, setBuyCount] = useState(1);
@@ -55,12 +55,18 @@ const ModalBuying = (props) => {
           <td>
             <button
               className="btn btn-default btn-gray btn-rounded"
-              onClick={props.isClose}>취소</button>
+              onClick={props.isClose}
+            >
+              취소
+            </button>
           </td>
           <td>
             <button
               className="btn btn-default btn-blue btn-rounded"
-              onClick={props.isClose}>매수</button>
+              onClick={props.isClose}
+            >
+              매수
+            </button>
           </td>
         </tr>
       </Modal>

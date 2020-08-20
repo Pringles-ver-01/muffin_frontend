@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import "./modal.style.css";
+
 // import "./modal.style.css";
 /*
 const addTransactionAction = (data) => ({
   type: "ADD_TRANSACTION",
   payload: data,
 });
-
 export const TransationReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TRANSACTION":
@@ -23,7 +24,7 @@ const ModalSelling = (props) => {
   const [nowPrice] = useState(12000);
   const [purchasePrice, setPurchasePrice] = useState(nowPrice);
 
-/*  const dispatch = useDispatch();
+  /*  const dispatch = useDispatch();
   const addTransaction = (newTransaction) =>
     dispatch(addTransactionAction(newTransaction));*/
 
@@ -69,7 +70,6 @@ const ModalSelling = (props) => {
       height: "400px",
     },
   };
-
   return (
     <>
       <Modal {...props} style={modalStyle}>

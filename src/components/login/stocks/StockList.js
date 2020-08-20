@@ -2,71 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./stockList.css";
-import ModalBuying from "../../items/ModalBuying";
-import ModalSelling from "../../items/ModalSelling";
-
+import { ModalBuying, ModalSelling } from "../items";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
-
-export const getStockList = (data) => ({
-  type: "GET_STOCKS_LIST",
-  payload: data,
-});
-
-export const stocksReducer = (state = [], action) => {
-  switch (action.type) {
-    case "GET_STOCKS_LIST":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
-export const stockList = () => (dispatch) => {
-  axios
-    .get(``)
-    .then((response) => {
-      console.log(`stockList reducer THEN`);
-      dispatch(getStockList(response.data));
-    })
-    .catch((error) => {
-      console.log(`stockList reducer CATCH`);
-    });
-};
 
 const StockList = () => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
-  /*const [stockName, setStockName] = useState("씨젠");
-    const [price, setPrice] = useState(
-        "310,600");
-    const [change, setChange] = useState("+32,000");
-    const [changePercentage, setChangePercentage] = useState("+11.84%");
-    const [marketCap, setMarketCap] = useState("79,923(억)")
-    const [volumeCurrency, setVolumeCurrency] = useState("43,589,400")
-    const [arr, setArr] = useState([
-        {
-            stockName : stockName,
-            price: price,
-            change: change,
-            changePercentage: changePercentage,
-            marketCap: marketCap,
-            volumeCurrency: volumeCurrency
-        }
-    ])*/
-
-  let stockList = [];
+  const [stockList, setStockList] = useState([
+    {
+      stockName: "",
+      nowPrice: 0,
+      change: 0,
+      changePercentage: 0,
+      transacAmount: 0,
+      volume: 0,
+    },
+  ]);
 
   useEffect(() => {
-    stockList = [];
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {
         console.log(`StockList useEffect then from python`);
-        response.data.map((element) => {
-          stockList.push(element);
-        });
+        setStockList(response.data);
       })
       .catch((error) => {
         console.log(`Stocklist useEffect catch from python`);
@@ -101,34 +61,6 @@ const StockList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {stockList.map((item) => (
-                    <tr onClick={linktoDetail}>
-                      <td>
-                        <Link to="stock/detail">{item.stockName}</Link>
-                      </td>
-
-                      <td>{item.price}</td>
-                      <td>{item.change}</td>
-                      <td>{item.changePercentage}</td>
-                      <td>{item.marketCap}</td>
-                      <td>{item.volumeCurrency}</td>
-                      <td>
-                        <button
-                          className="btn btn-default btn-blue text-white btn-rounded"
-                          onClick={() => setBuyOpen(true)}
-                        >
-                          매수
-                        </button>
-                        <button
-                          className="btn btn-default btn-red text-white btn-rounded"
-                          onClick={() => setSellOpen(true)}
-                        >
-                          매도
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-
                   {stockList.map((item) => (
                     <tr onClick={linktoDetail}>
                       <td>
@@ -174,6 +106,10 @@ const StockList = () => {
                   <Link to={`?pageNo=5`} className="page_button" id="5">
                     5
                   </Link>
+
+                  <Link to={`?pageNo=6`} className="page_button" id="next">
+                    다음
+                  </Link>
                 </div>
               </div>
               <div className="conference_search">
@@ -191,12 +127,6 @@ const StockList = () => {
           <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
         </div>
       </div>
-
-      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
-      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
-
-      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
-      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
     </>
   );
 };

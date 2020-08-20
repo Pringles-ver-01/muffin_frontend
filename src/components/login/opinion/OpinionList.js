@@ -13,7 +13,17 @@ const OpinionList = () => {
   const [next, setNext] = useState(false);
   const [page, setPage] = useState(1);
   const [range, setRange] = useState(1);
+  const [condition, setCondition] = useState("boardTitle");
+  const [searchWord, setSearchWord] = useState("");
   const history = useHistory();
+
+  const onChangeCondition = (e) => {
+    setCondition(e.target.value);
+  };
+
+  const onChangeSearch = (e) => {
+    setSearchWord(e.target.value);
+  };
 
   const clickNext = () => {
     getAll(pageArr[0] + 5, range + 1);
@@ -21,6 +31,35 @@ const OpinionList = () => {
 
   const clickPrev = () => {
     getAll(pageArr[0] - 1, range - 1);
+  };
+
+  const searchPage = (page, range) => {
+    setPage(page);
+    setRange(range);
+    setPageArr([]);
+    setBoardArr([]);
+    axios
+      .get(`${url}/search/${searchWord}/${condition}/${page}/${range}`)
+      .then((response) => {
+        response.data.list.map((item) => {
+          setBoardArr((boardArr) => [...boardArr, item]);
+        });
+        let i = 0;
+        const startPage = response.data.pagination.startPage;
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        }
+        setPrev(response.data.pagination.prev);
+        setNext(response.data.pagination.next);
+      })
+      .catch((error) => console.log("실패"));
   };
 
   const getAll = (page, range) => {
@@ -53,6 +92,34 @@ const OpinionList = () => {
       .catch((err) => console.log("실패"));
   };
 
+  const search = (e) => {
+    setPageArr([]);
+    setBoardArr([]);
+    e.preventDefault();
+    axios
+      .get(`${url}/search/${searchWord}/${condition}/1/1`)
+      .then((response) => {
+        response.data.list.map((item) => {
+          setBoardArr((boardArr) => [...boardArr, item]);
+        });
+        let i = 0;
+        const startPage = response.data.pagination.startPage;
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        }
+        setPrev(response.data.pagination.prev);
+        setNext(response.data.pagination.next);
+      })
+      .catch((error) => console.log("실패"));
+  };
+
   useEffect(() => {
     getAll(1, 1);
   }, []);
@@ -80,16 +147,35 @@ const OpinionList = () => {
                   <ul key={item.index} className="post-ul">
                     <li className="post-li">
                       <ul className="post-row-list">
-                        <li className="post-row-list-item1">{item.id}</li>
+                        <li className="post-row-list-item1">{item.boardId}</li>
                         <li
                           className="post-row-list-item2"
                           style={{ cursor: "pointer" }}
                           onClick={() => {
-                            sessionStorage.setItem(
-                              "opinionDetail",
-                              JSON.stringify(item)
-                            );
-                            history.push("/opinion/detail");
+                            const boardJson = {
+                              boardId: item.boardId,
+                              userId: item.userId,
+                              boardTitle: item.boardTitle,
+                              boardContent: item.boardContent,
+                              boardRegdate: item.boardRegdate,
+                              nickname: item.nickname,
+                              viewCnt: item.viewCnt + 1,
+                              userId: item.userId,
+                              commentList: item.commentList,
+                            };
+                            axios
+                              .post(`${url}/update`, boardJson)
+                              .then((response) => {
+                                console.log(boardJson);
+                                sessionStorage.setItem(
+                                  "opinionDetail",
+                                  JSON.stringify(boardJson)
+                                );
+                                history.push("/opinion/detail");
+                              })
+                              .catch((error) => {
+                                console.log("실패");
+                              });
                           }}
                         >
                           {item.boardTitle}
@@ -123,7 +209,11 @@ const OpinionList = () => {
                       className="page_button"
                       key={pagenum}
                       onClick={() => {
-                        getAll(pagenum, range);
+                        if (searchWord === "") {
+                          getAll(pagenum, range);
+                        } else {
+                          searchPage(pagenum, range);
+                        }
                       }}
                     >
                       {pagenum}
@@ -139,7 +229,7 @@ const OpinionList = () => {
               </div>
 
               <div className="conference_search">
-                <select className="search_select">
+                <select className="search_select" onChange={onChangeCondition}>
                   <option className="search_option" value="boardTitle">
                     제목
                   </option>
@@ -151,10 +241,16 @@ const OpinionList = () => {
                 <input
                   placeholder="제목이나 작성자를 입력하세요"
                   className="search_input"
+                  value={searchWord}
+                  onChange={onChangeSearch}
                 />
-                <Link to="" className="search_button">
+                <div
+                  style={{ cursor: "pointer" }}
+                  className="search_button"
+                  onClick={search}
+                >
                   검색
-                </Link>
+                </div>
               </div>
             </div>
           </div>

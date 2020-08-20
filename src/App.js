@@ -15,7 +15,6 @@ import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
 import { Welcome } from "./components/non_login/welcome";
 import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
 
-
 const App = () => {
   return (
     <Router>
