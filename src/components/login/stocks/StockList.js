@@ -10,26 +10,25 @@ const StockList = () => {
   const [sellOpen, setSellOpen] = useState(false);
 
   const [stockList, setStockList] = useState([{
-    "stockName": "",
-    "nowPrice": 0,
-    "change": 0,
-    "changePercentage": 0,
-    "transacAmount": 0,
-    "volume": 0
+    "now": "",
+    "dod": "",
+    "dodRatio": "",
+    "transacAmount": "",
+    "volume": ""
   }])
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/`)
+      .get(`http://localhost:8080/stocks/marketprices`)
       .then((response) => {
-        console.log(`StockList useEffect then from python`);
+        console.log(`StockList useEffect then ${JSON.stringify(response.data)}`);
         setStockList(response.data)
       })
       .catch((error) => {
         console.log(`Stocklist useEffect catch from python`);
         throw error;
       });
-  }, [stockList]);
+  }, []);
 
   const linktoDetail = (e) => {
     e.preventDefault();
@@ -46,7 +45,6 @@ const StockList = () => {
               <th>종목</th>
               <th>시세</th>
               <th>전일비</th>
-              <th>등락률</th>
               <th>시가 총액</th>
               <th>거래량</th>
               <th>거래하기</th>
@@ -56,11 +54,10 @@ const StockList = () => {
             {stockList.map((item) => (
               <tr onClick={linktoDetail}>
                 <td>
-                  <Link to="stock/detail">{item.stockName}</Link>
+                  <Link to="stock/detail">{item.now}</Link>
                 </td>
-                <td>{item.nowPrice}</td>
-                <td>{item.change}</td>
-                <td>{item.changePercentage}</td>
+                <td>{item.now}</td>
+                <td>{item.dod}</td>
                 <td>{item.transacAmount}</td>
                 <td>{item.volume}</td>
                 <td>

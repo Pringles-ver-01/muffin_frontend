@@ -5,6 +5,9 @@ import axios from "axios";
 
 
 const BudgetHistory = () => {
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("logined_user"))
+  );
   const [transacInfo, setTransacInfo] = useState([{
     "transactionDate" : "",
     "stockName" : "",
@@ -19,7 +22,7 @@ const BudgetHistory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/assets/transactionlog`)
+      .get(`http://localhost:8080/assets/transactionlog/${user}`)
       .then(( response ) => {
         setTransacInfo(response.data)
       })
