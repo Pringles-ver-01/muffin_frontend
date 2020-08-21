@@ -15,7 +15,7 @@ const CandleChart = () => {
   ]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/`)
+      .get(`http://localhost:8080/stocks/candle`)
       .then((response) => {
         console.log(`CandleChart useEffect then python`);
         response.data.map((element) => {

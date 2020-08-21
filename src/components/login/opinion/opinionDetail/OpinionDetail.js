@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./opinionDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
@@ -73,7 +73,19 @@ const OpinionDetail = () => {
                 <div className="authority">작성자 : {board.nickname}</div>
                 {authority && (
                   <div className="documentDetailAuthority">
-                    <div className="authority2">수정</div>
+                    <div
+                      className="authority2"
+                      sylte={{ cursor: "pointer" }}
+                      onClick={(e) => {
+                        sessionStorage.setItem(
+                          "opinionEdit",
+                          JSON.stringify(board)
+                        );
+                        history.push("/opinion/update");
+                      }}
+                    >
+                      수정
+                    </div>
                     <div
                       className="authority3"
                       style={{ cursor: "pointer" }}
@@ -87,14 +99,9 @@ const OpinionDetail = () => {
             </div>
             <div className="contentdetaildiv">
               <div className="detail_content_01">
-                {board.boardContent.split("\n").map(function (item, idx) {
-                  return (
-                    <span key={idx}>
-                      {item}
-                      <br />
-                    </span>
-                  );
-                })}
+                <span
+                  dangerouslySetInnerHTML={{ __html: board.boardContent }}
+                ></span>
               </div>
             </div>
             {content.map((item) => (

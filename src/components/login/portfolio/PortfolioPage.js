@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BudgetHistory, TotalBudget, HoldingShares } from "./index";
 import "./portfoliopage.style.css";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
+import axios from "axios";
 
 const PortfolioPage = () => {
+  const [holding, setHolding] = useState([]);
   const portfolioContent = [
-    { title: "보유종목", content: <HoldingShares /> },
-    { title: "거래내역", content: <BudgetHistory /> },
+    {
+      title: "보유종목",
+      content: <HoldingShares holding={holding} setHolding={setHolding} />,
+    },
+    {
+      title: "거래내역",
+      content: <BudgetHistory holding={holding} setHolding={setHolding} />,
+    },
   ];
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        console.log(
+          `${JSON.stringify(
+            response.data.holdingCount
+          )}  : HoldingShares java useEffect then`
+        );
+        setHolding(response.data.holdingCount);
+      })
+      .catch((error) => {
+        console.log(`HoldingShares useEffect catch`);
+        throw error;
+      });
+  }, [user]);
 
   const useTabs = (initialTabs, allTabs) => {
     const [portfolioContentIndex, setPortfolioContentIndex] = useState(
@@ -23,6 +53,7 @@ const PortfolioPage = () => {
     0,
     portfolioContent
   );
+
   return (
     <>
       <Navbar />
