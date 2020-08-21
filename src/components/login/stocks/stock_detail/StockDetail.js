@@ -3,56 +3,31 @@ import "./stockDetail.css";
 import { ModalBuying, ModalSelling } from "../../items";
 import axios from "axios";
 
-const StockDetail = () => {
+const StockDetail = ({stockDetail}) => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
-  const [nowStock, setNowStock] = useState({
-    stockName: "",
-    symbol: 111111,
-    nowPrice: 0,
-    high: 0,
-    low: 0,
-    volume: 0,
-    //거래 대금 : 0
-    //기준 날짜 :
-  });
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/`)
-      .then((response) => {
-        console.log(`StockDetail useEffect then python`);
-        setNowStock(response.data);
-      })
-      .catch((error) => {
-        console.log(`StockDetail useEffect catch python`);
-        throw error;
-      });
-  }, []);
 
   return (
     <>
       <table className="stock_table w-full">
         <tr className="line_setting_1">
           <td>
-            <span className="stock_name">{nowStock.stockName}</span>
-            <span className="stock_code">({nowStock.symbol})</span>
+            <span className="stock_name">{stockDetail.stockName}</span>
+            <span className="stock_code">{stockDetail.symbol}</span>
           </td>
           <td>
-            <span className={"text-xs"}>2020.08.21 기준</span>
+            <span className={"text-xs"}>{stockDetail.date}</span>
           </td>
           <td>
             <button
               className="btn btn-default text-white btn-red btn-rounded btn-icon mystock"
-              onClick={() => setBuyOpen(true)}
-            >
+              onClick={() => setBuyOpen(true)}>
               <span>매도</span>
             </button>
             <button
               className="btn btn-default text-white btn-blue btn-rounded btn-icon mystock"
-              onClick={() => setSellOpen(true)}
-            >
+              onClick={() => setSellOpen(true)}>
               <span>매수</span>
             </button>
           </td>
@@ -62,9 +37,9 @@ const StockDetail = () => {
             <div className="w-full p-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <div className="stock_name">{nowStock.nowPrice}</div>
+                  <div className="stock_name">{stockDetail.now}</div>
                   <div className="text-xs font-light text-grey-500">
-                    전일대비 🔼 390 | + 0.93%
+                    {stockDetail.dod}
                   </div>
                 </div>
               </div>
@@ -81,14 +56,14 @@ const StockDetail = () => {
                           전일
                         </span>
                         <span className="text-xl font-bold text_row">
-                          34,291
+                          {stockDetail.close}
                         </span>
                         <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           시가
                         </span>
                         <span className="text-xl font-bold">
-                          {nowStock.nowPrice}
+                          {stockDetail.open}
                         </span>
                       </td>
                       <td className="card_grid">
@@ -96,14 +71,14 @@ const StockDetail = () => {
                           고가
                         </span>
                         <span className="text-xl font-bold text_row">
-                          {nowStock.high}
+                          {stockDetail.high}
                         </span>
                         <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           저가
                         </span>
                         <span className="text-xl font-bold">
-                          {nowStock.low}
+                          {stockDetail.low}
                         </span>
                       </td>
                       <td>
@@ -111,13 +86,13 @@ const StockDetail = () => {
                           거래량
                         </span>
                         <span className="text-xl font-bold text_row">
-                          {nowStock.volume}
+                          {stockDetail.volume}
                         </span>
                         <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           거래대금
                         </span>
-                        <span className="text-xl font-bold">34,291</span>
+                        <span className="text-xl font-bold">{stockDetail.transacAmount}</span>
                       </td>
                     </tr>
                   </table>

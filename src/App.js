@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   OpinionList,
@@ -14,8 +14,11 @@ import { PortfolioPage } from "./components/login/portfolio";
 import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
 import { Welcome } from "./components/non_login/welcome";
 import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
+import axios from "axios";
 
 const App = () => {
+
+
   return (
     <Router>
       <Switch>
@@ -102,10 +105,10 @@ const App = () => {
         />
         <Route
           exact
-          path="/stock/detail"
+          path="/stock/detail/:symbol"
           render={(props) => (
             <React.Fragment>
-              <StockPage />
+              <StockPage {...props}/>
             </React.Fragment>
           )}
         />

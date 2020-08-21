@@ -126,12 +126,7 @@ const OpinionDetail = () => {
               </ul>
             ))}
             <input className="comment_input" onChange={onChangeComment} />
-            <button className="comment_button" onClick={(e) => {
-              const comment = {
-                user: JSON.parse(sessionStorage.getItem("logined_user"),
-                commentContent : commentContent,
-              }
-            }}>
+            <button className="comment_button">
               댓글달기
             </button>
           </div>
