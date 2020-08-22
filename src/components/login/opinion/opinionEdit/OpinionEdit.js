@@ -1,51 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./opinionRegister.css";
+import "./opinionEdit.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
 import axios from "axios";
 
 const OpinionRegister = () => {
+  const [board, setBoard] = useState(
+    JSON.parse(sessionStorage.getItem("opinionEdit"))
+  );
   const [boardTitle, setBoardTitle] = useState("");
   const [boardContent, setBoardContent] = useState("");
-  const [user, setUser] = useState(
-    JSON.parse(sessionStorage.getItem("logined_user"))
-  );
-
+  const url = "http://localhost:8080/boards";
   const onChangeBoardTitle = (e) => {
     setBoardTitle(e.target.value);
   };
+
+  useEffect(() => {
+    console.log(board);
+    setBoardTitle(board.boardTitle);
+    setBoardContent(board.boardContent);
+  }, []);
 
   const onChangeBoardContent = (value) => {
     setBoardContent(value);
   };
 
-  const url = "http://localhost:8080/boards";
-
-  function getFormatDate(date) {
-    var year = date.getFullYear();
-    var month = 1 + date.getMonth();
-    month = month >= 10 ? month : "0" + month;
-    var day = date.getDate();
-    day = day >= 10 ? day : "0" + day;
-    return year + "-" + month + "-" + day;
-  }
-
-  const register = (e) => {
+  const edit = (e) => {
     e.preventDefault();
-    const board = {
+    const boardJson = {
+      boardId: board.boardId,
       boardTitle: boardTitle,
       boardContent: boardContent,
-      user: user,
-      viewCnt: 0,
-      boardRegdate: getFormatDate(new Date()),
+      user: JSON.parse(sessionStorage.getItem("logined_user")),
+      viewCnt: board.viewCnt,
+      boardRegdate: board.boardRegdate,
+      commentList: board.commentList,
+      userId: JSON.parse(sessionStorage.getItem("logined_user")).userId,
+      nickname: JSON.parse(sessionStorage.getItem("logined_user")).nickname,
     };
     if (boardTitle !== "" && boardContent !== "") {
-      axios.post(`${url}/insert`, board).then((response) => {
-        alert("게시물 등록이 완료되었습니다.");
-        window.location.href = "/opinion";
+      console.log(boardJson);
+      axios.post(`${url}/update`, boardJson).then((response) => {
+        alert("게시물 수정이 완료되었습니다.");
+        sessionStorage.setItem("opinionDetail", JSON.stringify(boardJson));
+        window.location.href = "/opinion/detail";
       });
     } else if (boardTitle === "") {
       alert("제목을 입력해주세요.");
@@ -66,14 +67,15 @@ const OpinionRegister = () => {
                 className="form-input input_title"
                 placeholder="제목을 입력하세요"
                 type="text"
+                value={boardTitle}
                 onChange={onChangeBoardTitle}
               />
               <div className="w-full mb-4">
                 <div className="w-full">
                   <ReactQuill
                     theme="snow"
-                    value={boardContent}
                     placeholder="내용을 입력하세요"
+                    value={boardContent}
                     onChange={onChangeBoardContent}
                   />
                 </div>
@@ -91,9 +93,9 @@ const OpinionRegister = () => {
                 <button
                   className="btn btn-default bg-blue-500 hover:bg-blue-600 text-white btn-rounded"
                   style={{ cursor: "pointer" }}
-                  onClick={register}
+                  onClick={edit}
                 >
-                  등록하기
+                  수정하기
                 </button>
               </div>
             </form>

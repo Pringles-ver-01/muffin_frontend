@@ -160,7 +160,6 @@ const OpinionList = () => {
                               boardRegdate: item.boardRegdate,
                               nickname: item.nickname,
                               viewCnt: item.viewCnt + 1,
-                              userId: item.userId,
                               commentList: item.commentList,
                             };
                             axios

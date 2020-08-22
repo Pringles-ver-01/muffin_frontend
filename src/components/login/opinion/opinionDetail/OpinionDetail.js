@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./opinionDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
@@ -18,6 +18,15 @@ const OpinionDetail = () => {
   const onChangeComment = (e) => {
     setCommentContent(e.target.value);
   };
+
+  function getFormatDate(date) {
+    var year = date.getFullYear();
+    var month = 1 + date.getMonth();
+    month = month >= 10 ? month : "0" + month;
+    var day = date.getDate();
+    day = day >= 10 ? day : "0" + day;
+    return year + "-" + month + "-" + day;
+  }
 
   useEffect(() => {
     setAuthority(
@@ -64,7 +73,19 @@ const OpinionDetail = () => {
                 <div className="authority">작성자 : {board.nickname}</div>
                 {authority && (
                   <div className="documentDetailAuthority">
-                    <div className="authority2">수정</div>
+                    <div
+                      className="authority2"
+                      sylte={{ cursor: "pointer" }}
+                      onClick={(e) => {
+                        sessionStorage.setItem(
+                          "opinionEdit",
+                          JSON.stringify(board)
+                        );
+                        history.push("/opinion/update");
+                      }}
+                    >
+                      수정
+                    </div>
                     <div
                       className="authority3"
                       style={{ cursor: "pointer" }}
@@ -78,14 +99,9 @@ const OpinionDetail = () => {
             </div>
             <div className="contentdetaildiv">
               <div className="detail_content_01">
-                {board.boardContent.split("\n").map(function (item, idx) {
-                  return (
-                    <span key={idx}>
-                      {item}
-                      <br />
-                    </span>
-                  );
-                })}
+                <span
+                  dangerouslySetInnerHTML={{ __html: board.boardContent }}
+                ></span>
               </div>
             </div>
             {content.map((item) => (
@@ -126,12 +142,27 @@ const OpinionDetail = () => {
               </ul>
             ))}
             <input className="comment_input" onChange={onChangeComment} />
-            <button className="comment_button" onClick={(e) => {
-              const comment = {
-                user: JSON.parse(sessionStorage.getItem("logined_user"),
-                commentContent : commentContent,
-              }
-            }}>
+            <button
+              className="comment_button"
+              onClick={(e) => {
+                const comment = {
+                  user: JSON.parse(sessionStorage.getItem("logined_user")),
+                  board: board,
+                  commentContent: commentContent,
+                  nickname: JSON.parse(sessionStorage.getItem("logined_user"))
+                    .nickname,
+                  commentRegdate: getFormatDate(new Date()),
+                };
+                axios
+                  .post(`http://localhost:8080/comments/insert`, comment)
+                  .then((response) => {
+                    window.location.reload();
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+              }}
+            >
               댓글달기
             </button>
           </div>
