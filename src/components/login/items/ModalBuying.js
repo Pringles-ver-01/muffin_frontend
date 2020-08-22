@@ -14,8 +14,15 @@ const ModalBuying = (props) => {
   };
   const increase = (e) => {
     e.preventDefault();
-    setBuyCount(buyCount + 1);
-    setPurchasePrice((buyCount + 1) * nowPrice);
+    let money = sessionStorage.getItem("user_asset")
+    let buyMoney = (buyCount + 1) * nowPrice
+    if(buyMoney >= money){
+      setBuyCount(buyCount + 1);
+      setPurchasePrice((buyCount + 1) * nowPrice);
+    }else{
+      alert('돈이 부')
+    }
+
   };
 
   const modalStyle = {
