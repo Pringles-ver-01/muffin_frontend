@@ -1,60 +1,56 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "./search.style.css";
 import { StockPage } from "../stocks";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
+import axios from "axios";
 
 const Search = () => {
-  const [title, setTitle] = useState(
-    " 미래에셋자산운용, 초등학생 '온라인 경제교육' 이벤트 진행 "
-  );
-  const [summary, setSummary] = useState(
-    " [파이낸셜뉴스] 미래에셋자산운용은 초등학생을 대상으로 온라인 경제교육 이벤트를 진행한다고 28일 밝혔다. 전국 초등학교는 코로나19 영향으로 지난 4월부터 원격수업과 등교...  "
-  );
-  const [regDate, setRegDate] = useState("  2020-07-28");
-  const [thumbnail, setThumbnail] = useState(
-    " https://imgnews.pstatic.net/image/thumb70/018/2020/08/08/4709350.jpg "
-  );
-  const [address, setAddress] = useState("/detail");
-  const [arr, setArr] = useState([
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-    {
-      title: title,
-      summary: summary,
+  const [newsList, setNewsList] = useState([])
+  const showDetail = () =>{  }
 
-      regDate: regDate,
-      thumbnail: thumbnail,
-      address: address,
-    },
-  ]);
+  const [pageArr, setPageArr] = useState([])
+  const [prev, setPrev ] = useState(false)
+  const [next, setNext ] = useState(false)
+  const [page, setPage ] = useState(1)
+  const [range, setRange] = useState(1)
+  const getAll = (page, range) => {
+    setPage(page)
+    setRange(range)
+    setPageArr([])
+    setNewsList([])
+    axios
+      .get(`http://localhost:8080/news/pagination/${page}/${range}`)
+      .then((response)=>{
+          console.log(response.data)
+          response.data.list.map((item) => {
+            setNewsList((newsList) => [...newsList, item])
+          })
+          let i = 0
+          const startPage = response.data.pagination.startPage
+          const endPage = response.data.pagination.endPage
+          if (
+            response.data.pagination.pageCnt <
+            startPage + response.data.pagination.rangeSize
+          ) {
+            for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+              setPageArr((pageArr) => [...pageArr, startPage + i])
+          } else {
+            for (i; i < response.data.pagination.rangeSize; i++)
+              setPageArr((pageArr) => [...pageArr, startPage + i])
+          }
+          setPrev(response.data.pagination.prev)
+          setNext(response.data.pagination.next)
+        }
+      )
+      .catch((error)=>console.log('error'))
+  }
+  useEffect(()=>{
+    getAll(1, 1)
+  },[])
+
+
   return (
     <>
       <Navbar />
@@ -64,14 +60,18 @@ const Search = () => {
           <div>
             <div className="documentroom_container">
               <div className="documentroom_text">검색결과</div>
+              ///////////////////////////////////////////////////////////////////////////////
+
               <div>
                 <StockPage />
               </div>
+
+              ///////////////////////////////////////////////////////////////////////////////
               <div className="stock_detail_section"></div>
 
               <div className="documentroom_search_container">
                 <div className="news_search_table">
-                  {arr.map((item) => (
+                  {newsList.map((item) => (
                     <ul className="news-ul">
                       <li className="news-li">
                         <ul className="news-row-list">
@@ -83,8 +83,12 @@ const Search = () => {
                             />
                           </li>
                           <li>
-                            <Link to="/news/detail">
-                              <div className="news_title_div">{item.title}</div>
+                            <Link to={`/news/detail/${item.newsId}`}>
+                              <div className="news_title_div" onClick={()=>{
+                                showDetail(item.newsTitle)
+                              }}>
+                                {item.newsTitle}
+                              </div>
                             </Link>
 
                             <div className="news_summary_div">

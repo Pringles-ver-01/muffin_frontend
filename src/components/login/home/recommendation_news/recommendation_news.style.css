@@ -1,7 +1,7 @@
 @import "../../../../style.css";
 
 .recommendation_container {
-  width: 940px;
+  width: 900px;
   height: 300px;
   font-size: 30px;
 }
@@ -9,15 +9,14 @@
 .news_title_section {
   display: flex;
   flex-direction: row;
-  margin-bottom: 5px;
-  width: 90%;
+  width: 800px;
   font-size: 40px;
 }
 
 .news_title {
   font-size: 50px;
-  width: 95%;
-  margin-bottom: 25px;
+  width: 90%;
+  margin-bottom: 15px;
   margin-left: 10px;
   font-weight: bold;
 }
@@ -27,15 +26,12 @@
   left: 18%;
   margin-top: 3px;
   color: var(--brownish-grey);
-  font-size: 14px;
+  font-size: 17px;
   width: 40%
 }
 
-.news_summary_section {
-  width: 940px;
-  margin-bottom: 10px;
-  /* summary 사용 X -> 사용 여부 확인 후 수정 할 것 */
-}
 .news_title_style{
-  font-size: 20px;
+  width: 150%;
+  font-size: 17px;
+  margin-left: 20px;
 }

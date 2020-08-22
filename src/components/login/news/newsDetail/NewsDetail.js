@@ -85,7 +85,7 @@ const NewsDetail = ({match}) => {
                 })}
               </div>
 
-              <Link to="/news" className="list_button">
+              <Link to={`/news`} className="list_button">
                 목록
               </Link>
               {/*<button

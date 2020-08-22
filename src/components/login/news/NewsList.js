@@ -6,8 +6,9 @@ import Menu from "../menu/Menu";
 import axios from 'axios';
 
  const NewsList = () => {
+
    const [newsList, setNewsList] = useState([])
-   const showDetail = () =>{ }
+   const showDetail = () =>{  }
 
    const [pageArr, setPageArr] = useState([])
    const [prev, setPrev ] = useState(false)
@@ -96,13 +97,13 @@ import axios from 'axios';
                             />
                           </li>
                           <li>
-                            <div>
                               <Link to={`/news/detail/${item.newsId}`}>
-                                <div className="news_title_div" onClick={()=>{showDetail(item.newsTitle)}}>
+                                <div className="news_title_div" onClick={()=>{
+                                  showDetail(item.newsTitle)
+                                }}>
                                   {item.newsTitle}
                                 </div>
                               </Link>
-                            </div>
                           </li>
                           <li>
                             <div className="news_regdate_div">{item.newsRegDate}</div>

@@ -37,9 +37,7 @@ const Recommendation_News = () => {
                     </div>
                       <div className="news_regdate">{item.newsRegDate}</div>
                   </div>
-                  {/*<div className="news_summary_section">
-                    <div>{item.summary}</div>
-                  </div>*/}
+
                 </div>
               </div>
             </div>
