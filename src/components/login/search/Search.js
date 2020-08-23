@@ -47,8 +47,6 @@ const Search = ({match}) => {
             window.location.assign('/news');
 
           }
-
-
         let i = 0
         const startPage = response.data.pagination.startPage
         const endPage = response.data.pagination.endPage

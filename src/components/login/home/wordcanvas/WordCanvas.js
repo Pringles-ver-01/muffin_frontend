@@ -1,9 +1,38 @@
 import React , {useState, useEffect} from "react";
-import ReactWordcloud from "react-wordcloud";
-import WordCloud from "react-d3-cloud"
+import ReactWordcloud from 'react-wordcloud';
+
 import axios from 'axios';
 
+
 const WordCanvas = () => {
+
+  const [name, setName] = useState([])
+
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/cloud`)
+      .then((response)=>{
+        console.log(response.data)
+        setName(response.data)
+      })
+      .catch((error)=>{
+        console.log(error)
+        throw error
+      })
+  })
+
+  return (
+    <ReactWordcloud words={name} />
+
+    /*data={setName} fontSizeMapper={fontSizeMapper} rotate={rotate} />*/
+  );
+};
+/*
+  const fontSizeMapper = word => Math.log2(word.value) * 5;
+  const rotate = word => word.value % 360;
+*/
+
+
+/*
 
   const word = "테스트"
 
@@ -23,14 +52,10 @@ const WordCanvas = () => {
 
 
 
+*/
 
 
-  return (
-    <>
-      {word}
-    </>
-  );
-};
+
 
 /*
  const [topics, setTopics] = useState([
