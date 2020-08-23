@@ -130,10 +130,10 @@ const App = () => {
         />
         <Route
           exact
-          path="/search"
+          path="/search/:searchWord"
           render={(props) => (
             <React.Fragment>
-              <Search />
+              <Search {...props}/>
             </React.Fragment>
           )}
         />
