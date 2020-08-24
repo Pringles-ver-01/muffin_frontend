@@ -11,12 +11,11 @@ const content = [
   { title: "개인정보변경", content: <AccountSetting /> },
   { title: "투자프로필변경", content: <InvestProfile /> },
   { title: "작성글", content: <MyOpinion /> },
-<<<<<<< HEAD
+
   { title: "작성댓글", content: <MyComment /> }
 
-=======
-  { title: "작성댓글", content: <MyComment /> },
->>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
+
+
 ];
 
 const useTabs = (initialTabs, allTabs) => {

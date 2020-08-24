@@ -11,11 +11,11 @@
     "glamor": "^2.20.40",
     "history": "^4.9.0",
     "html2canvas": "^1.0.0-rc.3",
-<<<<<<< HEAD
+
     "http-proxy-middleware": "^1.0.5",
     "items": "^2.1.2",
-=======
->>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
+
+
     "js-beautify": "^1.11.0",
     "jspdf": "^1.5.3",
     "jwt-decode": "^2.2.0",

@@ -116,11 +116,11 @@ const App = () => {
           path="/news/detail/:id"
           render={(props) => (
             <React.Fragment>
-<<<<<<< HEAD
+
               <NewsDetail {...props}/>
-=======
+
               <NewsDetail {...props} />
->>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
+
             </React.Fragment>
           )}
         />
@@ -129,11 +129,11 @@ const App = () => {
           path="/search/:searchWord"
           render={(props) => (
             <React.Fragment>
-<<<<<<< HEAD
+
               <Search {...props}/>
-=======
+
               <Search {...props} />
->>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
+
             </React.Fragment>
           )}
         />
