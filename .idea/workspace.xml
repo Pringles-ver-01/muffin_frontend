@@ -20,14 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a427bb5-3a9c-40b2-8ab1-1ea7a2a4b25a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/context/assetContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/stockContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/items/ModalBuying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/items/ModalBuying.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/items/ModalSelling.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/items/ModalSelling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/PortfolioPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/PortfolioPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/holding_shares/HoldingShares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/holding_shares/HoldingShares.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/non_login/auth/signin/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/non_login/auth/signin/SignIn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -38,6 +56,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gLDxnUBpB91bzdpEyFEpcH0Kk1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,6 +76,7 @@
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -81,6 +103,8 @@
       <workItem from="1597912681653" duration="19141000" />
       <workItem from="1597971044480" duration="9092000" />
       <workItem from="1598019025611" duration="524000" />
+      <workItem from="1598080286448" duration="28612000" />
+      <workItem from="1598155107715" duration="18608000" />
     </task>
     <servers />
   </component>
@@ -108,47 +132,51 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="469" y="227" key="#start/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597888282149" />
-    <state width="933" height="325" key="GridCell.Tab.0.bottom" timestamp="1598063967651">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1659" height="341" key="GridCell.Tab.0.bottom" timestamp="1598212554002">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="343" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1597978839270" />
+    <state width="1659" height="341" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1598212554002" />
     <state width="949" height="169" key="GridCell.Tab.0.bottom/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532374" />
-    <state width="933" height="325" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598063967651" />
-    <state width="933" height="325" key="GridCell.Tab.0.center" timestamp="1598063967650">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="985" height="324" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598114670405" />
+    <state width="1659" height="341" key="GridCell.Tab.0.center" timestamp="1598212553997">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="343" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1597978839269" />
+    <state width="1659" height="341" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1598212553997" />
     <state width="949" height="169" key="GridCell.Tab.0.center/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532373" />
-    <state width="933" height="325" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598063967650" />
-    <state width="933" height="325" key="GridCell.Tab.0.left" timestamp="1598063967649">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="985" height="324" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598114670404" />
+    <state width="1659" height="341" key="GridCell.Tab.0.left" timestamp="1598212553996">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="343" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1597978839267" />
+    <state width="1659" height="341" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1598212553996" />
     <state width="949" height="169" key="GridCell.Tab.0.left/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532372" />
-    <state width="933" height="325" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598063967649" />
-    <state width="933" height="325" key="GridCell.Tab.0.right" timestamp="1598063967650">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="985" height="324" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598114670403" />
+    <state width="1659" height="341" key="GridCell.Tab.0.right" timestamp="1598212553997">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="343" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1597978839270" />
+    <state width="1659" height="341" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1598212553997" />
     <state width="949" height="169" key="GridCell.Tab.0.right/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532373" />
-    <state width="933" height="325" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598063967650" />
-    <state x="730" y="275" width="596" height="522" key="find.popup" timestamp="1597981965104">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="985" height="324" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598114670404" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1598186147012">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="730" y="275" width="596" height="522" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1597981965104" />
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1598186147012" />
+    <state x="730" y="258" width="596" height="580" key="find.popup" timestamp="1598157866259">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="730" y="258" width="596" height="580" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1598157866259" />
+    <state x="730" y="275" width="596" height="580" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1598115642279" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1598158460721">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1598158460721" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>109</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/login/stocks/StockList.js</url>
-          <line>61</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/components/non_login/auth/signin/SignIn.js</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

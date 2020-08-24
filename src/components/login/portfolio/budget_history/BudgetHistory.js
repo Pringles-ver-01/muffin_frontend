@@ -4,7 +4,7 @@ import "./budgetHistory.style.css";
 import axios from "axios";
 
 
-const BudgetHistory = ({holding, setHolding}) => {
+const BudgetHistory = ({asset, setAsset}) => {
 
   const [pageArr, setPageArr] = useState([]);
   const [prev, setPrev ] = useState(false);
@@ -22,13 +22,13 @@ const BudgetHistory = ({holding, setHolding}) => {
     setPage(page);
     setRange(range);
     setPageArr([]);
-    setHolding([]);
+    setAsset([]);
     axios
       .get(`http://localhost:8080/assets/pagination/${page}/${range}`)
       .then((response)=>{
           console.log(`${JSON.stringify(response.data)}   :    /assets/pagination/${page}/${range}`)
           response.data.list.map((item) => {
-            setHolding((holding) => [...holding, item]);
+            setAsset((holding) => [...holding, item]);
           })
           let i = 0
           const startPage = response.data.pagination.startPage
@@ -67,7 +67,7 @@ const BudgetHistory = ({holding, setHolding}) => {
         </tr>
         </thead>
         <tbody>
-        {holding.map((item) => (
+        {asset[0] && asset.map((item) => (
           <tr>
             <td>{item.transactionDate}</td>
             <td>{item.stockName}</td>

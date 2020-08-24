@@ -3,10 +3,10 @@ import "./stockDetail.css";
 import { ModalBuying, ModalSelling } from "../../items";
 import axios from "axios";
 
-const StockDetail = ({stockDetail}) => {
+const StockDetail = ({stockDetail, asset, setAsset}) => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
-
+  const [bill, setBill] = useState({});
 
   return (
     <>
@@ -22,12 +22,20 @@ const StockDetail = ({stockDetail}) => {
           <td>
             <button
               className="btn btn-default text-white btn-red btn-rounded btn-icon mystock"
-              onClick={() => setBuyOpen(true)}>
+              onClick={e => {
+                e.preventDefault();
+                setAsset(stockDetail);
+                setBuyOpen(true);
+              }}>
               <span>매도</span>
             </button>
             <button
               className="btn btn-default text-white btn-blue btn-rounded btn-icon mystock"
-              onClick={() => setSellOpen(true)}>
+              onClick={e => {
+                e.preventDefault();
+                setAsset(stockDetail);
+                setSellOpen(true);
+              }}>
               <span>매수</span>
             </button>
           </td>
@@ -102,8 +110,8 @@ const StockDetail = ({stockDetail}) => {
           </td>
         </tr>
       </table>
-      <ModalBuying isOpen={buyOpen} isClose={() => setBuyOpen(false)} />
-      <ModalSelling isOpen={sellOpen} isClose={() => setSellOpen(false)} />
+      {buyOpen && <ModalBuying asset={bill}  isOpen={buyOpen} isClose={() => setBuyOpen(false)} />}
+      {sellOpen && <ModalSelling asset={bill}  isOpen={sellOpen} isClose={() => setSellOpen(false)} />}
     </>
   );
 };
