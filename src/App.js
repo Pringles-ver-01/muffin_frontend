@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   OpinionList,
   OpinionDetail,
   OpinionRegister,
-  OpinionEdit,
 } from "./components/login/opinion";
 import { StockPage, StockList } from "./components/login/stocks";
 import { NewsList, NewsDetail } from "./components/login/news";
@@ -15,6 +14,8 @@ import { PortfolioPage } from "./components/login/portfolio";
 import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
 import { Welcome } from "./components/non_login/welcome";
 import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
+import { AssetProvider, StockProvider } from "./context";
+import axios from "axios";
 
 const App = () => {
   return (
@@ -103,24 +104,6 @@ const App = () => {
         />
         <Route
           exact
-          path="/opinion/update"
-          render={(props) => (
-            <React.Fragment>
-              <OpinionEdit />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/stock/detail"
-          render={(props) => (
-            <React.Fragment>
-              <StockPage />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
           path="/news"
           render={(props) => (
             <React.Fragment>
@@ -139,10 +122,10 @@ const App = () => {
         />
         <Route
           exact
-          path="/search"
+          path="/search/:searchWord"
           render={(props) => (
             <React.Fragment>
-              <Search />
+              <Search {...props} />
             </React.Fragment>
           )}
         />
@@ -164,24 +147,37 @@ const App = () => {
             </React.Fragment>
           )}
         />
-        <Route
-          exact
-          path="/stocklist"
-          render={(props) => (
-            <React.Fragment>
-              <StockList />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/portfolio"
-          render={(props) => (
-            <React.Fragment>
-              <PortfolioPage />
-            </React.Fragment>
-          )}
-        />
+        <AssetProvider>
+          <StockProvider>
+            <Route
+              exact
+              path="/stocklist"
+              render={(props) => (
+                <React.Fragment>
+                  <StockList />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/stock/detail/:symbol"
+              render={(props) => (
+                <React.Fragment>
+                  <StockPage {...props} />
+                </React.Fragment>
+              )}
+            />
+          </StockProvider>
+          <Route
+            exact
+            path="/portfolio"
+            render={(props) => (
+              <React.Fragment>
+                <PortfolioPage />
+              </React.Fragment>
+            )}
+          />
+        </AssetProvider>
       </Switch>
     </Router>
   );

@@ -91,18 +91,16 @@ const NewsList = () => {
                           />
                         </li>
                         <li>
-                          <div>
-                            <Link to={`/news/detail/${item.newsId}`}>
-                              <div
-                                className="news_title_div"
-                                onClick={() => {
-                                  showDetail(item.newsTitle);
-                                }}
-                              >
-                                {item.newsTitle}
-                              </div>
-                            </Link>
-                          </div>
+                          <Link to={`/news/detail/${item.newsId}`}>
+                            <div
+                              className="news_title_div"
+                              onClick={() => {
+                                showDetail(item.newsTitle);
+                              }}
+                            >
+                              {item.newsTitle}
+                            </div>
+                          </Link>
                         </li>
                         <li>
                           <div className="news_regdate_div">
