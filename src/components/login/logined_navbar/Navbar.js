@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React,{useState} from "react";
 import {useHistory, Link, Route} from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import {Home} from "../home"
 import { Search } from "../search"
+=======
+import React, { useState } from "react";
+import { useHistory, Link, Route } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
+import { Home } from "../home";
+import { Search } from "../search";
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
 import LogoBlackIcon from "../../../assets/home/Logo_black.png";
 import "./navbar.style.css";
 
@@ -33,6 +41,7 @@ const Navbar = () => {
     history.push("/");
   };
 
+<<<<<<< HEAD
   const [searchWord , setSearchWord] = useState("")
   const onChangeNewsSearch = (e) => {
     setSearchWord(e.target.value)
@@ -46,6 +55,20 @@ const Navbar = () => {
     }
 
   }
+=======
+  const [searchWord, setSearchWord] = useState("");
+  const onChangeNewsSearch = (e) => {
+    setSearchWord(e.target.value);
+  };
+  const searchNews = () => {
+    if (searchWord === "") {
+      alert("검색어를 입력하세요");
+    } else {
+      console.log(searchWord);
+      window.location.assign(`/search/${searchWord}`);
+    }
+  };
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
 
   return (
     <div className="container">
@@ -57,6 +80,7 @@ const Navbar = () => {
         </Link>
 
         <div className="search_section">
+<<<<<<< HEAD
           <input placeholder="검색" className="search_nav_input"
           value={searchWord}
           onChange={onChangeNewsSearch}/>
@@ -67,6 +91,23 @@ const Navbar = () => {
             <FiSearch className = "fisearch"/>
           </button>
 
+=======
+          <input
+            placeholder="검색"
+            className="search_nav_input"
+            value={searchWord}
+            onChange={onChangeNewsSearch}
+          />
+          <button
+            style={{ cursor: "pointer" }}
+            className="search_nav_button"
+            onClick={() => {
+              searchNews();
+            }}
+          >
+            <FiSearch className="fisearch" />
+          </button>
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
         </div>
 
         <div className="btn-container">

@@ -57,7 +57,11 @@
   font-size: 18px;
   margin: 20px;
 }
+<<<<<<< HEAD
 .news_regdate_div{
+=======
+.news_regdate_div {
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   flex-direction: row;
   height: 45px;
   margin: 50px;
@@ -70,7 +74,11 @@
 }
 
 .page-div {
+<<<<<<< HEAD
   margin-top: 11px;
+=======
+  margin-top: 10px;
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   display: flex;
   justify-content: center;
 }

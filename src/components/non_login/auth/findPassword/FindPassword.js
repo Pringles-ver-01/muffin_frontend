@@ -63,7 +63,7 @@ const FindPassword = () => {
         <div className="wrapper">
           <div className="inner-container2">
             <div className="login-container">
-              <div className="header2">회원가입</div>
+              <div className="header2">비밀번호 찾기</div>
 
               <div className="input-group2">
                 <div className="label-div">

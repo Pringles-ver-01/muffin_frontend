@@ -27,10 +27,17 @@
   margin-top: 3px;
   color: var(--brownish-grey);
   font-size: 17px;
+<<<<<<< HEAD
   width: 40%
 }
 
 .news_title_style{
+=======
+  width: 40%;
+}
+
+.news_title_style {
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   width: 150%;
   font-size: 17px;
   margin-left: 20px;

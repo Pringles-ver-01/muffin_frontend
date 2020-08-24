@@ -1,20 +1,30 @@
+<<<<<<< HEAD
 import React, {useEffect, useState} from "react";
+=======
+import React, { useEffect, useState } from "react";
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
 import { Link } from "react-router-dom";
 import "./newsDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
 import axios from "axios";
+<<<<<<< HEAD
 
 const NewsDetail = ({match}) => {
 
   console.log(match.params.id)
 
+=======
+const NewsDetail = ({ match }) => {
+  console.log(match.params.id);
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   const [newsTitle, setNewsTitle] = useState("");
   const [newsRegDate, setNewsRegDate] = useState("");
   const [newsLink, setNewsLink] = useState("");
   const [newsImage, setNewsImage] = useState("");
   const [newsContents, setNewsContents] = useState("");
   /*const newsId = localStorage.getItem(newsId)*/
+<<<<<<< HEAD
 
   useEffect(()=>{
     axios.get(`http://localhost:8080/news/getDetail/${match.params.id}`)
@@ -31,6 +41,23 @@ const NewsDetail = ({match}) => {
       })
   })
 
+=======
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/news/getDetail/${match.params.id}`)
+      .then(({ data }) => {
+        setNewsTitle(data.newsTitle);
+        setNewsRegDate(data.newsRegDate);
+        setNewsLink(data.newsLink);
+        setNewsImage(data.newsThumbnail);
+        setNewsContents(data.newsContent);
+      })
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      });
+  });
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   /*const save = (emailId) => {
     // 저장 여부 db에서 확인하고 if문으로 돌릴까?
     console.log(newsTitle, emailId)
@@ -55,7 +82,10 @@ const NewsDetail = ({match}) => {
         console.log(`axios 시도`);
       });
   };*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
   return (
     <>
       <Navbar />
@@ -84,7 +114,10 @@ const NewsDetail = ({match}) => {
                   );
                 })}
               </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
               <Link to={`/news`} className="list_button">
                 목록
               </Link>
@@ -103,5 +136,4 @@ const NewsDetail = ({match}) => {
     </>
   );
 };
-
 export default NewsDetail;

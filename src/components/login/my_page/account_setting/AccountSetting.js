@@ -9,7 +9,7 @@ const AccountSetting = () => {
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("logined_user"))
   );
-  const [id, setId] = useState(user.id);
+  const [userId, setId] = useState(user.userId);
   const [name, setName] = useState(user.name);
   const [emailId, setEmailId] = useState(user.emailId);
   const [nickname, setNickname] = useState("");
@@ -33,7 +33,7 @@ const AccountSetting = () => {
   const onClickUpdate = (e) => {
     e.preventDefault();
     const postUser = {
-      id: id,
+      userId: userId,
       password: password,
       nickname: nickname,
     };

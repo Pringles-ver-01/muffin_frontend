@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./recommendation.style.css";
 import axios from "axios";
 
@@ -7,12 +7,12 @@ const RecommendationOpinion = () => {
   const url = "http://localhost:8080/boards";
   const [address, setAddress] = useState("/detail");
   const [arr, setArr] = useState([]);
-
+  const history = useHistory();
   useEffect(() => {
     axios
       .get(`${url}/recentBoard`)
       .then((response) => {
-        response.data.content.map((item) => setArr((arr) => [...arr, item]));
+        response.data.map((item) => setArr((arr) => [...arr, item]));
       })
       .catch((error) => {
         console.log("실패");
@@ -27,9 +27,38 @@ const RecommendationOpinion = () => {
             <div>
               <div>
                 <div className="opinion_title_section">
-                  <Link to="opinion/detail">
-                    <div className="opinion_title">{item.boardTitle}</div>
-                  </Link>
+                  <div
+                    className="opinion_title"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      const boardJson = {
+                        boardId: item.boardId,
+                        userId: item.userId,
+                        boardTitle: item.boardTitle,
+                        boardContent: item.boardContent,
+                        boardRegdate: item.boardRegdate,
+                        nickname: item.nickname,
+                        viewCnt: item.viewCnt + 1,
+                        user: item.User,
+                        commentList: item.commentList,
+                      };
+                      axios
+                        .post(`${url}/update`, boardJson)
+                        .then((response) => {
+                          console.log(boardJson);
+                          sessionStorage.setItem(
+                            "opinionDetail",
+                            JSON.stringify(boardJson)
+                          );
+                          history.push("/opinion/detail");
+                        })
+                        .catch((error) => {
+                          console.log("실패");
+                        });
+                    }}
+                  >
+                    {item.boardTitle}
+                  </div>
 
                   <div className="opinion_regdate">{item.boardRegdate}</div>
                 </div>

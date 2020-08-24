@@ -61,16 +61,6 @@ const FirstInvestProfile = () => {
                 <span className="auth_container">
                   <input
                     type="radio"
-                    value="0"
-                    name="invest_style"
-                    onClick={() => setInvestmentPeriod("초단기")}
-                  />
-                  <span className="auth_span"> </span>
-                  <span>초단기(1개월↓)</span>
-                </span>
-                <span className="auth_container">
-                  <input
-                    type="radio"
                     value="2"
                     name="invest_style"
                     onClick={() => setInvestmentPeriod("단기")}
