@@ -8,7 +8,7 @@ import axios from 'axios';
  const NewsList = () => {
 
    const [newsList, setNewsList] = useState([])
-   const showDetail = (e) =>{ e.preventDefault()  }
+   const showDetail = () =>{   }
 
    const [pageArr, setPageArr] = useState([])
    const [prev, setPrev ] = useState(false)
