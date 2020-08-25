@@ -37,6 +37,7 @@ const Navbar = () => {
   const onChangeNewsSearch = (e) => {
     setSearchWord(e.target.value);
   };
+
   const searchNews = () => {
     if (searchWord === "") {
       alert("검색어를 입력하세요");
@@ -61,6 +62,11 @@ const Navbar = () => {
             className="search_nav_input"
             value={searchWord}
             onChange={onChangeNewsSearch}
+            onKeyPress={(e)=>{
+              if(e.key=='Enter'){
+                searchNews()
+              }
+            }}
           />
           <button
             style={{ cursor: "pointer" }}

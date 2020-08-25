@@ -4,7 +4,6 @@ import "./newsDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
 import axios from "axios";
-
 const NewsDetail = ({ match }) => {
   console.log(match.params.id);
   const [newsTitle, setNewsTitle] = useState("");
@@ -12,7 +11,7 @@ const NewsDetail = ({ match }) => {
   const [newsLink, setNewsLink] = useState("");
   const [newsImage, setNewsImage] = useState("");
   const [newsContents, setNewsContents] = useState("");
-  /*const newsId = localStorage.getItem(newsId)*/
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/news/getDetail/${match.params.id}`)
@@ -28,30 +27,7 @@ const NewsDetail = ({ match }) => {
         throw error;
       });
   });
-  /*const save = (emailId) => {
-    // 저장 여부 db에서 확인하고 if문으로 돌릴까?
-    console.log(newsTitle, emailId)
-    axios
-      .post(
-        `http://localhost:8080/news/saveNews`,
-        {
-          newsTitle: newsTitle,
-          newsRegDate: newsRegDate,
-          newsLink: newsLink,
-          emailId: emailId,
-        },
-        {
-          "Content-Type": "application/json",
-          Authorization: "JWT fefege...",
-        }
-      )
-      .then((response) => {
-        alert("뉴스가 스크랩 되었습니다.");
-      })
-      .catch((error) => {
-        console.log(`axios 시도`);
-      });
-  };*/
+
   return (
     <>
       <Navbar />
@@ -83,14 +59,6 @@ const NewsDetail = ({ match }) => {
               <Link to={`/news`} className="list_button">
                 목록
               </Link>
-              {/*<button
-                className="save_button"
-                onClick={() => {
-                  save();
-                }}
-              >
-                저장
-              </button>*/}
             </div>
           </div>
         </div>

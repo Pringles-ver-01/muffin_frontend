@@ -116,11 +116,7 @@ const App = () => {
           path="/news/detail/:id"
           render={(props) => (
             <React.Fragment>
-
               <NewsDetail {...props}/>
-
-              <NewsDetail {...props} />
-
             </React.Fragment>
           )}
         />

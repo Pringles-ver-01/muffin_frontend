@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Recommendation_News = () => {
   const [newsList, setNewsList] = useState([]);
   const url = "http://localhost:8080";
+
   const showDetail = () => {};
   useEffect(() => {
     axios
