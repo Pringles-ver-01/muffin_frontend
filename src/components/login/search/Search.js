@@ -33,6 +33,9 @@ const Search = ({ match }) => {
     setSearchWord("");
     setPageArr([]);
     setNewsList([]);
+
+
+
     axios
       .get(`http://localhost:8080/news/search/${match.params.searchWord}/1/1`)
       .then((response) => {
@@ -74,6 +77,51 @@ const Search = ({ match }) => {
       <div className="content-container">
         <div className="wrapper">
           <Menu />
+          '=================================='
+          <tbody>
+          {crawledStock[0] &&
+          crawledStock.map((crawledOneStock) => (
+            <tr>
+              <Link to={`/stock/detail/${crawledOneStock.symbol}`}>
+                <td
+                  onClick={() => {
+                    showDetail(crawledOneStock.stockName);
+                  }}
+                >
+                  {crawledOneStock.stockName}
+                </td>{" "}
+              </Link>
+              <td>{crawledOneStock.now}</td>
+              <td>{crawledOneStock.dod}</td>
+              <td>{crawledOneStock.transacAmount}</td>
+              <td>{crawledOneStock.volume}</td>
+              <td>
+                <button
+                  className="btn btn-default btn-blue text-white btn-rounded"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setBill(crawledOneStock);
+                    setBuyOpen(true);
+                  }}
+                >
+                  매수
+                </button>
+                <button
+                  className="btn btn-default btn-red text-white btn-rounded"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSellOpen(true);
+                    setBill(crawledOneStock);
+                  }}
+                >
+                  매도
+                </button>
+              </td>
+            </tr>
+          ))}
+          </tbody>
+
+          '=================================='
           <div>
             <div className="documentroom_container">
               <div className="documentroom_text"></div>
