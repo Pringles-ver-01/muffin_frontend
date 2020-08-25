@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AssetContext = React.createContext();
+const AssetContext = React.createContext({});
 
 const AssetProvider = ({ children }) => {
   const [asset, setAsset] = useState({});

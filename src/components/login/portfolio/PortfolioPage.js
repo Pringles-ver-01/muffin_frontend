@@ -7,7 +7,6 @@ import axios from "axios";
 import { AssetContext } from "../../../context";
 
 const PortfolioPage = () => {
-  const [ holding, setHolding ] = useState();
   const { asset, setAsset } = useContext(AssetContext);
   const portfolioContent = [
     { title: "보유종목", content: <HoldingShares asset={asset} setAsset={setAsset}/> },
@@ -16,19 +15,15 @@ const PortfolioPage = () => {
 
 
   useEffect(() => {
-    console.log(`1111`);
     axios
-      .get(`http://localhost:8080/assets/holdingCount/1`)
+      .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
       .then((response) => {
-        console.log(`${JSON.stringify(response.data.holdingCount)}  : HoldingShares java useEffect then`);
         setAsset(response.data.holdingCount);
       })
       .catch((error) => {
-        console.log(`HoldingShares useEffect catch`);
         throw error;
       });
-  }, []);
-
+  }, [asset]);
 
 
   const useTabs = (initialTabs, allTabs) => {
@@ -54,8 +49,10 @@ const PortfolioPage = () => {
           <Menu />
           <div>
             <div className="documentroom_container">
-              <div className="documentroom_text">포트폴리오</div>
-              <TotalBudget />
+              <div className="documentroom_text"/>
+
+              <TotalBudget asset={asset} setAsset={setAsset} />
+
               <div className="tab_portfolio_container">
                 {portfolioContent && portfolioContent.map((section, index) => (
                   <button

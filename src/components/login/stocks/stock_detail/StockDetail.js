@@ -110,8 +110,8 @@ const StockDetail = ({stockDetail, asset, setAsset}) => {
           </td>
         </tr>
       </table>
-      {buyOpen && <ModalBuying asset={bill}  isOpen={buyOpen} isClose={() => setBuyOpen(false)} />}
-      {sellOpen && <ModalSelling asset={bill}  isOpen={sellOpen} isClose={() => setSellOpen(false)} />}
+      {buyOpen && <ModalBuying asset={bill}  isOpen={buyOpen} isClose={() => setBuyOpen(false)} ariaHideApp={false} />}
+      {sellOpen && <ModalSelling asset={bill}  isOpen={sellOpen} isClose={() => setSellOpen(false)} ariaHideApp={false} />}
     </>
   );
 };

@@ -1,24 +1,68 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Modal from "react-modal";
 import "./modal.style.css";
 import axios from "axios";
+import {AssetContext} from "../../../context";
 
-const ModalBuying = (props, {asset, crawledStock}) => {
+const ModalBuying = (props) => {
   const url = "http://localhost:8080/assets/";
-  const [stockName] = useState(props.asset.stockName);
-  const [symbol] = useState((props.asset.symbol != null) ? props.asset.symbol : props.crawledStock.symbol);
-  const [nowPrice] = useState(
-    (props.asset.nowPrice != null) ? props.asset.nowPrice : props.crawledStock.now);
-  const [shareCount] = useState((props.asset.shareCount != null) ? props.asset.shareCount : 1 );
-  const [totalAmount] = useState(props.asset.totalAsset);
+  const { asset, setAsset } = useContext(AssetContext);
+  const [assetId, setAssetId] = useState(0);
+  const [stockId, setStockId] = useState(0);
+  const [stockName] = useState((props.ownedAsset.stockName != null) ? props.ownedAsset.stockName : props.stockOne.stockName);
+  const [symbol] = useState((props.ownedAsset.symbol != null) ? props.ownedAsset.symbol : props.stockOne.symbol);
+  const [nowPrice] = useState(parseInt((props.ownedAsset.nowPrice != null) ? (props.ownedAsset.nowPrice) : (props.stockOne.now).replace(',','')));
+  const [shareCount, setShareCount] = useState((props.ownedAsset.shareCount != null) ? props.ownedAsset.shareCount : 1 );
   const [transactionDate, setTransactionDate] = useState(new Date());
   const [purchasePrice, setPurchasePrice] = useState(nowPrice);
-  const [buyCount, setBuyCount] = useState(1);
   const [transactionType] = useState("매수");
+  const [matchedUserStock, setMatechedUserStock] = useState({});
+  const [matchedUserStockId, setMatechedUserStockId] = useState({});
+  const [matchedAssetId, setMatechedAssetId] = useState({});
+  const [totalAmount,setTotalAmount] = useState((props.ownedAsset.totalAmount != null) ? props.ownedAsset.totalAmount : props.stockOne.totalAmount);
+  const [buyCount, setBuyCount] = useState(1);
+
+
+  // assetId mount
+  useEffect(()=>{
+    for (let i = 0; i < asset.length; i++) {
+      if (asset[i].stockName === props.stockOne.stockName) {
+        setMatechedAssetId(asset[i]);
+        setAssetId(matchedAssetId.assetId);
+        console.log('/////////');
+      }
+    }
+  },[matchedAssetId])
+
+  // stockId mount
+  useEffect(()=>{
+    for (let i = 0; i < asset.length; i++) {
+      if (asset[i].stockName === props.stockOne.stockName) {
+        setMatechedUserStockId(asset[i]);
+        setStockId(matchedUserStockId.stockId);
+        console.log('-------');
+      }
+    }
+  },[matchedUserStockId])
+
+
+
+  // 총 자산 mount
+  useEffect(()=>{
+    // if(asset[0])console.log(totalAmount);
+    setMatechedUserStock(asset[0]);
+    setTotalAmount(matchedUserStock.totalAsset);
+  },[matchedUserStock])
+
+  useEffect(()=>{
+    setTotalAmount(matchedUserStock.totalAsset);
+    console.log(totalAmount);
+  },[matchedUserStock])
 
   useEffect(() => {
-    console.log(totalAmount);
-  })
+    console.log({stockId});
+  }, [stockId])
+
 
   const decrease = (e) => {
     e.preventDefault();
@@ -28,37 +72,50 @@ const ModalBuying = (props, {asset, crawledStock}) => {
     } else {
       alert('올바른 수량을 입력하세요.');
     }
-
   };
+
   const increase = (e) => {
     e.preventDefault();
-    let buyAmount = (buyCount + 1) * nowPrice
+    let buyAmount = (buyCount + 1) * nowPrice;
     if(totalAmount >= buyAmount){
       setBuyCount(buyCount + 1);
       setPurchasePrice((buyCount + 1) * nowPrice);
     }else{
       alert('돈이 부족합니다.');
     }
+  }
 
-  };
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
+      .then((response) => {
+        setAsset(response.data.holdingCount);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
   const submitTransaction = (e) => {
     e.preventDefault();
     const newTransaction = {
-      userId : sessionStorage.getItem("logined_user").userId,
+      userId : JSON.parse(sessionStorage.getItem("logined_user")).userId,
+      assetId : assetId,
       stockName : stockName,
       symbol : symbol,
       shareCount: buyCount,
       nowPrice: nowPrice,
       purchasePrice: purchasePrice,
       transactionDate : new Date().toLocaleDateString(),
-      transactionType : "매수"
+      transactionType : transactionType
     };
-    console.log(`~~~~buy~~~~~~~transactionType : ${transactionType}, stockName : ${stockName} ,buyCount : ${buyCount}, purchasePrice : ${purchasePrice}, 거래일 : ${transactionDate}`)
+    console.log(`~~~~buy~~~~~~~ ${JSON.stringify(newTransaction)}`)
     axios
-      .post(url + `buy`, newTransaction)
+      .post(url + `buy/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`, newTransaction)
       .then((response) => {
         console.log(`ModalSelling axios then`);
+        console.log(response);
+        setAsset(response.data);
         setBuyCount(1);
         setPurchasePrice(nowPrice);
         props.isClose(false);
@@ -80,11 +137,11 @@ const ModalBuying = (props, {asset, crawledStock}) => {
     <>
       <Modal {...props} style={modalStyle}>
         <span className="text_small ">{stockName}</span> <br />
-        <span className="text_small" style={{ "margin-right": "8px" }}>
+        <span className="text_small" style={{ "marginRight": "8px" }}>
           현재가
         </span>
         <span className="text_small ">{nowPrice} 원</span> <br />
-        <span className="text_small" style={{ "margin-right": "8px" }}>
+        <span className="text_small" style={{ "marginRight": "8px" }}>
           매수가
         </span>
         <span className="text_small ">{purchasePrice} 원</span>
