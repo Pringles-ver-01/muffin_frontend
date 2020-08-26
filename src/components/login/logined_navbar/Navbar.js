@@ -33,17 +33,17 @@ const Navbar = () => {
     history.push("/");
   };
 
-  const [searchWord, setSearchWord] = useState("");
+  const [newsSearch, setNewsSearch] = useState("");
   const onChangeNewsSearch = (e) => {
-    setSearchWord(e.target.value);
+    setNewsSearch(e.target.value);
   };
 
   const searchNews = () => {
-    if (searchWord === "") {
+    if (newsSearch === "") {
       alert("검색어를 입력하세요");
     } else {
-      console.log(searchWord);
-      window.location.assign(`/search/${searchWord}`);
+      console.log(newsSearch);
+      window.location.assign(`/search/${newsSearch}`);
     }
   };
 
@@ -60,7 +60,7 @@ const Navbar = () => {
           <input
             placeholder="검색"
             className="search_nav_input"
-            value={searchWord}
+            value={newsSearch}
             onChange={onChangeNewsSearch}
             onKeyPress={(e)=>{
               if(e.key=='Enter'){

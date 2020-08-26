@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eea993cd-47a2-47f4-bfd2-6ae07808328f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/home/wordcanvas/WordCanvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/wordcanvas/WordCanvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/logined_navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/logined_navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/news/NewsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/NewsList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/search/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/search/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stockList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stockList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +115,11 @@
       <workItem from="1598283414871" duration="2418000" />
       <workItem from="1598320508586" duration="27000" />
       <workItem from="1598321428068" duration="100000" />
-      <workItem from="1598325970410" duration="2610000" />
+      <workItem from="1598325970410" duration="19393000" />
+      <workItem from="1598357652891" duration="3228000" />
+      <workItem from="1598363204362" duration="1164000" />
+      <workItem from="1598364548282" duration="1591000" />
+      <workItem from="1598405638413" duration="4783000" />
     </task>
     <servers />
   </component>
@@ -132,10 +143,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1597398068810" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598254348512">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598362787040">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598254348512" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598362787040" />
     <state x="480" y="95" key="#run" timestamp="1597398049662">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -148,37 +159,37 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598262629454" />
-    <state width="1515" height="64" key="GridCell.Tab.0.bottom" timestamp="1598335245537">
+    <state width="1515" height="140" key="GridCell.Tab.0.bottom" timestamp="1598410455894">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="64" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598335245537" />
-    <state width="1515" height="64" key="GridCell.Tab.0.center" timestamp="1598335245537">
+    <state width="1515" height="140" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598410455894" />
+    <state width="1515" height="140" key="GridCell.Tab.0.center" timestamp="1598410455893">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="64" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598335245537" />
-    <state width="1515" height="64" key="GridCell.Tab.0.left" timestamp="1598335245537">
+    <state width="1515" height="140" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598410455893" />
+    <state width="1515" height="140" key="GridCell.Tab.0.left" timestamp="1598410455893">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="64" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598335245537" />
-    <state width="1515" height="64" key="GridCell.Tab.0.right" timestamp="1598335245537">
+    <state width="1515" height="140" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598410455893" />
+    <state width="1515" height="140" key="GridCell.Tab.0.right" timestamp="1598410455894">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="64" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598335245537" />
+    <state width="1515" height="140" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598410455894" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1598321477543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1598321477543" />
-    <state x="474" y="144" width="587" height="650" key="find.popup" timestamp="1598335577103">
+    <state x="474" y="144" width="587" height="650" key="find.popup" timestamp="1598363652187">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="474" y="144" width="587" height="650" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1598335577103" />
+    <state x="474" y="144" width="587" height="650" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1598363652187" />
     <state x="534" y="42" key="git4idea.branch.GitSmartOperationDialog" timestamp="1598273361421">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="534" y="42" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1598273361421" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1598335908069">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1598343709255">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598335908069" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598343709255" />
   </component>
 </project>

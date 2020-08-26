@@ -20,8 +20,8 @@ const WordCanvas = () => {
   useEffect(()=>{
     axios.get(`http://localhost:5000/cloud`)
       .then((res)=>{
-        console.log(res.data.test)
-        setWordList(res.data.test)
+        console.log(res.data)
+        setWordList(res.data)
       })
       .catch((err)=>{
         throw err
