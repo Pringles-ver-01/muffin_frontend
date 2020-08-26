@@ -4,18 +4,25 @@ import { Resizable } from "re-resizable";
 import axios from 'axios'
 
 const WordCanvas = () => {
-  const resizeStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "solid 1px #ddd",
-    background: "#f0f0f0"
-  };
+  const callbacks = {
+    getWordColor: word => word.value > 10 ? "red" : "blue",
 
-  const [wordList, setWordList] = useState([
-  ])
-  const fontSizeMapper = word => Math.log2(word.value) * 5;
-  const rotate = word => word.value % 360;
+    onWordClick: console.log,
+    onWordMouseOver: console.log,
+    getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 10 ? "good" : "bad"}]`,
+  }
+  const options = {
+    rotations: 1,
+    rotationAngles: [0, -90],
+    colors: ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b'],
+    fontFamily: 'impact',
+    scale: 'sqrt',
+    spiral: 'archimedean',
+    fontSize: 100
+
+  };
+  const size = [500, 300];
+  const [wordList, setWordList] = useState([])
 
   useEffect(()=>{
     axios.get(`http://localhost:5000/cloud`)
@@ -24,15 +31,16 @@ const WordCanvas = () => {
         setWordList(res.data)
       })
       .catch((err)=>{
-        throw err
+        console.log(err)
       })
-  })
+  },[])
 
   return (
     <>
         <div>
-          <ReactWordcloud words={wordList}
-                          fontSizeMapper={fontSizeMapper} rotate={rotate}/>
+          <ReactWordcloud
+            words={wordList} size={size} options={options}
+          />
         </div>
     </>
   );
