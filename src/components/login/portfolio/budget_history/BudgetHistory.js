@@ -56,60 +56,60 @@ const BudgetHistory = ({asset, setAsset}) => {
 
   return <>
 
-      <table className="w-full table">
-        <thead>
+    <table className="w-full table">
+      <thead>
+      <tr>
+        <th>거래날짜</th>
+        <th>종목</th>
+        <th>거래 종류</th>
+        <th>금액</th>
+        <th>잔액</th>
+      </tr>
+      </thead>
+      <tbody>
+      {asset[0] && asset.map((item) => (
         <tr>
-          <th>거래날짜</th>
-          <th>종목</th>
-          <th>거래 종류</th>
-          <th>금액</th>
-          <th>잔액</th>
+          <td>{item.transactionDate}</td>
+          <td>{item.stockName}</td>
+          <td>{item.transactionType}</td>
+          <td>{item.purchasePrice}</td>
+          <td>{item.totalAsset}</td>
         </tr>
-        </thead>
-        <tbody>
-        {asset[0] && asset.map((item) => (
-          <tr>
-            <td>{item.transactionDate}</td>
-            <td>{item.stockName}</td>
-            <td>{item.transactionType}</td>
-            <td>{item.purchasePrice}</td>
-            <td>{item.totalAsset}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+      ))}
+      </tbody>
+    </table>
     <div className="tab_portfolio_content_container">
 
       <div className="pagination-div">
         <div className="pagination">
-        {prev && (
-          <div className="page_button" id="prev" onClick={clickPrev}>
-            이전
-          </div>
-        )}
+          {prev && (
+            <div className="page_button" id="prev" onClick={clickPrev}>
+              이전
+            </div>
+          )}
 
-        {pageArr.map((pagenum) => (
-          <div
-            className="page_button"
-            key={pagenum}
-            onClick={() => {
-              getAll(pagenum, range);
-            }}
-          >
-            {pagenum}
-          </div>
-        ))}
+          {pageArr.map((pagenum) => (
+            <div
+              className="page_button"
+              key={pagenum}
+              onClick={() => {
+                getAll(pagenum, range);
+              }}
+            >
+              {pagenum}
+            </div>
+          ))}
 
-        {next && (
-          <div className="page_button" id="next" onClick={clickNext}>
-            다음
-          </div>
-        )}
+          {next && (
+            <div className="page_button" id="next" onClick={clickNext}>
+              다음
+            </div>
+          )}
         </div>
       </div>
     </div>
 
-    </>
+  </>
 
 };
 

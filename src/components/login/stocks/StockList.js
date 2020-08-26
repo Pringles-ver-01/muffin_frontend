@@ -18,20 +18,20 @@ const StockList = () => {
   const [stockOne, setStockOne] = useState({});
   const showDetail = () => { };
 
- /* const matchedUserAsset = (crawledStock) => {
-    for (let i = 0; i < crawledStock.length; i++) {
-      console.log(crawledStock.length)
-      console.log(crawledStock[i])
-      console.log(crawledStock[i].stockName)
-      console.log(asset[i])
-      if(crawledStock[0]) {
-        if (asset[i].stockName === crawledStock[i].stockName) {
-          setMatechedUserStock(asset[i]);
-          console.log(matchedUserAsset(i));
-        }
-      }
-    }
-  }*/
+  /* const matchedUserAsset = (crawledStock) => {
+     for (let i = 0; i < crawledStock.length; i++) {
+       console.log(crawledStock.length)
+       console.log(crawledStock[i])
+       console.log(crawledStock[i].stockName)
+       console.log(asset[i])
+       if(crawledStock[0]) {
+         if (asset[i].stockName === crawledStock[i].stockName) {
+           setMatechedUserStock(asset[i]);
+           console.log(matchedUserAsset(i));
+         }
+       }
+     }
+   }*/
 
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const StockList = () => {
     axios
       .get(`http://localhost:8080/stocks/pagination/${page}/${range}`)
       .then((response) => {
-        console.log(response.data.list)
+          console.log(response.data.list)
           response.data.list.map((item) => {
             setCrawledStock((crawledStock) => [...crawledStock, item]);
           })
@@ -199,8 +199,8 @@ const StockList = () => {
           </div>
           {buyOpen &&
           <ModalBuying  stockOne={stockOne} ownedAsset={ownedAsset}
-                       isOpen={buyOpen}
-                       isClose={() => setBuyOpen(false)} ariaHideApp={false}/>}
+                        isOpen={buyOpen}
+                        isClose={() => setBuyOpen(false)} ariaHideApp={false}/>}
           {sellOpen &&
           <ModalSelling stockOne={stockOne} ownedAsset={ownedAsset} isOpen={sellOpen}
                         isClose={() => setSellOpen(false)}

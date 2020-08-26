@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import React, {useEffect, useState} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+=======
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
 import {
   OpinionList,
   OpinionDetail,
   OpinionRegister,
 } from "./components/login/opinion";
+<<<<<<< HEAD
 import {StockPage, StockList} from "./components/login/stocks";
 import {NewsList, NewsDetail} from "./components/login/news";
 import {Home} from "./components/login/home";
@@ -15,6 +21,18 @@ import {SignIn, SignUp, FindPassword} from "./components/non_login/auth/Auth";
 import {Welcome} from "./components/non_login/welcome";
 import {FirstInvestProfile} from "./components/non_login/first_invest_profile";
 import {AssetProvider, StockProvider} from "./context";
+=======
+import { StockPage, StockList } from "./components/login/stocks";
+import { NewsList, NewsDetail } from "./components/login/news";
+import { Home } from "./components/login/home";
+import { Search } from "./components/login/search";
+import { MyPage, Withdrawal } from "./components/login/my_page";
+import { PortfolioPage } from "./components/login/portfolio";
+import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
+import { Welcome } from "./components/non_login/welcome";
+import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
+import { AssetProvider, StockProvider } from "./context";
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
 import axios from "axios";
 
 const App = () => {
@@ -100,7 +118,11 @@ const App = () => {
           path="/opinion/write"
           render={(props) => (
             <React.Fragment>
+<<<<<<< HEAD
               <OpinionRegister/>
+=======
+              <OpinionRegister />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
             </React.Fragment>
           )}
         />
@@ -115,19 +137,27 @@ const App = () => {
         />
         <Route
           exact
-          path="/news/detail"
+          path="/news/detail/:id"
           render={(props) => (
             <React.Fragment>
+<<<<<<< HEAD
               <NewsDetail/>
+=======
+              <NewsDetail {...props} />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
             </React.Fragment>
           )}
         />
         <Route
           exact
-          path="/search"
+          path="/search/:searchWord"
           render={(props) => (
             <React.Fragment>
+<<<<<<< HEAD
               <Search/>
+=======
+              <Search {...props} />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
             </React.Fragment>
           )}
         />
@@ -145,7 +175,11 @@ const App = () => {
           path="/withdrawal"
           render={(props) => (
             <React.Fragment>
+<<<<<<< HEAD
               <Withdrawal/>
+=======
+              <Withdrawal />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
             </React.Fragment>
           )}
         />
@@ -156,7 +190,11 @@ const App = () => {
               path="/stocklist"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <StockList/>
+=======
+                  <StockList />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
                 </React.Fragment>
               )}
             />
@@ -165,7 +203,11 @@ const App = () => {
               path="/stock/detail/:symbol"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <StockPage {...props}/>
+=======
+                  <StockPage {...props} />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
                 </React.Fragment>
               )}
             />
@@ -175,7 +217,11 @@ const App = () => {
             path="/portfolio"
             render={(props) => (
               <React.Fragment>
+<<<<<<< HEAD
                 <PortfolioPage/>
+=======
+                <PortfolioPage />
+>>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
               </React.Fragment>
             )}
           />

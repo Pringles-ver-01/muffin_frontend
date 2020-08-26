@@ -1,10 +1,11 @@
-import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory, Link, Route } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-
+import { Home } from "../home";
+import { Search } from "../search";
 import LogoBlackIcon from "../../../assets/home/Logo_black.png";
-
 import "./navbar.style.css";
+
 const active = {
   fontSize: "13.5px",
   fontFamily: "NanumSquareB",
@@ -32,6 +33,19 @@ const Navbar = () => {
     history.push("/");
   };
 
+  const [searchWord, setSearchWord] = useState("");
+  const onChangeNewsSearch = (e) => {
+    setSearchWord(e.target.value);
+  };
+  const searchNews = () => {
+    if (searchWord === "") {
+      alert("검색어를 입력하세요");
+    } else {
+      console.log(searchWord);
+      window.location.assign(`/search/${searchWord}`);
+    }
+  };
+
   return (
     <div className="container">
       <div className="nav-container">
@@ -40,13 +54,23 @@ const Navbar = () => {
             <img width="129px" height="40px" src={LogoBlackIcon} />
           </div>
         </Link>
+
         <div className="search_section">
-          <input placeholder="검색" className="search_nav_input" />
-          <Link to="/search">
-            <button className="search_nav_button">
-              <FiSearch className="fisearch" />
-            </button>
-          </Link>
+          <input
+            placeholder="검색"
+            className="search_nav_input"
+            value={searchWord}
+            onChange={onChangeNewsSearch}
+          />
+          <button
+            style={{ cursor: "pointer" }}
+            className="search_nav_button"
+            onClick={() => {
+              searchNews();
+            }}
+          >
+            <FiSearch className="fisearch" />
+          </button>
         </div>
 
         <div className="btn-container">
