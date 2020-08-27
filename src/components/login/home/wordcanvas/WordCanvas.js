@@ -1,7 +1,6 @@
 import "d3-transition";
 import { select } from "d3-selection";
 import React, {useEffect, useState} from "react";
-import ReactDOM from "react-dom";
 import ReactWordcloud from "react-wordcloud";
 import axios from 'axios'
 import "tippy.js/dist/tippy.css";
@@ -26,7 +25,7 @@ function getCallback(callback) {
 }
 
 const callbacks = {
-  getWordColor: (word) => (word.value > 10 ? "orange" : "#1f77b4"),
+  getWordColor: (word) => (word.value > 20 ? "#F5B06C" : "#9D968F"),
   getWordTooltip: (word) =>
     `The word "${word.text}" appears ${word.value} times.`,
   onWordClick: getCallback("onWordClick"),
@@ -38,10 +37,9 @@ const WordConvas = () =>{
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
-    fontSizes: [5, 100],
+    fontSizes: [30, 80],
     fontStyle: "normal",
     fontWeight: "bold",
-    padding: 1,
     rotations: 1,
     rotationAngles: [0, 90],
     scale: "sqrt",
