@@ -1,49 +1,75 @@
+import "d3-transition";
+import { select } from "d3-selection";
 import React, {useEffect, useState} from "react";
+import ReactDOM from "react-dom";
 import ReactWordcloud from "react-wordcloud";
-import { Resizable } from "re-resizable";
 import axios from 'axios'
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/scale.css";
 
-const WordCanvas = () => {
-  const callbacks = {
-    getWordColor: word => word.value > 10 ? "red" : "blue",
 
-    onWordClick: console.log,
-    onWordMouseOver: console.log,
-    getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 10 ? "good" : "bad"}]`,
-  }
-  const options = {
-    rotations: 1,
-    rotationAngles: [0, -90],
-    colors: ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b'],
-    fontFamily: 'impact',
-    scale: 'sqrt',
-    spiral: 'archimedean',
-    fontSize: 100
-
+function getCallback(callback) {
+  return function (word, event) {
+    const isActive = callback !== "onWordMouseOut";
+    const element = event.target;
+    const text = select(element);
+    text
+      .on("click", () => {
+        if (isActive) {
+          window.location.assign(`/search/${word.text}`, "_blank");
+        }
+      })
+      .transition()
+      .attr("background", "white")
+      .attr("text-decoration", isActive ? "underline" : "none");
   };
-  const size = [500, 300];
-  const [wordList, setWordList] = useState([])
+}
 
+const callbacks = {
+  getWordColor: (word) => (word.value > 10 ? "orange" : "#1f77b4"),
+  getWordTooltip: (word) =>
+    `The word "${word.text}" appears ${word.value} times.`,
+  onWordClick: getCallback("onWordClick"),
+  onWordMouseOut: getCallback("onWordMouseOut"),
+  onWordMouseOver: getCallback("onWordMouseOver")
+};
+const WordConvas = () =>{
+  const options = {
+    enableTooltip: true,
+    deterministic: false,
+    fontFamily: "impact",
+    fontSizes: [5, 100],
+    fontStyle: "normal",
+    fontWeight: "bold",
+    padding: 1,
+    rotations: 1,
+    rotationAngles: [0, 90],
+    scale: "sqrt",
+    spiral: "archimedean",
+    transitionDuration: 1000
+  };
+
+  const [word, setWord] = useState({})
   useEffect(()=>{
     axios.get(`http://localhost:5000/cloud`)
       .then((res)=>{
         console.log(res.data)
-        setWordList(res.data)
+        setWord(res.data)
       })
       .catch((err)=>{
         console.log(err)
       })
   },[])
 
+
   return (
     <>
-        <div>
-          <ReactWordcloud
-            words={wordList} size={size} options={options}
-          />
-        </div>
+      <div style={{ height: 300, width: 500 }}>
+        <ReactWordcloud callbacks={callbacks} words={word} options={options}/>
+      </div>
     </>
-  );
-};
+  )
+}
 
-export default WordCanvas;
+const rootElement = document.getElementById("root");
+export default WordConvas;

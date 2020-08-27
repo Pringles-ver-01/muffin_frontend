@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tippyjs/react": "^4.1.0",
     "antd": "^3.19.1",
     "apexcharts": "^3.20.0",
     "axios": "^0.18.1",
@@ -11,11 +12,8 @@
     "glamor": "^2.20.40",
     "history": "^4.9.0",
     "html2canvas": "^1.0.0-rc.3",
-
     "http-proxy-middleware": "^1.0.5",
     "items": "^2.1.2",
-
-
     "js-beautify": "^1.11.0",
     "jspdf": "^1.5.3",
     "jwt-decode": "^2.2.0",
@@ -66,6 +64,7 @@
     "react-wordcloud": "^1.2.6",
     "recharts": "^1.8.5",
     "styled-components": "^5.1.1",
+    "tippy.js": "^6.2.6",
     "wordcloud": "^1.1.0"
   },
   "scripts": {

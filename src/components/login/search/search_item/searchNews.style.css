@@ -13,13 +13,8 @@
   font-family: NanumSquareB;
 }
 
-.news_table_search {
-  width: 1080px;
-  height: 1250px;
-  margin-bottom: 17px;
-  margin-top: 21px;
-  border: #000000;
-  margin-left: 1000px;
+.news_table_search{
+  margin-top : 50px
 }
 
 .news-ul {
@@ -32,7 +27,7 @@
   float: none;
   width: 1060px;
   height: 100px;
-  padding-top: 10px;
+  padding-top: 50px;
   padding-bottom: 10px;
 }
 

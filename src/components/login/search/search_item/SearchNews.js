@@ -66,7 +66,7 @@ const SearchNews = ({keyword}) => {
   return (
     <>
               <div className="documentrooFm_text"></div>
-              <div className="news_table">
+              <div className="news_table_search">
                 {newsList.map((item) => (
                   <ul className="news-ul">
                     <li className="news-li">
