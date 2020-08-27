@@ -7,8 +7,8 @@ import {AssetContext} from "../../../context";
 const ModalBuying = (props) => {
   const url = "http://localhost:8080/assets/";
   const { asset, setAsset } = useContext(AssetContext);
-  const [assetId, setAssetId] = useState(0);
-  const [stockId, setStockId] = useState(0);
+  const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
+  const [stockId, setStockId] = useState(props.ownedAsset.stockId);
   const [stockName] = useState((props.ownedAsset.stockName != null) ? props.ownedAsset.stockName : props.stockOne.stockName);
   const [symbol] = useState((props.ownedAsset.symbol != null) ? props.ownedAsset.symbol : props.stockOne.symbol);
   const [nowPrice] = useState(parseInt((props.ownedAsset.nowPrice != null) ? (props.ownedAsset.nowPrice) : (props.stockOne.now).replace(',','')));
@@ -56,12 +56,7 @@ const ModalBuying = (props) => {
 
   useEffect(()=>{
     setTotalAmount(matchedUserStock.totalAsset);
-    console.log(totalAmount);
   },[matchedUserStock])
-
-  useEffect(() => {
-    console.log({stockId});
-  }, [stockId])
 
 
   const decrease = (e) => {
@@ -98,32 +93,56 @@ const ModalBuying = (props) => {
 
   const submitTransaction = (e) => {
     e.preventDefault();
-    const newTransaction = {
-      userId : JSON.parse(sessionStorage.getItem("logined_user")).userId,
-      assetId : assetId,
-      stockName : stockName,
-      symbol : symbol,
-      shareCount: buyCount,
-      nowPrice: nowPrice,
-      purchasePrice: purchasePrice,
-      transactionDate : new Date().toLocaleDateString(),
-      transactionType : transactionType
-    };
-    console.log(`~~~~buy~~~~~~~ ${JSON.stringify(newTransaction)}`)
-    axios
-      .post(url + `buy/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`, newTransaction)
-      .then((response) => {
-        console.log(`ModalSelling axios then`);
-        console.log(response);
-        setAsset(response.data);
-        setBuyCount(1);
-        setPurchasePrice(nowPrice);
-        props.isClose(false);
-      })
-      .catch((error) => {
-        console.log(`ModalSelling axios catch`);
-        throw error;
-      });
+    if(props.stockOne.stockName != null) {
+      const newTransaction = {
+        userId : JSON.parse(sessionStorage.getItem("logined_user")).userId,
+        assetId : assetId,
+        stockId : stockId,
+        stockName : stockName,
+        symbol : symbol,
+        shareCount: buyCount,
+        nowPrice: nowPrice,
+        purchasePrice: purchasePrice,
+        transactionDate : new Date().toLocaleDateString(),
+        transactionType : transactionType
+      };
+      axios
+        .post(url + `newStock/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`, newTransaction)
+        .then((response) => {
+          setAsset(response.data);
+          setBuyCount(1);
+          setPurchasePrice(nowPrice);
+          props.isClose(false);
+        })
+        .catch((error) => {
+          throw error;
+        });
+    } else {
+      const addTransaction = {
+        userId : JSON.parse(sessionStorage.getItem("logined_user")).userId,
+        assetId : assetId,
+        stockId : stockId,
+        stockName : stockName,
+        symbol : symbol,
+        shareCount: buyCount,
+        nowPrice: nowPrice,
+        purchasePrice: purchasePrice,
+        transactionDate : new Date().toLocaleDateString(),
+        transactionType : transactionType
+      };
+      axios
+        .post(url + `ownedStock/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`, addTransaction)
+        .then((response) => {
+          setAsset(response.data);
+          setBuyCount(1);
+          setPurchasePrice(nowPrice);
+          props.isClose(false);
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
+
   }
 
   const modalStyle = {

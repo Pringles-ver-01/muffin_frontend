@@ -142,9 +142,6 @@ const OpinionDetail = () => {
               </ul>
             ))}
             <input className="comment_input" onChange={onChangeComment} />
-<<<<<<< HEAD
-            <button className="comment_button">
-=======
             <button
               className="comment_button"
               onClick={(e) => {
@@ -166,7 +163,6 @@ const OpinionDetail = () => {
                   });
               }}
             >
->>>>>>> efdffe48a4a430d281b171eb9e684aa9ecd1a444
               댓글달기
             </button>
           </div>

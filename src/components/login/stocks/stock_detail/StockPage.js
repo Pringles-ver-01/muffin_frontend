@@ -13,7 +13,6 @@ const StockPage = ({props, match}) => {
   useEffect(() => {
     axios.get(`http://localhost:8080/stocks/${match.params.symbol}`)
       .then(response => {
-        console.log(JSON.stringify(response.data));
         setStockDetail(response.data)
       })
       .catch(error => {
@@ -25,11 +24,9 @@ const StockPage = ({props, match}) => {
     axios
       .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
       .then((response) => {
-        console.log(` : StockPage java useEffect then --- ${JSON.stringify(response.data.holdingCount)} `);
         setAsset(response.data.holdingCount);
       })
       .catch((error) => {
-        console.log(`-----StockPage useEffect catch-----`);
         throw error;
       });
   }, []);

@@ -20,34 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a427bb5-3a9c-40b2-8ab1-1ea7a2a4b25a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/login/opinion/opinionEdit/OpinionEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/login/opinion/opinionEdit/opinionEdit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_20_10_12___Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_20_10_12_오전_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_20_10_31___Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_20_10_31_오전_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/Release/fse.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fsevents/build/Release/fse.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/home/recommendation_news/Recommendation_News.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/recommendation_news/Recommendation_News.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/home/recommendation_news/recommendation_news.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/recommendation_news/recommendation_news.style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/home/asset/Asset.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/asset/Asset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/home/asset/asset.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/asset/asset.style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/home/recommendation_stock/RecommendationStock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/home/recommendation_stock/RecommendationStock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/items/ModalBuying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/items/ModalBuying.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/items/ModalSelling.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/items/ModalSelling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/logined_navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/logined_navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/menu/menu.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/menu/menu.style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/news/NewsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/NewsList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/news/newsDetail/NewsDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/newsDetail/NewsDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/news/newsDetail/newsDetail.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/newsDetail/newsDetail.style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/news/newsList.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/news/newsList.style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/opinion/OpinionList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/opinion/OpinionList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/opinion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/opinion/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/opinion/opinionDetail/OpinionDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/opinion/opinionDetail/OpinionDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/opinion/opinionRegister/OpinionRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/opinion/opinionRegister/OpinionRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/PortfolioPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/PortfolioPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/budget_history/BudgetHistory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/holding_shares/HoldingShares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/holding_shares/HoldingShares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/search/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/search/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/portfolio/totalbudget/TotalBudget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/portfolio/totalbudget/TotalBudget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/StockList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/non_login/first_invest_profile/FirstInvestProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/non_login/first_invest_profile/FirstInvestProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context/assetContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/assetContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context/stockContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/stockContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,11 @@
       <workItem from="1598324394268" duration="19363000" />
       <workItem from="1598370160804" duration="11365000" />
       <workItem from="1598402623208" duration="741000" />
-      <workItem from="1598403821129" duration="216000" />
+      <workItem from="1598403821129" duration="4468000" />
+      <workItem from="1598423766465" duration="1944000" />
+      <workItem from="1598457698530" duration="2143000" />
+      <workItem from="1598499010157" duration="7722000" />
+      <workItem from="1598532426995" duration="7041000" />
     </task>
     <servers />
   </component>
@@ -153,39 +153,43 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="469" y="227" key="#start/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597888282149" />
-    <state width="862" height="323" key="GridCell.Tab.0.bottom" timestamp="1598403616992">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1659" height="329" key="GridCell.Tab.0.bottom" timestamp="1598542981742">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="341" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1598370548117" />
+    <state width="1419" height="274" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1598466014798" />
+    <state width="1659" height="329" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1598542981742" />
     <state width="949" height="169" key="GridCell.Tab.0.bottom/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532374" />
-    <state width="862" height="323" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598403616992" />
-    <state width="862" height="323" key="GridCell.Tab.0.center" timestamp="1598403616991">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1182" height="314" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598423294425" />
+    <state width="1659" height="329" key="GridCell.Tab.0.center" timestamp="1598542981740">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="341" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1598370548115" />
+    <state width="1419" height="274" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1598466014796" />
+    <state width="1659" height="329" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1598542981740" />
     <state width="949" height="169" key="GridCell.Tab.0.center/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532373" />
-    <state width="862" height="323" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598403616991" />
-    <state width="862" height="323" key="GridCell.Tab.0.left" timestamp="1598403616991">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1182" height="314" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598423294418" />
+    <state width="1659" height="329" key="GridCell.Tab.0.left" timestamp="1598542981739">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="341" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1598370548113" />
+    <state width="1419" height="274" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1598466014795" />
+    <state width="1659" height="329" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1598542981739" />
     <state width="949" height="169" key="GridCell.Tab.0.left/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532372" />
-    <state width="862" height="323" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598403616991" />
-    <state width="862" height="323" key="GridCell.Tab.0.right" timestamp="1598403616992">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1182" height="314" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598423294417" />
+    <state width="1659" height="329" key="GridCell.Tab.0.right" timestamp="1598542981741">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="341" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1598370548116" />
+    <state width="1419" height="274" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1598466014797" />
+    <state width="1659" height="329" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1598542981741" />
     <state width="949" height="169" key="GridCell.Tab.0.right/0.23.1680.1027/-1920.-372.1920.1057@0.23.1680.1027" timestamp="1597894532373" />
-    <state width="862" height="323" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598403616992" />
+    <state width="1182" height="314" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598423294420" />
     <state x="341" y="164" key="SettingsEditor" timestamp="1598186147012">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1598186147012" />
-    <state x="730" y="275" width="596" height="580" key="find.popup" timestamp="1598396085635">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state x="730" y="258" width="596" height="580" key="find.popup" timestamp="1598542238378">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="730" y="258" width="596" height="580" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1598157866259" />
-    <state x="730" y="275" width="596" height="580" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1598396085635" />
+    <state x="730" y="258" width="596" height="580" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1598542238378" />
+    <state x="730" y="275" width="596" height="608" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1598404356680" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1598158460721">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

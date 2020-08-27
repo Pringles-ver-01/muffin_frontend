@@ -11,17 +11,11 @@ const TotalBudget = (props) => {
       .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
       .then((response) => {
         setAsset(response.data.holdingCount);
-        console.log(response.data.holdingCount[0].totalAsset);
       })
       .catch((error) => {
         throw error;
       });
   }, []);
-
-  useEffect(() => {
-    if (asset[0]) console.log(asset[0].totalAsset);
-  }, [asset])
-
 
   return (
     <>
@@ -32,7 +26,7 @@ const TotalBudget = (props) => {
             </td>
             <td style={{"paddingRight" : "30px"}}>
               <div className="my_totlabudget_title">평가 수익률</div>
-              <span className="my_totlabudget_money" style={{ "color" : "#ea5455"}}>{asset[0] && asset[0].totalProfitRatio}</span>
+              <span className="my_totlabudget_money" style={{ "color" : "#ea5455"}}>{asset[0] && asset[0].totalProfitRatio} </span>
               <span className="my_totlabudget_money"> %</span>
             </td>
             <td style={{"paddingRight" : "30px"}}>

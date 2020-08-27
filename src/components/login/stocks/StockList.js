@@ -18,21 +18,6 @@ const StockList = () => {
   const [stockOne, setStockOne] = useState({});
   const showDetail = () => { };
 
-  /* const matchedUserAsset = (crawledStock) => {
-     for (let i = 0; i < crawledStock.length; i++) {
-       console.log(crawledStock.length)
-       console.log(crawledStock[i])
-       console.log(crawledStock[i].stockName)
-       console.log(asset[i])
-       if(crawledStock[0]) {
-         if (asset[i].stockName === crawledStock[i].stockName) {
-           setMatechedUserStock(asset[i]);
-           console.log(matchedUserAsset(i));
-         }
-       }
-     }
-   }*/
-
 
   useEffect(() => {
     axios
@@ -98,6 +83,7 @@ const StockList = () => {
   useEffect(() => {
     getAll(1, 1)
   }, [])
+
 
   return (
     <>

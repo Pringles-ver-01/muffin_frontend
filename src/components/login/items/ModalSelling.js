@@ -30,7 +30,6 @@ const ModalSelling = (props) => {
       if (asset[i].stockName === props.stockOne.stockName) {
         setMatechedAssetId(asset[i]);
         setAssetId(matchedAssetId.assetId);
-        console.log('/////////');
       }
     }
   },[matchedAssetId])
@@ -41,7 +40,6 @@ const ModalSelling = (props) => {
       if (asset[i].stockName === props.stockOne.stockName) {
         setMatechedUserStockId(asset[i]);
         setStockId(matchedUserStockId.stockId);
-        console.log('-------');
       }
     }
   },[matchedUserStockId])
@@ -52,7 +50,6 @@ const ModalSelling = (props) => {
       if (asset[i].stockName == props.stockOne.stockName) {
         setMatechedUserStock(asset[i]);
         setShareCount(matchedUserStocks.shareCount);
-        console.log('/////////');
       }
     }
   },[matchedUserStocks])
