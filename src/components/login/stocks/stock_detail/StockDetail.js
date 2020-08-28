@@ -119,6 +119,7 @@ const StockDetail = ({ stockDetail, asset, setAsset }) => {
           asset={bill}
           isOpen={buyOpen}
           isClose={() => setBuyOpen(false)}
+          ariaHideApp={false}
         />
       )}
       {sellOpen && (
@@ -126,6 +127,7 @@ const StockDetail = ({ stockDetail, asset, setAsset }) => {
           asset={bill}
           isOpen={sellOpen}
           isClose={() => setSellOpen(false)}
+          ariaHideApp={false}
         />
       )}
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StockContext = React.createContext();
+const StockContext = React.createContext({});
 
 const StockProvider = ({ children }) => {
   const [crawledStock, setCrawledStock] = useState({});

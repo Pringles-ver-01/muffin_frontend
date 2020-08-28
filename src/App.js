@@ -21,134 +21,135 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route
-          exact
-          path="/auth/signIn"
-          render={(props) => (
-            <React.Fragment>
-              <SignIn />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/auth/findPassword"
-          render={(props) => (
-            <React.Fragment>
-              <FindPassword />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/auth/signUp"
-          render={(props) => (
-            <React.Fragment>
-              <SignUp />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/auth/investProfile"
-          render={(props) => (
-            <React.Fragment>
-              <FirstInvestProfile />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <React.Fragment>
-              <Welcome />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/home"
-          render={(props) => (
-            <React.Fragment>
-              <Home />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/opinion"
-          render={(props) => (
-            <React.Fragment>
-              <OpinionList />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/opinion/detail"
-          render={(props) => (
-            <React.Fragment>
-              <OpinionDetail />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/opinion/write"
-          render={(props) => (
-            <React.Fragment>
-              <OpinionRegister />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/news"
-          render={(props) => (
-            <React.Fragment>
-              <NewsList />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/news/detail/:id"
-          render={(props) => (
-            <React.Fragment>
-              <NewsDetail {...props} />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/search/:searchWord"
-          render={(props) => (
-            <React.Fragment>
-              <Search {...props} />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/mypage"
-          render={(props) => (
-            <React.Fragment>
-              <MyPage />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          exact
-          path="/withdrawal"
-          render={(props) => (
-            <React.Fragment>
-              <Withdrawal />
-            </React.Fragment>
-          )}
-        />
         <AssetProvider>
           <StockProvider>
+            <Route
+              exact
+              path="/auth/signIn"
+              render={(props) => (
+                <React.Fragment>
+                  <SignIn />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/auth/findPassword"
+              render={(props) => (
+                <React.Fragment>
+                  <FindPassword />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/auth/signUp"
+              render={(props) => (
+                <React.Fragment>
+                  <SignUp />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/auth/investProfile"
+              render={(props) => (
+                <React.Fragment>
+                  <FirstInvestProfile />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <React.Fragment>
+                  <Welcome />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/home"
+              render={(props) => (
+                <React.Fragment>
+                  <Home />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/opinion"
+              render={(props) => (
+                <React.Fragment>
+                  <OpinionList />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/opinion/detail"
+              render={(props) => (
+                <React.Fragment>
+                  <OpinionDetail />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/opinion/write"
+              render={(props) => (
+                <React.Fragment>
+                  <OpinionRegister />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/news"
+              render={(props) => (
+                <React.Fragment>
+                  <NewsList />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/news/detail/:id"
+              render={(props) => (
+                <React.Fragment>
+                  <NewsDetail {...props} />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/search/:newsSearch"
+              render={(props) => (
+                <React.Fragment>
+                  <Search {...props} />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/mypage"
+              render={(props) => (
+                <React.Fragment>
+                  <MyPage />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/withdrawal"
+              render={(props) => (
+                <React.Fragment>
+                  <Withdrawal />
+                </React.Fragment>
+              )}
+            />
+
             <Route
               exact
               path="/stocklist"

@@ -3,7 +3,6 @@
 .asset_title_section {
   display: flex;
   flex-direction: row;
-  width: 95%;
   margin-bottom: 5px;
 }
 
@@ -14,7 +13,7 @@
 
 .today {
   position: relative;
-  left: 65%;
+  left: 46%;
   margin-top: 3px;
   color: var(--brownish-grey);
   font-size: 14px;
@@ -36,4 +35,12 @@
 
 .money {
   margin-bottom: 5px;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
 }
