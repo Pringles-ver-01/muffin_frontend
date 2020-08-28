@@ -6,28 +6,19 @@ import {ModalBuying, ModalSelling} from "../items";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
 import {AssetContext, StockContext} from "../../../context";
+
 const StockList = () => {
   const {asset, setAsset} = useContext(AssetContext);
   const {crawledStock, setCrawledStock} = useContext(StockContext);
+
   const [ownedAsset, setOwnedAsset] = useState({});
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
+
   const [stockOne, setStockOne] = useState({});
   const showDetail = () => { };
-  /* const matchedUserAsset = (crawledStock) => {
-     for (let i = 0; i < crawledStock.length; i++) {
-       console.log(crawledStock.length)
-       console.log(crawledStock[i])
-       console.log(crawledStock[i].stockName)
-       console.log(asset[i])
-       if(crawledStock[0]) {
-         if (asset[i].stockName === crawledStock[i].stockName) {
-           setMatechedUserStock(asset[i]);
-           console.log(matchedUserAsset(i));
-         }
-       }
-     }
-   }*/
+
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
@@ -38,21 +29,25 @@ const StockList = () => {
         throw error;
       });
   }, []);
+
   const linkToDetail = (e) => {
     e.preventDefault();
   };
+
   // pagination
   const [pageArr, setPageArr] = useState([])
   const [prev, setPrev] = useState(false)
   const [next, setNext] = useState(false)
   const [page, setPage] = useState(1)
   const [range, setRange] = useState(1)
+
   const clickNext = () => {
     getAll(pageArr[0] + 5, range + 1)
   }
   const clickPrev = () => {
     getAll(pageArr[0] - 1, range - 1)
   }
+
   const getAll = (page, range) => {
     setPage(page);
     setRange(range);
@@ -82,18 +77,21 @@ const StockList = () => {
         }
       )
       .catch((error) => {
-        throw error
+        console.log(error)
       })
   }
   useEffect(() => {
     getAll(1, 1)
   }, [])
+
+
   return (
     <>
       <Navbar/>
       <div className="content-container">
         <div className="wrapper">
           <Menu/>
+
           <div className="documentroom_container">
             <div className="documentroom_text">투자</div>
             <div
@@ -143,6 +141,7 @@ const StockList = () => {
                       </button>
                     </td>
                   </tr>
+
                 ))}
                 </tbody>
               </table>
@@ -153,6 +152,7 @@ const StockList = () => {
                       이전
                     </div>
                   )}
+
                   {pageArr.map((pagenum) => (
                     <div
                       className="page_button"
@@ -164,6 +164,7 @@ const StockList = () => {
                       {pagenum}
                     </div>
                   ))}
+
                   {next && (
                     <div className="page_button" id="next" onClick={clickNext}>
                       다음
@@ -171,15 +172,7 @@ const StockList = () => {
                   )}
                 </div>
               </div>
-              <div className="conference_search">
-                <input
-                  placeholder="주식 종목을 입력해주세요."
-                  className="search_input"
-                />
-                <Link to="" className="search_button">
-                  검색
-                </Link>
-              </div>
+
             </div>
           </div>
           {buyOpen &&
@@ -195,4 +188,5 @@ const StockList = () => {
     </>
   );
 };
+
 export default StockList;
