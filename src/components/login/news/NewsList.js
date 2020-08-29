@@ -56,16 +56,16 @@ const NewsList = () => {
   }, []);
 
   /* useEffect(()=>{
-      axios.get(`${url}/news/getList`)
-        .then((response)=>{
-          console.log('여기예요')
-          setNewsList(response.data)
-        })
-        .catch((error)=>{
-          console.log(`try to effect`)
-          throw error
-        })
-    },[])
+     axios.get(`${url}/news/getList`)
+       .then((response)=>{
+         console.log('여기예요')
+         setNewsList(response.data)
+       })
+       .catch((error)=>{
+         console.log(`try to effect`)
+         throw error
+       })
+   },[])
 */
 
   return (

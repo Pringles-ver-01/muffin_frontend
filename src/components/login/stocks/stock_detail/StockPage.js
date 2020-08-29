@@ -11,9 +11,16 @@ const StockPage = ({props, match}) => {
 
 
   useEffect(() => {
+<<<<<<< HEAD
     axios.get(`http://localhost:8080/stocks/${match.params.symbol}`)
       .then(response => {
         setStockDetail(response.data)
+=======
+    axios
+      .get(`http://localhost:8080/stocks/${match.params.symbol}`)
+      .then((response) => {
+        setStockDetail(response.data);
+>>>>>>> master
       })
       .catch(error => {
         throw error
@@ -22,7 +29,15 @@ const StockPage = ({props, match}) => {
 
   useEffect(() => {
     axios
+<<<<<<< HEAD
       .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
+=======
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+>>>>>>> master
       .then((response) => {
         setAsset(response.data.holdingCount);
       })

@@ -9,14 +9,33 @@ import { AssetContext } from "../../../context";
 const PortfolioPage = () => {
   const { asset, setAsset } = useContext(AssetContext);
   const portfolioContent = [
+<<<<<<< HEAD
     { title: "보유종목", content: <HoldingShares asset={asset} setAsset={setAsset}/> },
     { title: "거래내역", content: <BudgetHistory asset={asset} setAsset={setAsset}/> },
+=======
+    {
+      title: "보유종목",
+      content: <HoldingShares asset={asset} setAsset={setAsset} />,
+    },
+    {
+      title: "거래내역",
+      content: <BudgetHistory />,
+    },
+>>>>>>> master
   ];
 
 
   useEffect(() => {
     axios
+<<<<<<< HEAD
       .get(`http://localhost:8080/assets/holdingCount/${JSON.parse(sessionStorage.getItem("logined_user")).userId}`)
+=======
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+>>>>>>> master
       .then((response) => {
         setAsset(response.data.holdingCount);
       })
@@ -24,7 +43,10 @@ const PortfolioPage = () => {
         throw error;
       });
   }, [asset]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
   const useTabs = (initialTabs, allTabs) => {
     const [portfolioContentIndex, setPortfolioContentIndex] = useState(
@@ -49,7 +71,11 @@ const PortfolioPage = () => {
           <Menu />
           <div>
             <div className="documentroom_container">
+<<<<<<< HEAD
               <div className="documentroom_text"/>
+=======
+              <div className="documentroom_text" />
+>>>>>>> master
 
               <TotalBudget asset={asset} setAsset={setAsset} />
 

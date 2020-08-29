@@ -8,16 +8,77 @@ import Menu from "../menu/Menu";
 import {AssetContext, StockContext} from "../../../context";
 
 const StockList = () => {
+<<<<<<< HEAD
   const {asset, setAsset} = useContext(AssetContext);
   const {crawledStock, setCrawledStock} = useContext(StockContext);
 
+=======
+  /*  const { asset, setAsset } = useContext(AssetContext); */
+  const { asset, setAsset } = useContext(AssetContext);
+  const { crawledStock, setCrawledStock } = useContext(StockContext);
+  const [assetStockName, setAssetStockName] = useState([]);
+>>>>>>> master
   const [ownedAsset, setOwnedAsset] = useState({});
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
   const [stockOne, setStockOne] = useState({});
+<<<<<<< HEAD
   const showDetail = () => { };
 
+=======
+  const showDetail = () => {};
+
+  /* const matchedUserAsset = (crawledStock) => {
+     for (let i = 0; i < crawledStock.length; i++) {
+       console.log(crawledStock.length)
+       console.log(crawledStock[i])
+       console.log(crawledStock[i].stockName)
+       console.log(asset[i])
+       if(crawledStock[0]) {
+         if (asset[i].stockName === crawledStock[i].stockName) {
+           setMatechedUserStock(asset[i]);
+           console.log(matchedUserAsset(i));
+         }
+       }
+     }
+   }*/
+  useEffect(() => {
+    getAll(1, 1);
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        setAsset(response.data.holdingCount);
+        response.data.holdingCount.map((item) => {
+          setAssetStockName((assetStockName) => [
+            ...assetStockName,
+            item.stockName,
+          ]);
+        });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
+
+  const linkToDetail = (e) => {
+    e.preventDefault();
+  };
+
+  // pagination
+  const [pageArr, setPageArr] = useState([]);
+  const [prev, setPrev] = useState(false);
+  const [next, setNext] = useState(false);
+  const [page, setPage] = useState(1);
+  const [range, setRange] = useState(1);
+>>>>>>> master
 
   useEffect(() => {
     axios
@@ -56,6 +117,7 @@ const StockList = () => {
     axios
       .get(`http://localhost:8080/stocks/pagination/${page}/${range}`)
       .then((response) => {
+<<<<<<< HEAD
           console.log(response.data.list)
           response.data.list.map((item) => {
             setCrawledStock((crawledStock) => [...crawledStock, item]);
@@ -74,9 +136,28 @@ const StockList = () => {
           }
           setPrev(response.data.pagination.prev)
           setNext(response.data.pagination.next)
+=======
+        console.log(response.data.list);
+        response.data.list.map((item) => {
+          setCrawledStock((crawledStock) => [...crawledStock, item]);
+        });
+        let i = 0;
+        const startPage = response.data.pagination.startPage;
+        const endPage = response.data.pagination.endPage;
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+>>>>>>> master
         }
       )
       .catch((error) => {
+<<<<<<< HEAD
         throw error
       })
   }
@@ -84,6 +165,11 @@ const StockList = () => {
     getAll(1, 1)
   }, [])
 
+=======
+        throw error;
+      });
+  };
+>>>>>>> master
 
   return (
     <>
@@ -108,6 +194,7 @@ const StockList = () => {
                 </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                 {crawledStock[0] && crawledStock.map((crawledOneStock) => (
                   <tr>
                     <Link to={`/stock/detail/${crawledOneStock.symbol}`}>
@@ -143,6 +230,58 @@ const StockList = () => {
                   </tr>
 
                 ))}
+=======
+                  {crawledStock[0] &&
+                    crawledStock.map((crawledOneStock) => (
+                      <tr>
+                        <Link to={`/stock/detail/${crawledOneStock.symbol}`}>
+                          <td
+                            onClick={() => {
+                              showDetail(crawledOneStock.stockName);
+                            }}
+                          >
+                            {crawledOneStock.stockName}
+                          </td>
+                        </Link>
+                        <td>{crawledOneStock.now}</td>
+                        <td>{crawledOneStock.dod}</td>
+                        <td>{crawledOneStock.transacAmount}</td>
+                        <td>{crawledOneStock.volume}</td>
+                        <td>
+                          <button
+                            className="btn btn-default btn-blue text-white btn-rounded"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setStockOne(crawledOneStock);
+                              setBuyOpen(true);
+                            }}
+                          >
+                            매수
+                          </button>
+                          <button
+                            className="btn btn-default btn-red text-white btn-rounded"
+                            onClick={(e) => {
+                              console.log(crawledOneStock);
+                              e.preventDefault();
+                              if (
+                                assetStockName.includes(
+                                  crawledOneStock.stockName
+                                )
+                              ) {
+                                setStockOne(crawledOneStock);
+                                console.log(stockOne);
+                                setSellOpen(true);
+                              } else {
+                                alert(`현재 보유 중인 종목이 아닙니다.`);
+                              }
+                            }}
+                          >
+                            매도
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+>>>>>>> master
                 </tbody>
               </table>
               <div className="pagination-div">
@@ -183,6 +322,7 @@ const StockList = () => {
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           {buyOpen &&
           <ModalBuying  stockOne={stockOne} ownedAsset={ownedAsset}
                         isOpen={buyOpen}
@@ -191,6 +331,26 @@ const StockList = () => {
           <ModalSelling stockOne={stockOne} ownedAsset={ownedAsset} isOpen={sellOpen}
                         isClose={() => setSellOpen(false)}
                         ariaHideApp={false}/>}
+=======
+          {buyOpen && (
+            <ModalBuying
+              stockOne={stockOne}
+              ownedAsset={ownedAsset}
+              isOpen={buyOpen}
+              isClose={() => setBuyOpen(false)}
+              ariaHideApp={false}
+            />
+          )}
+          {sellOpen && (
+            <ModalSelling
+              stockOne={stockOne}
+              ownedAsset={ownedAsset}
+              isOpen={sellOpen}
+              isClose={() => setSellOpen(false)}
+              ariaHideApp={false}
+            />
+          )}
+>>>>>>> master
         </div>
       </div>
     </>

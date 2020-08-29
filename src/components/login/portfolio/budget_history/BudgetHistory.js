@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
 import axios from "axios";
 
+<<<<<<< HEAD
 
 const BudgetHistory = ({asset, setAsset}) => {
 
+=======
+const BudgetHistory = () => {
+  const [asset, setAsset] = useState([]);
+>>>>>>> master
   const [pageArr, setPageArr] = useState([]);
   const [prev, setPrev ] = useState(false);
   const [next, setNext ] = useState(false);
@@ -24,6 +29,7 @@ const BudgetHistory = ({asset, setAsset}) => {
     setPageArr([]);
     setAsset([]);
     axios
+<<<<<<< HEAD
       .get(`http://localhost:8080/assets/pagination/${page}/${range}`)
       .then((response)=>{
           console.log(`${JSON.stringify(response.data)}   :    /assets/pagination/${page}/${range}`)
@@ -45,6 +51,30 @@ const BudgetHistory = ({asset, setAsset}) => {
           }
           setPrev(response.data.pagination.prev)
           setNext(response.data.pagination.next)
+=======
+      .get(
+        `http://localhost:8080/assets/pagination/${page}/${range}/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        console.log(response.data.list);
+        response.data.list.map((item) => {
+          setAsset((holding) => [...holding, item]);
+        });
+        let i = 0;
+        const startPage = response.data.pagination.startPage;
+        const endPage = response.data.pagination.endPage;
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+>>>>>>> master
         }
       )
       .catch((error)=>console.log('error'))
@@ -56,6 +86,7 @@ const BudgetHistory = ({asset, setAsset}) => {
 
   return <>
 
+<<<<<<< HEAD
     <table className="w-full table">
       <thead>
       <tr>
@@ -79,6 +110,48 @@ const BudgetHistory = ({asset, setAsset}) => {
       </tbody>
     </table>
     <div className="tab_portfolio_content_container">
+=======
+  return (
+    <>
+      <table className="w-full table">
+        <thead>
+          <tr>
+            <th>거래날짜</th>
+            <th>종목</th>
+            <th>거래 종류</th>
+            <th>금액</th>
+            <th>잔액</th>
+          </tr>
+        </thead>
+        <tbody>
+          {asset[0] &&
+            asset.map((item) => (
+              <tr>
+                <td>{item.transactionDate}</td>
+                <td>{item.stockName}</td>
+                <td>{item.transactionType}</td>
+                <td>
+                  {String(item.money).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </td>
+                <td>
+                  {String(item.totalAsset).replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ","
+                  )}
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+      <div className="tab_portfolio_content_container">
+        <div className="pagination-div">
+          <div className="pagination">
+            {prev && (
+              <div className="page_button" id="prev" onClick={clickPrev}>
+                이전
+              </div>
+            )}
+>>>>>>> master
 
       <div className="pagination-div">
         <div className="pagination">

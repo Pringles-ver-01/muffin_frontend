@@ -34,7 +34,11 @@ const App = () => {
               path="/auth/signIn"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <SignIn/>
+=======
+                  <SignIn />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -43,7 +47,11 @@ const App = () => {
               path="/auth/findPassword"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <FindPassword/>
+=======
+                  <FindPassword />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -52,7 +60,11 @@ const App = () => {
               path="/auth/signUp"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <SignUp/>
+=======
+                  <SignUp />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -61,7 +73,11 @@ const App = () => {
               path="/auth/investProfile"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <FirstInvestProfile/>
+=======
+                  <FirstInvestProfile />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -70,7 +86,11 @@ const App = () => {
               path="/"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <Welcome/>
+=======
+                  <Welcome />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -79,7 +99,11 @@ const App = () => {
               path="/home"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <Home/>
+=======
+                  <Home />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -88,7 +112,11 @@ const App = () => {
               path="/opinion"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <OpinionList/>
+=======
+                  <OpinionList />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -97,7 +125,11 @@ const App = () => {
               path="/opinion/detail"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <OpinionDetail/>
+=======
+                  <OpinionDetail />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -106,11 +138,15 @@ const App = () => {
               path="/opinion/write"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
 
                   <OpinionRegister/>
 
                   <OpinionRegister/>
 
+=======
+                  <OpinionRegister />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -119,7 +155,11 @@ const App = () => {
               path="/news"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <NewsList/>
+=======
+                  <NewsList />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -128,16 +168,21 @@ const App = () => {
               path="/news/detail/:id"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
 
                   <NewsDetail/>
 
                   <NewsDetail {...props} />
 
+=======
+                  <NewsDetail {...props} />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
             <Route
               exact
+<<<<<<< HEAD
               path="/search/:searchWord"
               render={(props) => (
                 <React.Fragment>
@@ -146,6 +191,12 @@ const App = () => {
 
                   <Search {...props} />
 
+=======
+              path="/search/:newsSearch"
+              render={(props) => (
+                <React.Fragment>
+                  <Search {...props} />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -154,7 +205,11 @@ const App = () => {
               path="/mypage"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
                   <MyPage/>
+=======
+                  <MyPage />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -163,11 +218,15 @@ const App = () => {
               path="/withdrawal"
               render={(props) => (
                 <React.Fragment>
+<<<<<<< HEAD
 
                   <Withdrawal/>
 
                   <Withdrawal/>
 
+=======
+                  <Withdrawal />
+>>>>>>> master
                 </React.Fragment>
               )}
             />
