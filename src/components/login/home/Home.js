@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./home.style.css";
 import { Link } from "react-router-dom";
 import WordCanvas from "./wordcanvas/WordCanvas";
@@ -8,6 +8,8 @@ import RecommendationOpinion from "./recommendation_opinion/RecommendationOpinio
 import RecommendationStock from "./recommendation_stock/RecommendationStock";
 import { Navbar } from "../logined_navbar";
 import Menu from "../menu/Menu";
+import { AssetContext } from "../../../context";
+import axios from "axios";
 
 const Home = () => {
   return (

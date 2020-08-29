@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
 import axios from "axios";
 
-const BudgetHistory = ({ asset, setAsset }) => {
+const BudgetHistory = () => {
+  const [asset, setAsset] = useState([]);
   const [pageArr, setPageArr] = useState([]);
   const [prev, setPrev] = useState(false);
   const [next, setNext] = useState(false);
@@ -22,13 +23,13 @@ const BudgetHistory = ({ asset, setAsset }) => {
     setPageArr([]);
     setAsset([]);
     axios
-      .get(`http://localhost:8080/assets/pagination/${page}/${range}`)
+      .get(
+        `http://localhost:8080/assets/pagination/${page}/${range}/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
       .then((response) => {
-        console.log(
-          `${JSON.stringify(
-            response.data
-          )}   :    /assets/pagination/${page}/${range}`
-        );
+        console.log(response.data.list);
         response.data.list.map((item) => {
           setAsset((holding) => [...holding, item]);
         });
@@ -73,8 +74,15 @@ const BudgetHistory = ({ asset, setAsset }) => {
                 <td>{item.transactionDate}</td>
                 <td>{item.stockName}</td>
                 <td>{item.transactionType}</td>
-                <td>{item.purchasePrice}</td>
-                <td>{item.totalAsset}</td>
+                <td>
+                  {String(item.money).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </td>
+                <td>
+                  {String(item.totalAsset).replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ","
+                  )}
+                </td>
               </tr>
             ))}
         </tbody>
