@@ -191,7 +191,6 @@ const App = () => {
               render={(props) => (
                 <React.Fragment>
 
-                  <StockPage {...props}/>
 
                   <StockPage {...props} />
 
