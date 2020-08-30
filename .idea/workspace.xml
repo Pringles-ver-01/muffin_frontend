@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d6d81f8-a88c-4ca9-887d-ac6fb1906a85" name="Default Changelist" comment="" />
+    <list default="true" id="3d6d81f8-a88c-4ca9-887d-ac6fb1906a85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/CandleChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/CandleChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/stocks/stock_detail/StockPage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1go00WBsuwKsLsHaYciqm6lpwN9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -15,6 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -39,32 +67,44 @@
       <option name="presentableId" value="Default" />
       <updated>1598765414578</updated>
       <workItem from="1598765415811" duration="376000" />
+      <workItem from="1598766269513" duration="2808000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="491" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598765564186">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="491" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1598765564186" />
-    <state width="1286" height="275" key="GridCell.Tab.0.bottom" timestamp="1598765837028">
+    <state width="1286" height="275" key="GridCell.Tab.0.bottom" timestamp="1598775070706">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1286" height="275" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598765837028" />
-    <state width="1286" height="275" key="GridCell.Tab.0.center" timestamp="1598765837026">
+    <state width="1286" height="275" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1598775070706" />
+    <state width="1286" height="275" key="GridCell.Tab.0.center" timestamp="1598775070706">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1286" height="275" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598765837026" />
-    <state width="1286" height="275" key="GridCell.Tab.0.left" timestamp="1598765837025">
+    <state width="1286" height="275" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1598775070706" />
+    <state width="1286" height="275" key="GridCell.Tab.0.left" timestamp="1598775070705">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1286" height="275" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598765837025" />
-    <state width="1286" height="275" key="GridCell.Tab.0.right" timestamp="1598765837027">
+    <state width="1286" height="275" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1598775070705" />
+    <state width="1286" height="275" key="GridCell.Tab.0.right" timestamp="1598775070706">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1286" height="275" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598765837027" />
+    <state width="1286" height="275" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1598775070706" />
   </component>
 </project>
