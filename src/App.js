@@ -1,29 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-
-
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   OpinionList,
   OpinionDetail,
   OpinionRegister,
 } from "./components/login/opinion";
-
-import {StockPage, StockList} from "./components/login/stocks";
-import {NewsList, NewsDetail} from "./components/login/news";
-import {Home} from "./components/login/home";
-import {Search} from "./components/login/search";
-import {MyPage, Withdrawal} from "./components/login/my_page";
-import {PortfolioPage} from "./components/login/portfolio";
-import {SignIn, SignUp, FindPassword} from "./components/non_login/auth/Auth";
-import {Welcome} from "./components/non_login/welcome";
-import {FirstInvestProfile} from "./components/non_login/first_invest_profile";
-import {AssetProvider, StockProvider} from "./context";
-
+import { StockPage, StockList } from "./components/login/stocks";
+import { NewsList, NewsDetail } from "./components/login/news";
+import { Home } from "./components/login/home";
+import { Search } from "./components/login/search";
+import { MyPage, Withdrawal } from "./components/login/my_page";
+import { PortfolioPage } from "./components/login/portfolio";
+import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
+import { Welcome } from "./components/non_login/welcome";
+import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
+import { AssetProvider, StockProvider } from "./context";
 import axios from "axios";
 
 const App = () => {
-
-
   return (
     <Router>
       <Switch>
@@ -34,11 +28,7 @@ const App = () => {
               path="/auth/signIn"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <SignIn/>
-=======
                   <SignIn />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -47,11 +37,7 @@ const App = () => {
               path="/auth/findPassword"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <FindPassword/>
-=======
                   <FindPassword />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -60,11 +46,7 @@ const App = () => {
               path="/auth/signUp"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <SignUp/>
-=======
                   <SignUp />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -73,11 +55,7 @@ const App = () => {
               path="/auth/investProfile"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <FirstInvestProfile/>
-=======
                   <FirstInvestProfile />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -86,11 +64,7 @@ const App = () => {
               path="/"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <Welcome/>
-=======
                   <Welcome />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -99,11 +73,7 @@ const App = () => {
               path="/home"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <Home/>
-=======
                   <Home />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -112,11 +82,7 @@ const App = () => {
               path="/opinion"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <OpinionList/>
-=======
                   <OpinionList />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -125,11 +91,7 @@ const App = () => {
               path="/opinion/detail"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <OpinionDetail/>
-=======
                   <OpinionDetail />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -138,15 +100,7 @@ const App = () => {
               path="/opinion/write"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-
-                  <OpinionRegister/>
-
-                  <OpinionRegister/>
-
-=======
                   <OpinionRegister />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -155,11 +109,7 @@ const App = () => {
               path="/news"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <NewsList/>
-=======
                   <NewsList />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -168,35 +118,16 @@ const App = () => {
               path="/news/detail/:id"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-
-                  <NewsDetail/>
-
                   <NewsDetail {...props} />
-
-=======
-                  <NewsDetail {...props} />
->>>>>>> master
                 </React.Fragment>
               )}
             />
             <Route
               exact
-<<<<<<< HEAD
-              path="/search/:searchWord"
-              render={(props) => (
-                <React.Fragment>
-
-                  <Search/>
-
-                  <Search {...props} />
-
-=======
               path="/search/:newsSearch"
               render={(props) => (
                 <React.Fragment>
                   <Search {...props} />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -205,11 +136,7 @@ const App = () => {
               path="/mypage"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-                  <MyPage/>
-=======
                   <MyPage />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -218,15 +145,7 @@ const App = () => {
               path="/withdrawal"
               render={(props) => (
                 <React.Fragment>
-<<<<<<< HEAD
-
-                  <Withdrawal/>
-
-                  <Withdrawal/>
-
-=======
                   <Withdrawal />
->>>>>>> master
                 </React.Fragment>
               )}
             />
@@ -236,11 +155,7 @@ const App = () => {
               path="/stocklist"
               render={(props) => (
                 <React.Fragment>
-
-                  <StockList/>
-
-                  <StockList/>
-
+                  <StockList />
                 </React.Fragment>
               )}
             />
@@ -249,10 +164,7 @@ const App = () => {
               path="/stock/detail/:symbol"
               render={(props) => (
                 <React.Fragment>
-
-
                   <StockPage {...props} />
-
                 </React.Fragment>
               )}
             />
@@ -262,18 +174,13 @@ const App = () => {
             path="/portfolio"
             render={(props) => (
               <React.Fragment>
-
-                <PortfolioPage/>
-
-                <PortfolioPage/>
-
+                <PortfolioPage />
               </React.Fragment>
             )}
           />
         </AssetProvider>
       </Switch>
     </Router>
-
   );
 };
 export default App;

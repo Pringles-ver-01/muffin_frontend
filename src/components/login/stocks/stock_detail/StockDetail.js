@@ -3,7 +3,7 @@ import "./stockDetail.css";
 import { ModalBuying, ModalSelling } from "../../items";
 import axios from "axios";
 
-const StockDetail = ({stockDetail, asset, setAsset}) => {
+const StockDetail = ({ stockDetail, asset, setAsset }) => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
   const [bill, setBill] = useState({});
@@ -22,20 +22,22 @@ const StockDetail = ({stockDetail, asset, setAsset}) => {
           <td>
             <button
               className="btn btn-default text-white btn-red btn-rounded btn-icon mystock"
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault();
                 setAsset(stockDetail);
                 setBuyOpen(true);
-              }}>
+              }}
+            >
               <span>매도</span>
             </button>
             <button
               className="btn btn-default text-white btn-blue btn-rounded btn-icon mystock"
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault();
                 setAsset(stockDetail);
                 setSellOpen(true);
-              }}>
+              }}
+            >
               <span>매수</span>
             </button>
           </td>
@@ -100,7 +102,9 @@ const StockDetail = ({stockDetail, asset, setAsset}) => {
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           거래대금
                         </span>
-                        <span className="text-xl font-bold">{stockDetail.transacAmount}</span>
+                        <span className="text-xl font-bold">
+                          {stockDetail.transacAmount}
+                        </span>
                       </td>
                     </tr>
                   </table>
@@ -110,10 +114,6 @@ const StockDetail = ({stockDetail, asset, setAsset}) => {
           </td>
         </tr>
       </table>
-<<<<<<< HEAD
-      {buyOpen && <ModalBuying asset={bill}  isOpen={buyOpen} isClose={() => setBuyOpen(false)} ariaHideApp={false} />}
-      {sellOpen && <ModalSelling asset={bill}  isOpen={sellOpen} isClose={() => setSellOpen(false)} ariaHideApp={false} />}
-=======
       {buyOpen && (
         <ModalBuying
           asset={bill}
@@ -130,7 +130,6 @@ const StockDetail = ({stockDetail, asset, setAsset}) => {
           ariaHideApp={false}
         />
       )}
->>>>>>> master
     </>
   );
 };

@@ -38,8 +38,7 @@ const SignIn = () => {
       axios
         .post(`${url}/signIn`, user)
         .then((response) => {
-          sessionStorage.setItem("logined_user", JSON.stringify(response.data.loginedUser));
-          sessionStorage.setItem("users_Asset", JSON.stringify(response.data.usersAsset));
+          sessionStorage.setItem("logined_user", JSON.stringify(response.data));
           history.push("/home");
         })
         .catch((error) => {

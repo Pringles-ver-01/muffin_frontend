@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 const StockContext = React.createContext({});
 
 const StockProvider = ({ children }) => {
