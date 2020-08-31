@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./recommendation_news.style.css";
+import "./recent_news.style.css";
 import { Link } from "react-router-dom";
 
-const Recommendation_News = () => {
+const Recent_News = () => {
   const [newsList, setNewsList] = useState([]);
   const url = "http://localhost:8080";
   const showDetail = () => {};
@@ -21,7 +21,7 @@ const Recommendation_News = () => {
 
   return (
     <>
-      <div className="recommendation_container">
+      <div className="recent_container">
         {newsList.map((item) => (
           <div key={item.newsId}>
             <div>
@@ -29,7 +29,7 @@ const Recommendation_News = () => {
                 <div>
                   <div className="news_title_section">
                     <div className="news_title">
-                      <Link to={`/news/detail/${item.newsId}`}>
+                      <Link to={`/news/detail/${item.newsId}`} className="link">
                         <div
                           className="news_title_style"
                           onClick={() => {
@@ -55,4 +55,4 @@ const Recommendation_News = () => {
   );
 };
 
-export default Recommendation_News;
+export default Recent_News;

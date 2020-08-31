@@ -93,7 +93,7 @@ const NewsList = () => {
                         <li>
                           <Link to={`/news/detail/${item.newsId}`}>
                             <div
-                              className="news_title_div"
+                              className="news_title_div link"
                               onClick={() => {
                                 showDetail(item.newsTitle);
                               }}

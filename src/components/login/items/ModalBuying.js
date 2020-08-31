@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./modal.style.css";
 import axios from "axios";
-import { AssetContext } from "../../../context";
 
 const ModalBuying = (props) => {
   const url = "http://localhost:8080/assets/";
-  const { asset, setAsset } = useContext(AssetContext);
+  const [asset, setAsset] = useState([]);
   const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
   const [stockId, setStockId] = useState(props.ownedAsset.stockId);
   const [stockName] = useState(
@@ -42,16 +41,22 @@ const ModalBuying = (props) => {
   );
   const [buyCount, setBuyCount] = useState(1);
 
-  // assetId mount
   useEffect(() => {
-    for (let i = 0; i < asset.length; i++) {
-      if (asset[i].stockName === props.stockOne.stockName) {
-        setMatechedAssetId(asset[i]);
-        setAssetId(matchedAssetId.assetId);
-        console.log("/////////");
-      }
-    }
-  }, [matchedAssetId]);
+    axios
+      .get(
+        `${url}holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        response.data.map((item) => {
+          setAsset((asset) => [...asset, item]);
+        });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
   // stockId mount
   useEffect(() => {
@@ -59,35 +64,27 @@ const ModalBuying = (props) => {
       if (asset[i].stockName === props.stockOne.stockName) {
         setMatechedUserStockId(asset[i]);
         setStockId(matchedUserStockId.stockId);
+        setMatechedAssetId(asset[i]);
+        setAssetId(matchedAssetId.assetId);
         console.log("-------");
       }
     }
-  }, [matchedUserStockId]);
+  }, [matchedAssetId, matchedUserStockId]);
 
+  // 총 자산 mount
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/assets/holdingCount/${
+        `http://localhost:8080/assets/myAsset/${
           JSON.parse(sessionStorage.getItem("logined_user")).userId
         }`
       )
       .then((response) => {
-        setAsset(response.data.holdingCount);
+        setTotalAmount(response.data.totalAsset);
       })
       .catch((error) => {
-        throw error;
+        console.log(error);
       });
-  }, []);
-
-  // 총 자산 mount
-  useEffect(() => {
-    // if(asset[0])console.log(totalAmount);
-    setMatechedUserStock(asset[0]);
-    setTotalAmount(matchedUserStock.totalAsset);
-  }, [matchedUserStock]);
-
-  useEffect(() => {
-    setTotalAmount(matchedUserStock.totalAsset);
   }, [matchedUserStock]);
 
   const decrease = (e) => {

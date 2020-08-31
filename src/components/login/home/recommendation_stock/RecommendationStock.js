@@ -78,7 +78,7 @@ const RecommendationStock = () => {
   };
 
   return (
-    <div className="recommendation_stock_container">
+    <div className="recommendation_stock_container1">
       {stocks.map((stock) => (
         <div className="stock_detail_section_01" key={stock.index}>
           <Link to="/stock/detail">

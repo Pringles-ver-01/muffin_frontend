@@ -2,41 +2,25 @@ import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 
-const CandleChart = () => {
-  const [series, setSeries] = useState([
-    {
-      data: [
-        {
-          x: new Date(1538778600000),
-          y: [6629.81, 6650.5, 6623.04, 6633.33],
-        },
-      ],
-    },
-  ]);
+const CandleChart = (props) => {
+  const [series, setSeries] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/stocks/candle`)
+      .get(`http://localhost:5000/stocks/candle/${props.match.params.symbol}`)
       .then((response) => {
-        console.log(`CandleChart useEffect then python`);
-        response.data.map((element) => {
-          series.push(element);
+        let tmpList = [];
+        response.data.map((candle, i) => {
+          tmpList[i] = {
+            x: candle.x,
+            y: [candle.y[2], candle.y[0], candle.y[1], candle.y[3]],
+          };
         });
+        setSeries([{ data: tmpList }]);
       })
       .catch((error) => {
         console.log(`CandleChart useEffect catch python`);
       });
-  });
-
-  /*const [series] = useEffect([{
-        data: [{ //axios들어가야지~!
-            x: new Date(1538778600000),
-            y: [6629.81, 6650.5, 6623.04, 6633.33]
-        },
-        { //axios들어가야지~!
-            x: new Date(1538778600000),
-            y: [6629.81, 6650.5, 6623.04, 6633.33]
-        }]
-    }]);*/
+  }, []);
 
   const [options] = useState({
     chart: {
@@ -49,6 +33,14 @@ const CandleChart = () => {
     yaxis: {
       tooltip: {
         enabled: true,
+      },
+    },
+    plotOptions: {
+      candlestick: {
+        colors: {
+          upward: "#ed6663",
+          downward: "#43658b",
+        },
       },
     },
   });

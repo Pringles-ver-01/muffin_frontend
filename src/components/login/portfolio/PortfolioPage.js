@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BudgetHistory, TotalBudget, HoldingShares } from "./index";
 import "./portfoliopage.style.css";
 import Navbar from "../logined_navbar/Navbar";
 import Menu from "../menu/Menu";
 import axios from "axios";
-import { AssetContext } from "../../../context";
 
 const PortfolioPage = () => {
-  const { asset, setAsset } = useContext(AssetContext);
+  const [asset, setAsset] = useState([]);
   const portfolioContent = [
     {
       title: "보유종목",
@@ -18,21 +17,6 @@ const PortfolioPage = () => {
       content: <BudgetHistory />,
     },
   ];
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8080/assets/holdingCount/${
-          JSON.parse(sessionStorage.getItem("logined_user")).userId
-        }`
-      )
-      .then((response) => {
-        setAsset(response.data.holdingCount);
-      })
-      .catch((error) => {
-        throw error;
-      });
-  }, [asset]);
 
   const useTabs = (initialTabs, allTabs) => {
     const [portfolioContentIndex, setPortfolioContentIndex] = useState(
@@ -58,7 +42,7 @@ const PortfolioPage = () => {
             <div className="documentroom_container">
               <div className="documentroom_text" />
 
-              <TotalBudget asset={asset} setAsset={setAsset} />
+              <TotalBudget />
 
               <div className="tab_portfolio_container">
                 {portfolioContent &&

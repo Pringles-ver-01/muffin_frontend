@@ -48,7 +48,7 @@ const StockPage = ({ props, match }) => {
               setAsset={setAsset}
             />
             <div>
-              <CandleChart />
+              <CandleChart match={match} />
             </div>
           </div>
         </div>

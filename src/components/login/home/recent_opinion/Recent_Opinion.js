@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./recommendation.style.css";
+import "./recent.style.css";
 import axios from "axios";
 
-const RecommendationOpinion = () => {
+const RecentOpinion = () => {
   const url = "http://localhost:8080/boards";
   const [address, setAddress] = useState("/detail");
   const [arr, setArr] = useState([]);
@@ -71,4 +71,4 @@ const RecommendationOpinion = () => {
   );
 };
 
-export default RecommendationOpinion;
+export default RecentOpinion;

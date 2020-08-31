@@ -70,7 +70,7 @@ const BudgetHistory = () => {
         <tbody>
           {asset[0] &&
             asset.map((item) => (
-              <tr>
+              <tr key={item.index}>
                 <td>{item.transactionDate}</td>
                 <td>{item.stockName}</td>
                 <td>{item.transactionType}</td>

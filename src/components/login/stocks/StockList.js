@@ -19,20 +19,6 @@ const StockList = () => {
   const [stockOne, setStockOne] = useState({});
   const showDetail = () => {};
 
-  /* const matchedUserAsset = (crawledStock) => {
-     for (let i = 0; i < crawledStock.length; i++) {
-       console.log(crawledStock.length)
-       console.log(crawledStock[i])
-       console.log(crawledStock[i].stockName)
-       console.log(asset[i])
-       if(crawledStock[0]) {
-         if (asset[i].stockName === crawledStock[i].stockName) {
-           setMatechedUserStock(asset[i]);
-           console.log(matchedUserAsset(i));
-         }
-       }
-     }
-   }*/
   useEffect(() => {
     getAll(1, 1);
   }, []);
@@ -45,8 +31,8 @@ const StockList = () => {
         }`
       )
       .then((response) => {
-        setAsset(response.data.holdingCount);
-        response.data.holdingCount.map((item) => {
+        setAsset(response.data);
+        response.data.map((item) => {
           setAssetStockName((assetStockName) => [
             ...assetStockName,
             item.stockName,
@@ -84,7 +70,6 @@ const StockList = () => {
     axios
       .get(`http://localhost:8080/stocks/pagination/${page}/${range}`)
       .then((response) => {
-        console.log(response.data.list);
         response.data.list.map((item) => {
           setCrawledStock((crawledStock) => [...crawledStock, item]);
         });
@@ -161,7 +146,6 @@ const StockList = () => {
                           <button
                             className="btn btn-default btn-red text-white btn-rounded"
                             onClick={(e) => {
-                              console.log(crawledOneStock);
                               e.preventDefault();
                               if (
                                 assetStockName.includes(
@@ -210,15 +194,6 @@ const StockList = () => {
                   )}
                 </div>
               </div>
-              <div className="conference_search">
-                <input
-                  placeholder="주식 종목을 입력해주세요."
-                  className="search_input"
-                />
-                <Link to="" className="search_button">
-                  검색
-                </Link>
-              </div>
             </div>
           </div>
           {buyOpen && (
@@ -226,7 +201,10 @@ const StockList = () => {
               stockOne={stockOne}
               ownedAsset={ownedAsset}
               isOpen={buyOpen}
-              isClose={() => setBuyOpen(false)}
+              isClose={() => {
+                window.location.reload();
+                return setBuyOpen(false);
+              }}
               ariaHideApp={false}
             />
           )}
@@ -235,7 +213,10 @@ const StockList = () => {
               stockOne={stockOne}
               ownedAsset={ownedAsset}
               isOpen={sellOpen}
-              isClose={() => setSellOpen(false)}
+              isClose={() => {
+                window.location.reload();
+                return setSellOpen(false);
+              }}
               ariaHideApp={false}
             />
           )}

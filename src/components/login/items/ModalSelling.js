@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
 import "./modal.style.css";
-import { AssetContext } from "../../../context";
 
 const ModalSelling = (props) => {
   const url = "http://localhost:8080/assets/";
-  const { asset, setAsset } = useContext(AssetContext);
+  const [asset, setAsset] = useState([]);
   const [matchedUserStocks, setMatechedUserStock] = useState({});
   const [matchedUserStockId, setMatechedUserStockId] = useState({});
   const [matchedAssetId, setMatechedAssetId] = useState({});
@@ -17,7 +16,7 @@ const ModalSelling = (props) => {
       ? props.ownedAsset.stockName
       : props.stockOne.stockName
   );
-  const [symbol, setSymbol] = useState(
+  const [symbol] = useState(
     props.ownedAsset.symbol != null
       ? props.ownedAsset.symbol
       : props.stockOne.symbol
@@ -44,45 +43,19 @@ const ModalSelling = (props) => {
         }`
       )
       .then((response) => {
-        setAsset(response.data.holdingCount);
+        console.log(response.data);
+        response.data.map((item) => {
+          if (item.stockName === props.stockOne.stockName) {
+            setStockId(item.stockId);
+            setAssetId(item.assetId);
+            setShareCount(item.shareCount);
+          }
+        });
       })
       .catch((error) => {
         throw error;
       });
   }, []);
-
-  // assetId mount
-  useEffect(() => {
-    for (let i = 0; i < asset.length; i++) {
-      if (asset[i].stockName === props.stockOne.stockName) {
-        setMatechedAssetId(asset[i]);
-        setAssetId(matchedAssetId.assetId);
-        console.log("/////////");
-      }
-    }
-  }, [matchedAssetId]);
-
-  // stockId mount
-  useEffect(() => {
-    for (let i = 0; i < asset.length; i++) {
-      if (asset[i].stockName === props.stockOne.stockName) {
-        setMatechedUserStockId(asset[i]);
-        setStockId(matchedUserStockId.stockId);
-        console.log("-------");
-      }
-    }
-  }, [matchedUserStockId]);
-
-  // 총 자산 mount
-  useEffect(() => {
-    for (let i = 0; i < asset.length; i++) {
-      if (asset[i].stockName == props.stockOne.stockName) {
-        setMatechedUserStock(asset[i]);
-        setShareCount(matchedUserStocks.shareCount);
-        console.log("/////////");
-      }
-    }
-  }, [matchedUserStocks]);
 
   const decrease = (e) => {
     e.preventDefault();

@@ -1,15 +1,14 @@
 @import "../../../../style.css";
 
-.recommendation_container {
-  width: 900px;
-  height: 300px;
+.recent_container {
   font-size: 30px;
 }
 
 .news_title_section {
   display: flex;
   flex-direction: row;
-  width: 800px;
+  margin-bottom: 1%;
+  width: 80%;
   font-size: 40px;
 }
 
@@ -17,7 +16,6 @@
   font-size: 50px;
   width: 90%;
   margin-bottom: 15px;
-  margin-left: 10px;
   font-weight: bold;
 }
 
@@ -27,7 +25,7 @@
   margin-top: 3px;
   color: var(--brownish-grey);
   font-size: 17px;
-  width: 40%;
+  width: 30%;
 }
 
 .news_title_style {

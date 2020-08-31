@@ -1,28 +1,8 @@
 import React, { useState } from "react";
-import { useHistory, Link, Route } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import { Home } from "../home";
-import { Search } from "../search";
 import LogoBlackIcon from "../../../assets/home/Logo_black.png";
 import "./navbar.style.css";
-
-const active = {
-  fontSize: "13.5px",
-  fontFamily: "NanumSquareB",
-  cursor: "pointer",
-  width: "80px",
-  height: "33px",
-
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-
-  border: "1px solid var(--greenish-teal)",
-  borderRadius: "16.5px",
-  outline: "none",
-
-  color: "var(--greenish-teal)",
-};
 
 const Navbar = () => {
   const history = useHistory();

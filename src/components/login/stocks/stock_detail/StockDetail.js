@@ -3,10 +3,34 @@ import "./stockDetail.css";
 import { ModalBuying, ModalSelling } from "../../items";
 import axios from "axios";
 
-const StockDetail = ({ stockDetail, asset, setAsset }) => {
+const StockDetail = ({ stockDetail }) => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
   const [bill, setBill] = useState({});
+  const [asset, setAsset] = useState([]);
+  const [assetStockName, setAssetStockName] = useState([]);
+  const [ownedAsset, setOwnedAsset] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        setAsset(response.data);
+        response.data.map((item) => {
+          setAssetStockName((assetStockName) => [
+            ...assetStockName,
+            item.stockName,
+          ]);
+        });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
   return (
     <>
@@ -25,7 +49,7 @@ const StockDetail = ({ stockDetail, asset, setAsset }) => {
               onClick={(e) => {
                 e.preventDefault();
                 setAsset(stockDetail);
-                setBuyOpen(true);
+                setSellOpen(true);
               }}
             >
               <span>매도</span>
@@ -35,7 +59,7 @@ const StockDetail = ({ stockDetail, asset, setAsset }) => {
               onClick={(e) => {
                 e.preventDefault();
                 setAsset(stockDetail);
-                setSellOpen(true);
+                setBuyOpen(true);
               }}
             >
               <span>매수</span>
@@ -116,17 +140,25 @@ const StockDetail = ({ stockDetail, asset, setAsset }) => {
       </table>
       {buyOpen && (
         <ModalBuying
-          asset={bill}
+          stockOne={stockDetail}
+          ownedAsset={ownedAsset}
           isOpen={buyOpen}
-          isClose={() => setBuyOpen(false)}
+          isClose={() => {
+            window.location.reload();
+            return setBuyOpen(false);
+          }}
           ariaHideApp={false}
         />
       )}
       {sellOpen && (
         <ModalSelling
-          asset={bill}
+          stockOne={stockDetail}
+          ownedAsset={ownedAsset}
           isOpen={sellOpen}
-          isClose={() => setSellOpen(false)}
+          isClose={() => {
+            window.location.reload();
+            return setSellOpen(false);
+          }}
           ariaHideApp={false}
         />
       )}
